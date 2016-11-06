@@ -1,0 +1,180 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package buzz;
+
+import java.io.File;
+import java.io.IOException;
+import static java.lang.System.exit;
+import java.util.ArrayList;
+import java.util.Random;
+
+
+/**
+ *
+ * @author alouvoul
+ */
+public class BuzzApp {
+    public static final int NUMBER_OF_CATEGORY_QUESTIONS = 4;
+    public static final int NUMBER_OF_ANSWERS = 4;
+    
+    public static final int NUMBER_ROUNDS = 5;
+    public static final int QUESTIONS_PER_ROUNDS = 6;
+    public static final String TEMP_LOCALE = "EN";
+
+    
+    enum RoundEnum{
+        CORRECT_ANSWER
+        
+    }
+    
+    private Player[] players;
+    
+    private int currentCategory;
+    private ArrayList<QuestionCategory> questions;
+    private boolean categoriesUsed[];
+    private int roundNumber = 0;
+    private Round r;
+    Question tempQuestion;
+
+    /**
+     * Constructor of the class. Initialize variables that will be used in all the game.
+     */
+    public BuzzApp() throws IOException {
+        questions = new ArrayList<>();
+        InitializeQuestions();
+        categoriesUsed = new boolean[questions.size()];
+    }
+    
+    
+    public Question play(){
+        Random r = new Random();
+        int question = r.nextInt(questions.get(currentCategory).getQuestions().size());
+        tempQuestion = questions.get(currentCategory).getQuestions().get(question);
+        
+        return tempQuestion;
+    }
+    
+    public boolean playerAnswer(String playerAnswer, int i){
+        if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
+            int tempScore = r.calculate(true);
+            players[i].SetScore(tempScore);
+            return true;
+        }
+        return false;
+    }
+    
+    private void setCurrentRound() {
+        Random random = new Random();
+        RoundEnum round = RoundEnum.CORRECT_ANSWER;
+        if(players.length>1){
+          //  /=============================================TODO===============================
+        }
+        else{
+            
+        }
+        
+        if(round == RoundEnum.CORRECT_ANSWER){
+            r = new CorrectAnswer();
+        }
+        
+    }
+    
+    /**
+     * Set category question that a random player choose. Also sets this category as used
+     * to don't choose it again in the game.
+     * 
+     * @param category The category of questions that will be used in the current round. 
+     */
+    public void chooseCategory(String category){
+        int temp;
+        for (int i = 0; i < questions.size(); i++) {
+            if(questions.get(i).getQuestionCategory().equals(category)){
+                currentCategory = i;
+                questions.get(i).setUsed();     //sets that the category used
+            }
+        }
+        setCurrentRound();
+    }
+    
+    
+    
+    /**
+     * Return question categories in random order. 
+     * 
+     * @return only 4 question as the real game.
+     */
+    public String[] getQuestionCategories(){
+        Random r = new Random();
+        String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS];
+        
+        int temp;
+        for (int i = 0; i < randomQuestions.length; i++) {
+            temp = r.nextInt(questions.size());
+            
+            while(questions.get(temp).getUsed() == true){
+                temp = r.nextInt(questions.size());
+            }
+            randomQuestions[i] = questions.get(temp).getQuestionCategory();
+        }
+        
+        return randomQuestions;
+    }
+    
+    /**
+     * Method to initialize questionCategory object with their names. Will be used to 
+     * choose player from this list.
+     */
+    private void InitializeQuestions() throws IOException{
+        File folder = new File("./EN");
+        //File folder = new File("/Buzz! Quiz World/EN");
+        System.out.println(" sadcx "+ folder.getPath());
+        
+        if (folder==null) {
+            System.out.println("Couldn't find the file!");
+            exit(0);
+        }
+        else{
+            File[] listOfFiles = folder.listFiles();
+            
+            for (int i = 0; i < listOfFiles.length; i++) {
+                QuestionCategory c = new QuestionCategory(listOfFiles[i].getName());
+                if (listOfFiles[i].isDirectory()) {
+                    System.out.println("Directory " + listOfFiles[i].getName());
+                    
+                    c.setQuestionCategory(listOfFiles[i].getName());
+                    questions.add(c);
+                }
+            }
+        }
+        
+        
+    }
+    
+    /**
+     * Setter for player names
+     * 
+     * @param playerNames Names of the players
+     */
+    public void setPlayers(String[] playerNames ){
+
+        this.players = new Player[playerNames.length];
+        for (int i = 0; i < playerNames.length; i++) {
+            this.players[i] = new Player(playerNames[i]);
+        }
+    }
+    
+    /**
+     * Getter for player names
+     * 
+     * @return player names
+     */
+    public Player[] getPlayers(){
+        return players;
+    }
+    
+
+    
+}
