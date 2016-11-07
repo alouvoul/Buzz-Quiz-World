@@ -26,8 +26,8 @@ public class BuzzApp {
 
     
     enum RoundEnum{
-        CORRECT_ANSWER
-        
+        CORRECT_ANSWER,
+        BET
     }
     
     private Player[] players;
@@ -58,12 +58,13 @@ public class BuzzApp {
     }
     
     public boolean playerAnswer(String playerAnswer, int i){
+        boolean flag = false;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
-            int tempScore = r.calculate(true);
-            players[i].SetScore(tempScore);
-            return true;
+            flag = true;
         }
-        return false;
+        int tempScore = r.calculate(flag);
+        players[i].SetScore(tempScore);
+        return flag;
     }
     
     private void setCurrentRound() {
@@ -78,6 +79,10 @@ public class BuzzApp {
         
         if(round == RoundEnum.CORRECT_ANSWER){
             r = new CorrectAnswer();
+        }
+        else if(round == RoundEnum.BET)
+        {
+            r = new Bet();
         }
         
     }

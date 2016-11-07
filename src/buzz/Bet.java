@@ -9,22 +9,28 @@ package buzz;
  *
  * @author alouvoul
  */
-public class CorrectAnswer extends Round{
-    public static final int POINTS_CORRECT_ANSWER = 1000;
+public class Bet extends Round{
+    private int bet;
     
-    public CorrectAnswer() {
-        points = POINTS_CORRECT_ANSWER;
+    public Bet() {
+        
     }
+
+    public void setBet(int bet) {
+        this.bet = bet;
+    }
+    
+    
 
     @Override
     public int calculate(boolean answer) {
-        if(answer){
-            return points;
-        }
+        int temp;
+        if(answer)
+            temp = bet;
+        else
+            temp=-bet;
         
-        return 0;
+        return temp;
     }
-    
-
     
 }

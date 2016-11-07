@@ -54,7 +54,7 @@ public class Buzz {
         }
         int answer = sc.nextInt();
         game.playerAnswer(q.getAnswers()[answer], 0);
-        
+        System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
     }
     
     

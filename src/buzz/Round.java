@@ -9,7 +9,7 @@ package buzz;
  *
  * @author alouvoul
  */
-public class Round {
+public abstract class Round {
     private Question question;
     int points;
     int round;
@@ -17,6 +17,11 @@ public class Round {
     public Round() {
     }
 
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    
     
     public void setQuestions(Question questions) {
         this.question = questions;
@@ -30,10 +35,5 @@ public class Round {
         return 0;
     }
     
-    public int calculate(boolean answer){
-        if(answer){
-            return points;
-        }
-        return 0;
-    }
+    abstract public int calculate(boolean answer);
 }
