@@ -10,25 +10,19 @@ package buzz;
  * @author alouvoul
  */
 public class Bet extends Round{
-    private int bet;
     
     public Bet() {
         
     }
-
-    public void setBet(int bet) {
-        this.bet = bet;
-    }
-    
     
 
     @Override
     public int calculate(boolean answer) {
         int temp;
         if(answer)
-            temp = bet;
+            temp = points;
         else
-            temp=-bet;
+            temp=-points;
         
         return temp;
     }

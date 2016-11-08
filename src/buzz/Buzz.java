@@ -47,13 +47,31 @@ public class Buzz {
         
         Question q = game.play();
         System.out.println("##########################################");
-        System.out.println(q.getQuestion());
+        
         String[] temp = q.getAnswers();
-        for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
-            System.out.println((i)+". "+temp[i]);
+        int answer = 0;
+        if(game.getType() instanceof Bet){
+            System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
+            int pointsToPoint = sc.nextInt();
+            System.out.println(q.getQuestion());
+            for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
+                System.out.println((i)+". "+temp[i]);
+            }
+            answer = sc.nextInt();
+            game.playerAnswer(q.getAnswers()[answer], 0, pointsToPoint);
+
+
         }
-        int answer = sc.nextInt();
-        game.playerAnswer(q.getAnswers()[answer], 0);
+        else if(game.getType() instanceof CorrectAnswer){
+            System.out.println(q.getQuestion());
+            for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
+                System.out.println((i)+". "+temp[i]);
+            }
+            answer = sc.nextInt();
+            game.playerAnswer(q.getAnswers()[answer], 0);
+        }
+        
+
         System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
     }
     

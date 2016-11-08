@@ -36,8 +36,8 @@ public class BuzzApp {
     private ArrayList<QuestionCategory> questions;
     private boolean categoriesUsed[];
     private int roundNumber = 0;
-    private Round r;
-    Question tempQuestion;
+    private Round type;
+    private Question tempQuestion;
 
     /**
      * Constructor of the class. Initialize variables that will be used in all the game.
@@ -62,14 +62,35 @@ public class BuzzApp {
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
         }
-        int tempScore = r.calculate(flag);
+        int tempScore = type.calculate(flag);
+        players[i].SetScore(tempScore);
+        return flag;
+    }
+    
+    /**
+     * Bet round
+     * 
+     * @param playerAnswer
+     * @param i
+     * @param pointsToBet
+     * @return 
+     */
+    public boolean playerAnswer(String playerAnswer, int i, int pointsToBet){
+        boolean flag = false;
+        int tempScore=-1;
+        if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
+            flag = true;
+            System.out.println("mpika");
+        }
+        type.setPoints(pointsToBet);
+        tempScore = type.calculate(flag);
         players[i].SetScore(tempScore);
         return flag;
     }
     
     private void setCurrentRound() {
         Random random = new Random();
-        RoundEnum round = RoundEnum.CORRECT_ANSWER;
+        RoundEnum round = RoundEnum.values()[random.nextInt(2)];
         if(players.length>1){
           //  /=============================================TODO===============================
         }
@@ -78,11 +99,11 @@ public class BuzzApp {
         }
         
         if(round == RoundEnum.CORRECT_ANSWER){
-            r = new CorrectAnswer();
+            type = new CorrectAnswer();
         }
         else if(round == RoundEnum.BET)
         {
-            r = new Bet();
+            type = new Bet();
         }
         
     }
@@ -179,7 +200,11 @@ public class BuzzApp {
     public Player[] getPlayers(){
         return players;
     }
-    
 
+    public Round getType() {
+        return type;
+    }
+    
+    
     
 }
