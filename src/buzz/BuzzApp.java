@@ -22,7 +22,7 @@ public class BuzzApp {
     
     public static final int NUMBER_ROUNDS = 5;
     public static final int QUESTIONS_PER_ROUNDS = 6;
-    public static final String TEMP_LOCALE = "EN";
+    public static final String TEMP_LOCALE = "questions/EN";
 
     
     enum RoundEnum{
@@ -154,7 +154,7 @@ public class BuzzApp {
      * choose player from this list.
      */
     private void InitializeQuestions() throws IOException{
-        File folder = new File("./EN");
+        File folder = new File("./"+TEMP_LOCALE);
         //File folder = new File("/Buzz! Quiz World/EN");
         System.out.println(" sadcx "+ folder.getPath());
         
