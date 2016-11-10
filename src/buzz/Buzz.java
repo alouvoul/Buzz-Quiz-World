@@ -50,19 +50,19 @@ public class Buzz {
         
         String[] temp = q.getAnswers();
         int answer = 0;
-        if(game.getType() instanceof Bet){
+        if(game.getType().equals("Bet")){
             System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
             int pointsToPoint = sc.nextInt();
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
-                System.out.println((i)+". "+temp[i]);
+                System.out.println(i+". "+temp[i]);
             }
             answer = sc.nextInt();
             game.playerAnswer(q.getAnswers()[answer], 0, pointsToPoint);
 
 
         }
-        else if(game.getType() instanceof CorrectAnswer){
+        else if(game.getType().equals("CorrectAnswer")){
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
                 System.out.println((i)+". "+temp[i]);
@@ -80,6 +80,10 @@ public class Buzz {
         
         String category = ChooseQuestions();
         game.chooseCategory(category);
+        System.out.println("================ Round type =====>"+game.getType()+"<========================================");
+        //System.out.println("Type of game is "+game.getType());
+        System.out.println("");
+        System.out.println("##########################################");
     }
     
     
@@ -116,6 +120,6 @@ public class Buzz {
             answer = reader.nextInt();
         }
         
-        return questionCategories[answer];
+        return questionCategories[answer-1];
     }
 }

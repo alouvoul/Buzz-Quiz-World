@@ -201,8 +201,14 @@ public class BuzzApp {
         return players;
     }
 
-    public Round getType() {
-        return type;
+    public String getType() {
+        
+        if (type instanceof Bet)
+            return "Bet";
+        else if(type instanceof CorrectAnswer)
+            return "CorrectAnswer";
+        
+        return null;
     }
     
     
