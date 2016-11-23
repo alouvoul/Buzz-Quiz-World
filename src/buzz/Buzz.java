@@ -6,6 +6,7 @@
 package buzz;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 

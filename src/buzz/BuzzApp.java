@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import static java.lang.System.exit;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 
@@ -22,7 +23,7 @@ public class BuzzApp {
     
     public static final int NUMBER_ROUNDS = 5;
     public static final int QUESTIONS_PER_ROUNDS = 6;
-    public static final String TEMP_LOCALE = "questions/EN";
+    public static Locale language;
 
     
     enum RoundEnum{
@@ -44,6 +45,7 @@ public class BuzzApp {
      */
     public BuzzApp() throws IOException {
         questions = new ArrayList<>();
+        setLocale();
         InitializeQuestions();
         categoriesUsed = new boolean[questions.size()];
     }
@@ -154,7 +156,7 @@ public class BuzzApp {
      * choose player from this list.
      */
     private void InitializeQuestions() throws IOException{
-        File folder = new File("./"+TEMP_LOCALE);
+        File folder = new File("./questions/"+language.getLanguage());
         //File folder = new File("/Buzz! Quiz World/EN");
         System.out.println(" sadcx "+ folder.getPath());
         
@@ -211,6 +213,8 @@ public class BuzzApp {
         return null;
     }
     
-    
+    public void setLocale(){
+        language = new Locale("el-GR");
+    }
     
 }

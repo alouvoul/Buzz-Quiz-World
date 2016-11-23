@@ -47,8 +47,7 @@ public class QuestionCategory {
     }
     
     public void setQuestions() throws IOException{
-        File folder = new File("./"+BuzzApp.TEMP_LOCALE+"/"+questionCategory);
-        
+        File folder = new File("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory);
         File[] listOfFiles = folder.listFiles();
         Random random = new Random();
         boolean []used = new boolean[listOfFiles.length];
@@ -57,7 +56,7 @@ public class QuestionCategory {
             int next = random.nextInt(listOfFiles.length);
             if(used[next] == false){
                 Question tempQuestion = new Question();
-                BufferedReader in = new BufferedReader(new FileReader("./"+BuzzApp.TEMP_LOCALE+"/"+questionCategory+"/"+(next+1)+".txt"));
+                BufferedReader in = new BufferedReader(new FileReader("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory+"/"+(next+1)+".txt"));
                 String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
                 int j=0;
                 line[j] = in.readLine();
