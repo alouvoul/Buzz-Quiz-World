@@ -17,6 +17,10 @@ public abstract class Round {
     public Round() {
     }
 
+    /**
+     * Setter of points
+     * @param points 
+     */
     public void setPoints(int points) {
         this.points = points;
     }

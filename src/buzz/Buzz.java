@@ -11,15 +11,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ * Main class of the game. 
+ * 
  * @author alouvoul
  */
 public class Buzz {
     BuzzApp game;
     
     Scanner sc ;
+    
     /**
-     * @param args the command line arguments
+     * 
+     * @param args
+     * @throws IOException 
      */
     public static void main(String[] args) throws IOException {
         Buzz buzz = new Buzz();
@@ -27,7 +31,7 @@ public class Buzz {
 
 
     /**
-     * 
+     *  
      */
     public Buzz() throws IOException {
         sc = new Scanner(System.in);
@@ -43,7 +47,9 @@ public class Buzz {
         
     }
     
-    
+    /**
+     * Method to handle game. Set type game, then ask questions to the user.
+     */
     public void HandleGame(){
         
         Question q = game.play();
@@ -61,8 +67,6 @@ public class Buzz {
             }
             answer = sc.nextInt();
             game.playerAnswer(q.getAnswers()[answer], 0, pointsToPoint);
-
-
         }
         else if(game.getType().equals("CorrectAnswer")){
             System.out.println(q.getQuestion());
@@ -73,24 +77,26 @@ public class Buzz {
             game.playerAnswer(q.getAnswers()[answer], 0);
         }
         
-
         System.out.println("Οι πόντοι του παίχτη "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
         //System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
     }
     
-    
+    /**
+     * Set initial values of game
+     */
     public void InitializeGame(){
         
         String category = ChooseQuestions();
         game.chooseCategory(category);
         System.out.println("================ Τύπος γύρου =====>"+game.getType()+"<========================================");
         //System.out.println("================ Round type =====>"+game.getType()+"<========================================");
-        //System.out.println("Type of game is "+game.getType());
         System.out.println("");
         System.out.println("##########################################");
     }
     
-    
+    /**
+     * Set name and number of players
+     */
     public void PlayerSetup(){
         
         Scanner reader = new Scanner(System.in);
@@ -107,6 +113,10 @@ public class Buzz {
         //return players;
     }
     
+    /**
+     * User choose category
+     * @return Reduced number of category
+     */
     public String ChooseQuestions(){
         Scanner reader = new Scanner(System.in);
         Random r1 = new Random();

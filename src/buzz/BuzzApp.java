@@ -15,7 +15,7 @@ import java.util.Random;
 
 
 /**
- *
+ *  
  * @author alouvoul
  */
 public class BuzzApp {
@@ -51,8 +51,12 @@ public class BuzzApp {
         InitializeQuestions();
         categoriesUsed = new boolean[questions.size()];
     }
-    
-    
+   
+    /**
+     * Choose random question
+     * 
+     * @return Random question
+     */
     public Question play(){
         Random r = new Random();
         int question = r.nextInt(questions.get(currentCategory).getQuestions().size());
@@ -60,7 +64,13 @@ public class BuzzApp {
         
         return tempQuestion;
     }
-    
+    /**
+     * Check player's answer
+     * 
+     * @param playerAnswer The answer of the player
+     * @param i
+     * @return If answer is correct or not
+     */
     public boolean playerAnswer(String playerAnswer, int i){
         boolean flag = false;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
@@ -74,10 +84,10 @@ public class BuzzApp {
     /**
      * Bet round
      * 
-     * @param playerAnswer
+     * @param playerAnswer The answer of the player
      * @param i
-     * @param pointsToBet
-     * @return 
+     * @param pointsToBet Set how many points to bet
+     * @return If answer is correct or not
      */
     public boolean playerAnswer(String playerAnswer, int i, int pointsToBet){
         boolean flag = false;
@@ -91,10 +101,13 @@ public class BuzzApp {
         players[i].SetScore(tempScore);
         return flag;
     }
-    
+    /**
+     * Set values for the new round
+     */
     private void setCurrentRound() {
         Random random = new Random();
         RoundEnum round = RoundEnum.values()[random.nextInt(2)];
+        
         /*if(players.length>1){
           //  /=============================================TODO===============================
         }
@@ -129,8 +142,6 @@ public class BuzzApp {
         setCurrentRound();
     }
     
-    
-    
     /**
      * Return question categories in random order. 
      * 
@@ -144,6 +155,7 @@ public class BuzzApp {
         for (int i = 0; i < randomQuestions.length; i++) {
             randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
         }
+        
         /*int temp;
         for (int i = 0; i < randomQuestions.length; i++) {
             temp = r.nextInt(questions.size());
@@ -182,9 +194,7 @@ public class BuzzApp {
                     questions.add(c);
                 }
             }
-        }
-        
-        
+        }        
     }
     
     /**
@@ -209,6 +219,10 @@ public class BuzzApp {
         return players;
     }
 
+    /**
+     * Getter for type of game
+     * @return Type bet or Type Correct Answer
+     */
     public String getType() {
         
         if (type instanceof Bet)
@@ -219,8 +233,11 @@ public class BuzzApp {
         return null;
     }
     
+    /**
+     * Set game language
+     */
     public void setLocale(){
         language = new Locale("el-GR");
     }
-    
+   
 }
