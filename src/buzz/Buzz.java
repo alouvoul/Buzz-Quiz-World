@@ -60,20 +60,31 @@ public class Buzz {
         if(game.getType().equals("Bet")){
             System.out.println("Πόσους πόντους θα ήθελες να στοιχηματίσεις, 250, 500 ,750 , 1000?");
             //System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
-            int pointsToPoint = sc.nextInt();
+            int pointsToBet = sc.nextInt();
+            do{
+                
+            }while(pointsToBet!=250 || pointsToBet!=500 || pointsToBet!=750|| pointsToBet!=1000);
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
-                System.out.println(i+". "+temp[i]);
+                System.out.println((i+1)+". "+temp[i]);
             }
-            answer = sc.nextInt();
-            game.playerAnswer(q.getAnswers()[answer], 0, pointsToPoint);
+            do{
+                System.out.println("Insert your answer");
+                answer = sc.nextInt();
+            }while(answer<1 ||answer>4);
+            --answer;
+            game.playerAnswer(q.getAnswers()[answer], 0, pointsToBet);
         }
         else if(game.getType().equals("CorrectAnswer")){
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
-                System.out.println((i)+". "+temp[i]);
+                System.out.println((i+1)+". "+temp[i]);
             }
-            answer = sc.nextInt();
+            do{
+                System.out.println("Insert your answer");
+                answer = sc.nextInt();
+            }while(answer<1 ||answer>4);
+            --answer;
             game.playerAnswer(q.getAnswers()[answer], 0);
         }
         
