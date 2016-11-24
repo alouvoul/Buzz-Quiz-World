@@ -15,7 +15,7 @@ import java.util.Random;
 
 
 /**
- *
+ * 
  * @author alouvoul
  */
 public class QuestionCategory {
@@ -23,6 +23,11 @@ public class QuestionCategory {
     private ArrayList<Question> questions;
     private boolean used;
     
+    /**
+     * Constructor of the class. Initialize variables that will be used in the game.
+     * @param questionCategory Set the category
+     * @throws IOException 
+     */
     public QuestionCategory(String questionCategory) throws IOException {
         used = false;
         questions = new ArrayList<>();
@@ -30,22 +35,40 @@ public class QuestionCategory {
         setQuestions();
     }
     
+    /**
+     * Setter of question category
+     * @param questionCategory Set the category
+     */
     public void setQuestionCategory(String questionCategory) {
         this.questionCategory = questionCategory;
     }
 
+    /**
+     * Getter of question category
+     * @return The category
+     */
     public String getQuestionCategory() {
         return questionCategory;
     }
-
+    /**
+     * Sign category as used
+     */
     public void setUsed() {
         this.used = true;
     }
     
+    /**
+     * Check category status 
+     * @return If used or not
+     */
     public boolean getUsed(){
         return used;
     }
     
+    /**
+     * Find the path and load and show the questions from the text files
+     * @throws IOException 
+     */
     public void setQuestions() throws IOException{
         RandomGenerate random = new RandomGenerate();
         File folder = new File("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory);
@@ -81,6 +104,10 @@ public class QuestionCategory {
 
     }
    
+    /**
+     * Getter of questions
+     * @return Arraylist questions
+     */
     public ArrayList<Question> getQuestions(){
         return questions;
     }

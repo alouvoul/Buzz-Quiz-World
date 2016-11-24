@@ -6,20 +6,23 @@
 package buzz;
 
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ * Main class of the game. 
+ * 
  * @author alouvoul
  */
 public class Buzz {
     BuzzApp game;
     
     Scanner sc ;
+    
     /**
-     * @param args the command line arguments
+     * 
+     * @param args
+     * @throws IOException 
      */
     public static void main(String[] args) throws IOException {
         Buzz buzz = new Buzz();
@@ -27,7 +30,7 @@ public class Buzz {
 
 
     /**
-     * 
+     *  
      */
     public Buzz() throws IOException {
         sc = new Scanner(System.in);
@@ -43,7 +46,9 @@ public class Buzz {
         
     }
     
-    
+    /**
+     * Method to handle game. Set type game, then ask questions to the user.
+     */
     public void HandleGame(){
         
         Question q = game.play();
@@ -52,7 +57,8 @@ public class Buzz {
         String[] temp = q.getAnswers();
         int answer = 0;
         if(game.getType().equals("Bet")){
-            System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
+            System.out.println("Πόσους πόντους θα ήθελες να στοιχηματίσεις, 250, 500 ,750 , 1000?");
+            //System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
             int pointsToPoint = sc.nextInt();
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
@@ -60,8 +66,6 @@ public class Buzz {
             }
             answer = sc.nextInt();
             game.playerAnswer(q.getAnswers()[answer], 0, pointsToPoint);
-
-
         }
         else if(game.getType().equals("CorrectAnswer")){
             System.out.println(q.getQuestion());
@@ -72,22 +76,26 @@ public class Buzz {
             game.playerAnswer(q.getAnswers()[answer], 0);
         }
         
-
-        System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
+        System.out.println("Οι πόντοι του παίχτη "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
+        //System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
     }
     
-    
+    /**
+     * Set initial values of game
+     */
     public void InitializeGame(){
         
         String category = ChooseQuestions();
         game.chooseCategory(category);
-        System.out.println("================ Round type =====>"+game.getType()+"<========================================");
-        //System.out.println("Type of game is "+game.getType());
+        System.out.println("================ Τύπος γύρου =====>"+game.getType()+"<========================================");
+        //System.out.println("================ Round type =====>"+game.getType()+"<========================================");
         System.out.println("");
         System.out.println("##########################################");
     }
     
-    
+    /**
+     * Set name and number of players
+     */
     public void PlayerSetup(){
         
         Scanner reader = new Scanner(System.in);
@@ -96,19 +104,25 @@ public class Buzz {
         String players[] = new String[numberOfPlayers];
         //reader.nextLine();                  //This needs to pick up the new line
         for (int i = 0; i < numberOfPlayers; i++) {
-            System.out.println("Name of player: "+(i+1));
+            System.out.println("Όνομα παίχτη: "+(i+1));
+            //System.out.println("Name of player: "+(i+1));
             players[i] = reader.nextLine();
         }
         game.setPlayers(players);
         //return players;
     }
     
+    /**
+     * User choose category
+     * @return Reduced number of category
+     */
     public String ChooseQuestions(){
         Scanner reader = new Scanner(System.in);
         Random r1 = new Random();
         int playerTurn = r1.nextInt(game.getPlayers().length);
         
-        System.out.println(game.getPlayers()[playerTurn].GetName()+" which question would you like in the next round?");
+        System.out.println(game.getPlayers()[playerTurn].GetName()+" ποια ερώτηση θα ήθελες στον επόμενο γύρο?");
+        //System.out.println(game.getPlayers()[playerTurn].GetName()+" which question would you like in the next round?");
         
         String [] questionCategories = game.getQuestionCategories();
         
@@ -117,7 +131,8 @@ public class Buzz {
         }
         int answer = reader.nextInt();
         while (answer<1 || answer>4) {
-            System.out.println("Give a correct answer!");
+            System.out.println("Δώσε μια σωστή απάντηση!");
+            //System.out.println("Give a correct answer!");
             answer = reader.nextInt();
         }
         

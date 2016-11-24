@@ -6,7 +6,8 @@
 package buzz;
 
 /**
- *
+ * 
+ * 
  * @author alouvoul
  */
 public class Bet extends Round{

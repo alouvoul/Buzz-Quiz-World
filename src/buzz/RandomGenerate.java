@@ -7,14 +7,20 @@ package buzz;
 
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 /**
- *
+ * Generate array with random numbers
+ * 
  * @author alouvoul
  */
 public class RandomGenerate implements Randomization{
 
+    /**
+     * Method to generate array with random numbers
+     * @param start From this value
+     * @param end To this value
+     * @return The array
+     */
     @Override
     public int[] generateRandoms(int start, int end) {
         HashSet set = new HashSet();
@@ -30,12 +36,24 @@ public class RandomGenerate implements Randomization{
         }
         return array;
     }
-
+    
+    /**
+     * 
+     * @param end
+     * @return 
+     */
     @Override
     public int[] generateRandoms(int end) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * 
+     * @param start
+     * @param end
+     * @param array
+     * @return 
+     */
     @Override
     public String[] generateRandoms(int start, int end, String[] array) {
         HashSet set = new HashSet();
