@@ -6,7 +6,8 @@
 package buzz;
 
 /**
- *
+ * Interface for generate random numbers
+ * 
  * @author alouvoul
  */
 public interface Randomization {

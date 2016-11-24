@@ -68,6 +68,5 @@ public class RandomGenerate implements Randomization{
 
         }
         return numberToswap;
-    }
-    
+    } 
 }

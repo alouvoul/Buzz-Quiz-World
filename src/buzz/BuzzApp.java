@@ -14,7 +14,8 @@ import java.util.Random;
 
 
 /**
- *  
+ * Create and declare the main objects that we will use for the game.
+ * 
  * @author alouvoul
  */
 public class BuzzApp {
@@ -26,7 +27,6 @@ public class BuzzApp {
     public static Locale language;
     RandomGenerate r = new RandomGenerate();
 
-    
     enum RoundEnum{
         CORRECT_ANSWER,
         BET
@@ -42,7 +42,7 @@ public class BuzzApp {
     private Question tempQuestion;
 
     /**
-     * Constructor of the class. Initialize variables that will be used in all the game.
+     * Constructor of the class. Initialize variables that will be used in the game.
      */
     public BuzzApp() throws IOException {
         questions = new ArrayList<>();
@@ -63,6 +63,7 @@ public class BuzzApp {
         
         return tempQuestion;
     }
+    
     /**
      * Check player's answer
      * 
@@ -100,8 +101,9 @@ public class BuzzApp {
         players[i].SetScore(tempScore);
         return flag;
     }
+    
     /**
-     * Set values for the new round
+     * Set values for the new round.
      */
     private void setCurrentRound() {
         Random random = new Random();
@@ -142,19 +144,21 @@ public class BuzzApp {
     }
     
     /**
-     * Return question categories in random order. 
+     * Return question categories in random order
      * 
      * @return only 4 question as the real game.
      */
-    public String[] getQuestionCategories(){
+    public String[] getQuestionCategories() {
         //Random r = new Random();
         String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS];//Default if 4 categories to choose
         int[] random = r.generateRandoms(0,questions.size());
 
+        try {
         for (int i = 0; i < randomQuestions.length; i++) {
             randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
         }
-        
+        } catch(Exception e)
+        {System.out.println("OLEOLEOLE");}
         return randomQuestions;
     }
     
@@ -173,8 +177,8 @@ public class BuzzApp {
         }
         else{
             File[] listOfFiles = folder.listFiles();
-            
-            for (int i = 0; i < listOfFiles.length; i++) {
+            try {
+                for (int i = 0; i < listOfFiles.length; i++) {
                 QuestionCategory c = new QuestionCategory(listOfFiles[i].getName());
                 if (listOfFiles[i].isDirectory()) {
                     System.out.println("Directory " + listOfFiles[i].getName());
@@ -182,6 +186,9 @@ public class BuzzApp {
                     c.setQuestionCategory(listOfFiles[i].getName());
                     questions.add(c);
                 }
+                }
+            } catch(Exception e)
+            { System.out.println("Initialize Question Problem");
             }
         }        
     }

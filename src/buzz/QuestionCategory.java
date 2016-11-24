@@ -15,7 +15,8 @@ import java.util.Random;
 
 
 /**
- * 
+ * Class for setting the questions of the game
+ * and choosing the questions to show to the user
  * @author alouvoul
  */
 public class QuestionCategory {

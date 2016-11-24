@@ -6,8 +6,8 @@
 package buzz;
 
 /**
- * Class to initialize each round
- * 
+ * Class to initialize each round. It is parent of different categories of games.
+ * Contains the basic functions for each category.
  * @author alouvoul
  */
 public abstract class Round {
@@ -49,6 +49,10 @@ public abstract class Round {
         
         return 0;
     }
-    
+    /**
+     * 
+     * @param answer
+     * @return 
+     */
     abstract public int calculate(boolean answer);
 }

@@ -10,7 +10,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * Main class of the game. 
+ * The class that is the interface through
+ * which the user interacts with the program.
  * 
  * @author alouvoul
  */
@@ -20,7 +21,8 @@ public class Buzz {
     Scanner sc ;
     
     /**
-     * 
+     * The main method where we create an object Buzz
+     * that initialize and handle the game
      * @param args
      * @throws IOException 
      */
@@ -28,9 +30,8 @@ public class Buzz {
         Buzz buzz = new Buzz();
     }
 
-
     /**
-     *  
+     *  Class to initialize  
      */
     public Buzz() throws IOException {
         sc = new Scanner(System.in);
@@ -47,7 +48,7 @@ public class Buzz {
     }
     
     /**
-     * Method to handle game. Set type game, then ask questions to the user.
+     * Method to handle game. Set type game, then ask questions to the user
      */
     public void HandleGame(){
         
