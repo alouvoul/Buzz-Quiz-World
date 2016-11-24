@@ -91,10 +91,10 @@ public class Buzz {
     public void PlayerSetup(){
         
         Scanner reader = new Scanner(System.in);
-        System.out.println("How many players?");
-        int numberOfPlayers = reader.nextInt();
+        //System.out.println("How many players?");
+        int numberOfPlayers = 1;
         String players[] = new String[numberOfPlayers];
-        reader.nextLine();                  //This needs to pick up the new line
+        //reader.nextLine();                  //This needs to pick up the new line
         for (int i = 0; i < numberOfPlayers; i++) {
             System.out.println("Name of player: "+(i+1));
             players[i] = reader.nextLine();

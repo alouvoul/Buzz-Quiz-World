@@ -82,7 +82,7 @@ public class BuzzApp {
         int tempScore=-1;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
-            System.out.println("mpika");
+            System.out.println("Debug1");
         }
         type.setPoints(pointsToBet);
         tempScore = type.calculate(flag);
@@ -93,12 +93,12 @@ public class BuzzApp {
     private void setCurrentRound() {
         Random random = new Random();
         RoundEnum round = RoundEnum.values()[random.nextInt(2)];
-        if(players.length>1){
+        /*if(players.length>1){
           //  /=============================================TODO===============================
         }
         else{
             
-        }
+        }*/
         
         if(round == RoundEnum.CORRECT_ANSWER){
             type = new CorrectAnswer();
@@ -136,7 +136,7 @@ public class BuzzApp {
      */
     public String[] getQuestionCategories(){
         Random r = new Random();
-        String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS];
+        String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS];//Default if 4 categories to choose
         
         int temp;
         for (int i = 0; i < randomQuestions.length; i++) {
@@ -157,8 +157,8 @@ public class BuzzApp {
      */
     private void InitializeQuestions() throws IOException{
         File folder = new File("./questions/"+language.getLanguage());
-        //File folder = new File("/Buzz! Quiz World/EN");
-        System.out.println(" sadcx "+ folder.getPath());
+
+        System.out.println(" DEBUG InitilizeQuestions method"+ folder.getPath());
         
         if (folder==null) {
             System.out.println("Couldn't find the file!");
