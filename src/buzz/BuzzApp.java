@@ -144,15 +144,6 @@ public class BuzzApp {
         for (int i = 0; i < randomQuestions.length; i++) {
             randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
         }
-        /*int temp;
-        for (int i = 0; i < randomQuestions.length; i++) {
-            temp = r.nextInt(questions.size());
-            
-            while(questions.get(temp).getUsed() == true){
-                temp = r.nextInt(questions.size());
-            }
-            randomQuestions[i] = questions.get(temp).getQuestionCategory();
-        }*/
         
         return randomQuestions;
     }

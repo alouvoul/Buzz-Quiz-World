@@ -47,41 +47,37 @@ public class QuestionCategory {
     }
     
     public void setQuestions() throws IOException{
+        RandomGenerate random = new RandomGenerate();
         File folder = new File("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory);
         File[] listOfFiles = folder.listFiles();
-        Random random = new Random();
-        boolean []used = new boolean[listOfFiles.length];
-        int i=0;
-        do{
-            int next = random.nextInt(listOfFiles.length);
-            if(used[next] == false){
-                Question tempQuestion = new Question();
-                BufferedReader in = new BufferedReader(new FileReader("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory+"/"+(next+1)+".txt"));
-                String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
-                int j=0;
+        int[] swappedQuestion = random.generateRandoms(0, listOfFiles.length);
+        for(int i=0; i<BuzzApp.QUESTIONS_PER_ROUNDS;i++){
+
+            Question tempQuestion = new Question();
+            BufferedReader in = new BufferedReader(new FileReader("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
+            String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
+            int j=0;
+            line[j] = in.readLine();
+            while(line[j] != null)
+            {
+                System.out.println(line[j]);
+                j++;
                 line[j] = in.readLine();
-                while(line[j] != null)
-                {
-                    System.out.println(line[j]);
-                    j++;
-                    line[j] = in.readLine();
-                }
-                in.close();
-                used[next]=true;
-                i++;
-                tempQuestion.setQuestion(line[0]);
-                tempQuestion.setAnswers(Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
-                tempQuestion.setCorrectAnswer(line[5]);
-                //if(!line[6].equals(""))
-                //    tempQuestion.setHasImage(line[6]);
-
-
-                //    System.out.println("Couldn't open file with the question "+next);
-                
-                
-                questions.add(tempQuestion);
             }
-        }while(i<BuzzApp.QUESTIONS_PER_ROUNDS);
+            in.close();
+            
+            /*
+                Set questions and answers for Question object
+            */
+            tempQuestion.setQuestion(line[0]);
+            String []answerOrder = random.generateRandoms(0, BuzzApp.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
+            tempQuestion.setAnswers(answerOrder);
+            tempQuestion.setCorrectAnswer(line[5]);
+            //if(!line[6].equals(""))
+            //    tempQuestion.setHasImage(line[6]);
+
+            questions.add(tempQuestion);
+        }
 
     }
    

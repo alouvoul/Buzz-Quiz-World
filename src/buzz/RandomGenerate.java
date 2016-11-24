@@ -38,7 +38,18 @@ public class RandomGenerate implements Randomization{
 
     @Override
     public String[] generateRandoms(int start, int end, String[] array) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        HashSet set = new HashSet();
+        Random r = new Random();
+        String[] numberToswap = new String[end-start];
+        for (int i = 0; i < end-start; i++) {
+            int temp;
+            do{
+                temp = r.nextInt(end-start);
+            }while(!set.add(array[temp]));
+            numberToswap[i] = array[temp];
+
+        }
+        return numberToswap;
     }
     
 }
