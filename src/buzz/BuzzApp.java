@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import static java.lang.System.exit;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 
@@ -24,6 +25,7 @@ public class BuzzApp {
     public static final int NUMBER_ROUNDS = 5;
     public static final int QUESTIONS_PER_ROUNDS = 6;
     public static Locale language;
+    RandomGenerate r = new RandomGenerate();
 
     
     enum RoundEnum{
@@ -135,10 +137,14 @@ public class BuzzApp {
      * @return only 4 question as the real game.
      */
     public String[] getQuestionCategories(){
-        Random r = new Random();
+        //Random r = new Random();
         String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS];//Default if 4 categories to choose
-        
-        int temp;
+        int[] random = r.generateRandoms(0,questions.size());
+
+        for (int i = 0; i < randomQuestions.length; i++) {
+            randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
+        }
+        /*int temp;
         for (int i = 0; i < randomQuestions.length; i++) {
             temp = r.nextInt(questions.size());
             
@@ -146,7 +152,7 @@ public class BuzzApp {
                 temp = r.nextInt(questions.size());
             }
             randomQuestions[i] = questions.get(temp).getQuestionCategory();
-        }
+        }*/
         
         return randomQuestions;
     }
