@@ -42,7 +42,8 @@ public class BuzzApp {
     private Question tempQuestion;
 
     /**
-     * Constructor of the class. Initialize variables that will be used in the game.
+     * Constructor of the class, initialize variables that will be used
+     * in the game.
      */
     public BuzzApp() throws IOException {
         questions = new ArrayList<>();
@@ -54,7 +55,7 @@ public class BuzzApp {
     /**
      * Choose random question that returned to the ui.
      * 
-     * @return Random question
+     * @return random question
      */
     public Question play(){
         Random r = new Random();
@@ -67,9 +68,9 @@ public class BuzzApp {
     /**
      * Check if player's answer is correct.
      * 
-     * @param playerAnswer The answer of the player
-     * @param i Number of the player
-     * @return If answer is correct or not
+     * @param playerAnswer the answer of the player
+     * @param i number of the player
+     * @return if answer is correct or not
      */
     public boolean playerAnswer(String playerAnswer, int i){
         boolean flag = false;
@@ -84,10 +85,10 @@ public class BuzzApp {
     /**
      * Check if player's answer is correct and is about bet round.
      * 
-     * @param playerAnswer The answer of the player
-     * @param i Player number in the array
-     * @param pointsToBet Set how many points to bet
-     * @return If answer is correct or not
+     * @param playerAnswer the answer of the player
+     * @param i player number in the array
+     * @param pointsToBet set how many points to bet
+     * @return if answer is correct or not
      */
     public boolean playerAnswer(String playerAnswer, int i, int pointsToBet){
         boolean flag = false;
@@ -127,30 +128,30 @@ public class BuzzApp {
     }
     
     /**
-     * Set category question that a random player choose. Also sets this category as used
-     * to don't choose it again in the game.
+     * Set category question that a random player choose, also sets this
+     * category as used to not choose it again in the game.
      * 
-     * @param category The category of questions that will be used in the current round. 
+     * @param category the category of questions that will be used in the current round. 
      */
     public void chooseCategory(String category){
         int temp;
         for (int i = 0; i < questions.size(); i++) {
             if(questions.get(i).getQuestionCategory().equals(category)){
                 currentCategory = i;
-                questions.get(i).setUsed();     //sets that the category used
+                questions.get(i).setUsed(); // sets that the category is used
             }
         }
         setCurrentRound();
     }
     
     /**
-     * Return question categories in random order
+     * Return question categories in random order.
      * 
      * @return only 4 question as the real game.
      */
     public String[] getQuestionCategories() {
-        //Random r = new Random();
-        String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS];//Default if 4 categories to choose
+        // Random r = new Random();
+        String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS]; // Default if 4 categories to choose
         int[] random = r.generateRandoms(0,questions.size());
 
         try {
@@ -194,7 +195,7 @@ public class BuzzApp {
     }
     
     /**
-     * Setter for player names
+     * Setter for player names.
      * 
      * @param playerNames Names of the players
      */
@@ -207,7 +208,7 @@ public class BuzzApp {
     }
     
     /**
-     * Getter for player names
+     * Getter for player names.
      * 
      * @return player names
      */
@@ -218,7 +219,7 @@ public class BuzzApp {
     /**
      * Getter for type of game.
      * 
-     * @return Type bet or Type Correct Answer
+     * @return type Bet or type Correct Answer
      */
     public String getType() {
         

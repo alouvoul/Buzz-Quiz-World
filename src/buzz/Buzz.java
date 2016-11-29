@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * The class that is the interface through
- * which the user interacts with the program. This can be replaced with a GUI.
+ * which the user interacts with the program, this can be replaced with a GUI.
  * 
  * @author alouvoul
  */
@@ -31,7 +31,7 @@ public class Buzz {
     }
 
     /**
-     *  Contructor method to initializa players and loops for the given rounds.
+     *  Contructor method to initialize players and loops for the given rounds.
      *  
      */
     public Buzz() throws IOException {
@@ -49,7 +49,7 @@ public class Buzz {
     }
     
     /**
-     * Method to handle game. Set type game, then ask questions to the user. 
+     * Method to handle game, set type game, then ask questions to the user.
      */
     public void HandleGame(){
         
@@ -60,11 +60,11 @@ public class Buzz {
         int answer = 0;
         if(game.getType().equals("Bet")){
             System.out.println("Πόσους πόντους θα ήθελες να στοιχηματίσεις, 250, 500 ,750 , 1000?");
-            //System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
+            // System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
             int pointsToBet;
             do{
                 pointsToBet = sc.nextInt();
-            }while(pointsToBet!=250 || pointsToBet!=500 || pointsToBet!=750|| pointsToBet!=1000);
+            }while(pointsToBet!=250 && pointsToBet!=500 && pointsToBet!=750 && pointsToBet!=1000);
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
                 System.out.println((i+1)+". "+temp[i]);
@@ -90,7 +90,7 @@ public class Buzz {
         }
         
         System.out.println("Οι πόντοι του παίχτη "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
-        //System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
+        // System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
     }
     
     /**
@@ -113,23 +113,23 @@ public class Buzz {
     public void PlayerSetup(){
         
         Scanner reader = new Scanner(System.in);
-        //System.out.println("How many players?");
+        // System.out.println("How many players?");
         int numberOfPlayers = 1;
         String players[] = new String[numberOfPlayers];
-        //reader.nextLine();                  //This needs to pick up the new line
+        // reader.nextLine();                  //This needs to pick up the new line
         for (int i = 0; i < numberOfPlayers; i++) {
             System.out.println("Όνομα παίχτη: "+(i+1));
-            //System.out.println("Name of player: "+(i+1));
+            // System.out.println("Name of player: "+(i+1));
             players[i] = reader.nextLine();
         }
         game.setPlayers(players);
-        //return players;
+        // return players;
     }
     
     /**
      * User choose category of the next round.
      * 
-     * @return String of category
+     * @return string of category
      */
     public String ChooseQuestions(){
         Scanner reader = new Scanner(System.in);
@@ -137,7 +137,7 @@ public class Buzz {
         int playerTurn = r1.nextInt(game.getPlayers().length);
         
         System.out.println(game.getPlayers()[playerTurn].GetName()+" ποια ερώτηση θα ήθελες στον επόμενο γύρο?");
-        //System.out.println(game.getPlayers()[playerTurn].GetName()+" which question would you like in the next round?");
+        // System.out.println(game.getPlayers()[playerTurn].GetName()+" which question would you like in the next round?");
         
         String [] questionCategories = game.getQuestionCategories();
         
@@ -147,7 +147,7 @@ public class Buzz {
         int answer = reader.nextInt();
         while (answer<1 || answer>4) {
             System.out.println("Δώσε μια σωστή απάντηση!");
-            //System.out.println("Give a correct answer!");
+            // System.out.println("Give a correct answer!");
             answer = reader.nextInt();
         }
         

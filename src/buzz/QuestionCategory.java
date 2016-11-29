@@ -15,8 +15,9 @@ import java.util.Random;
 
 
 /**
- * Class for setting the questions of the game
- * and choosing the questions to show to the user
+ * Class for setting the questions of the game and choosing the questions to
+ * show to the user.
+ * 
  * @author alouvoul
  */
 public class QuestionCategory {
@@ -25,7 +26,8 @@ public class QuestionCategory {
     private boolean used;
     
     /**
-     * Constructor of the class. Initialize variables that will be used in the game.
+     * Constructor of the class,
+     * initialize variables that will be used in the game.
      * @param questionCategory Set the category
      * @throws IOException 
      */
@@ -37,7 +39,7 @@ public class QuestionCategory {
     }
     
     /**
-     * Setter of question category
+     * Setter of question category.
      * @param questionCategory Set the category
      */
     public void setQuestionCategory(String questionCategory) {
@@ -45,29 +47,29 @@ public class QuestionCategory {
     }
 
     /**
-     * Getter of question category
+     * Getter of question category.
      * @return The category
      */
     public String getQuestionCategory() {
         return questionCategory;
     }
     /**
-     * Sign category as used
+     * Sign category as used in order not to read it again.
      */
     public void setUsed() {
         this.used = true;
     }
     
     /**
-     * Check category status 
-     * @return If used or not
+     * Check category status.
+     * @return if used or not
      */
     public boolean getUsed(){
         return used;
     }
     
     /**
-     * Find the path and load and show the questions from the text files
+     * Find the path and load and show the questions from the text files.
      * @throws IOException 
      */
     public void setQuestions() throws IOException{
@@ -91,14 +93,14 @@ public class QuestionCategory {
             in.close();
             
             /*
-                Set questions and answers for Question object
+                Set questions and answers for Question object.
             */
             tempQuestion.setQuestion(line[0]);
             String []answerOrder = random.generateRandoms(0, BuzzApp.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
             tempQuestion.setAnswers(answerOrder);
             tempQuestion.setCorrectAnswer(line[5]);
-            //if(!line[6].equals(""))
-            //    tempQuestion.setHasImage(line[6]);
+            // if(!line[6].equals(""))
+            // tempQuestion.setHasImage(line[6]);
 
             questions.add(tempQuestion);
         }
@@ -106,7 +108,7 @@ public class QuestionCategory {
     }
    
     /**
-     * Getter of questions
+     * Getter of questions.
      * @return Arraylist questions
      */
     public ArrayList<Question> getQuestions(){

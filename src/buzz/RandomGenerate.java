@@ -9,17 +9,20 @@ import java.util.HashSet;
 import java.util.Random;
 
 /**
- * Generate array with random numbers
+ * Generate array with random numbers, class which implements the
+ * interface Randomization and help us in different aspects of the game.
  * 
  * @author alouvoul
  */
 public class RandomGenerate implements Randomization{
 
     /**
-     * Method to generate array with random numbers
-     * @param start From this value
-     * @param end To this value
-     * @return The array
+     * Method which generates array with random numbers, we use it for random
+     * question category.
+     * 
+     * @param start from this value
+     * @param end to this value
+     * @return the array
      */
     @Override
     public int[] generateRandoms(int start, int end) {
@@ -48,6 +51,8 @@ public class RandomGenerate implements Randomization{
     }
 
     /**
+     * Method which generates array with random numbers, we use it for random
+     * show of questions and answer order.
      * 
      * @param start
      * @param end
@@ -65,7 +70,6 @@ public class RandomGenerate implements Randomization{
                 temp = r.nextInt(end-start);
             }while(!set.add(array[temp]));
             numberToswap[i] = array[temp];
-
         }
         return numberToswap;
     } 

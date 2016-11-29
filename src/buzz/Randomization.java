@@ -6,15 +6,15 @@
 package buzz;
 
 /**
- * Interface for generate random numbers
+ * Interface for generate random numbers.
  * 
  * @author alouvoul
  */
 public interface Randomization {
 
-    public int[] generateRandoms(int start, int end );
+    public int[] generateRandoms(int start, int end);
     
-    public int[] generateRandoms(int end );
+    public int[] generateRandoms(int end);
     
     public String[] generateRandoms(int start, int end, String[] array);
 }

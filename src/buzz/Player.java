@@ -6,7 +6,8 @@
 package buzz;
 
 /**
- * Class that declares the player object with its name and score
+ * Class that declares the player object,
+ * it contains methods to set the player 's data, name and score.
  * 
  * @author alouvoul
  */
@@ -16,7 +17,7 @@ public class Player {
     private int score;
     
     /**
-     * Constructor of player to initialize the player data
+     * Constructor of player to initialize the player data.
      * @param name 
      */
     public Player(String name) {
@@ -25,7 +26,7 @@ public class Player {
     }
     
     /**
-     * Setter of player name
+     * Setter of player name.
      * @param name of the player
      */
     public void SetName(String name){
@@ -33,7 +34,7 @@ public class Player {
     }
     
     /**
-     * Getter of player name
+     * Getter of player name.
      * @return the player name
      */
     public String GetName(){
@@ -41,7 +42,7 @@ public class Player {
     }
     
     /**
-     * Setter of player score
+     * Setter of player score.
      * @param score of the player
      */
     public void SetScore(int score){
@@ -49,7 +50,7 @@ public class Player {
     }
     
     /** 
-     * Getter of player score
+     * Getter of player score.
      * @return the player score
      */
     public int GetScore(){

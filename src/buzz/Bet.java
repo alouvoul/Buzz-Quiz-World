@@ -6,20 +6,20 @@
 package buzz;
 
 /**
- * Class that declares the bet object 
+ * Class that declares the bet object.
  * 
  * @author alouvoul
  */
 public class Bet extends Round{
     /**
-     * Constructor of bet
+     * Constructor of bet.
      */
     public Bet() {
         
     }
     
     /**
-     * Calculate the points of user based on the answer that he/she gives
+     * Calculate and return the points of user based on the answer that they give.
      * @param answer of the user
      * @return the points of the user
      */
@@ -33,5 +33,4 @@ public class Bet extends Round{
         
         return temp;
     }
-    
 }
