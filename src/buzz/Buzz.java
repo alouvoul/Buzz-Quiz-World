@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * The class that is the interface through
- * which the user interacts with the program.
+ * which the user interacts with the program. This can be replaced with a GUI.
  * 
  * @author alouvoul
  */
@@ -31,7 +31,8 @@ public class Buzz {
     }
 
     /**
-     *  Class to initialize  
+     *  Contructor method to initializa players and loops for the given rounds.
+     *  
      */
     public Buzz() throws IOException {
         sc = new Scanner(System.in);
@@ -48,7 +49,7 @@ public class Buzz {
     }
     
     /**
-     * Method to handle game. Set type game, then ask questions to the user
+     * Method to handle game. Set type game, then ask questions to the user. 
      */
     public void HandleGame(){
         
@@ -93,7 +94,8 @@ public class Buzz {
     }
     
     /**
-     * Set initial values of game
+     * Method to set the questions with a call in "ChooseQuestions" method and
+     * prints the game type.
      */
     public void InitializeGame(){
         
@@ -106,7 +108,7 @@ public class Buzz {
     }
     
     /**
-     * Set name and number of players
+     * Initialize players.
      */
     public void PlayerSetup(){
         
@@ -125,8 +127,9 @@ public class Buzz {
     }
     
     /**
-     * User choose category
-     * @return Reduced number of category
+     * User choose category of the next round.
+     * 
+     * @return String of category
      */
     public String ChooseQuestions(){
         Scanner reader = new Scanner(System.in);

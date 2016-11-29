@@ -14,7 +14,7 @@ import java.util.Random;
 
 
 /**
- * Create and declare the main objects that we will use for the game.
+ * Class to create and declare the main objects that we will be used for the game.
  * 
  * @author alouvoul
  */
@@ -52,7 +52,7 @@ public class BuzzApp {
     }
    
     /**
-     * Choose random question
+     * Choose random question that returned to the ui.
      * 
      * @return Random question
      */
@@ -65,10 +65,10 @@ public class BuzzApp {
     }
     
     /**
-     * Check player's answer
+     * Check if player's answer is correct.
      * 
      * @param playerAnswer The answer of the player
-     * @param i
+     * @param i Number of the player
      * @return If answer is correct or not
      */
     public boolean playerAnswer(String playerAnswer, int i){
@@ -82,10 +82,10 @@ public class BuzzApp {
     }
     
     /**
-     * Bet round
+     * Check if player's answer is correct and is about bet round.
      * 
      * @param playerAnswer The answer of the player
-     * @param i
+     * @param i Player number in the array
      * @param pointsToBet Set how many points to bet
      * @return If answer is correct or not
      */
@@ -163,7 +163,7 @@ public class BuzzApp {
     }
     
     /**
-     * Method to initialize questionCategory object with their names. Will be used to 
+     * Method to initialize questionCategory object with their names, will be used to 
      * choose player from this list.
      */
     private void InitializeQuestions() throws IOException{
@@ -216,7 +216,8 @@ public class BuzzApp {
     }
 
     /**
-     * Getter for type of game
+     * Getter for type of game.
+     * 
      * @return Type bet or Type Correct Answer
      */
     public String getType() {
@@ -230,7 +231,7 @@ public class BuzzApp {
     }
     
     /**
-     * Set game language
+     * Set game language.
      */
     public void setLocale(){
         language = new Locale("el-GR");
