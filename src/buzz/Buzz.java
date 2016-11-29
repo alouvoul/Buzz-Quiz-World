@@ -60,9 +60,9 @@ public class Buzz {
         if(game.getType().equals("Bet")){
             System.out.println("Πόσους πόντους θα ήθελες να στοιχηματίσεις, 250, 500 ,750 , 1000?");
             //System.out.println("How many points would you like to bet 250, 500 ,750 , 1000?");
-            int pointsToBet = sc.nextInt();
+            int pointsToBet;
             do{
-                
+                pointsToBet = sc.nextInt();
             }while(pointsToBet!=250 || pointsToBet!=500 || pointsToBet!=750|| pointsToBet!=1000);
             System.out.println(q.getQuestion());
             for (int i = 0; i < BuzzApp.NUMBER_OF_ANSWERS; i++) {
