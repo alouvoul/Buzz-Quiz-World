@@ -5,6 +5,7 @@
  */
 package buzz;
 
+import GameRounds.Round;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

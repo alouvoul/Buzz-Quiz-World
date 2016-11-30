@@ -5,6 +5,9 @@
  */
 package buzz;
 
+import GameRounds.Bet;
+import GameRounds.CorrectAnswer;
+import GameRounds.Round;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.System.exit;

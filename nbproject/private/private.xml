@@ -6,9 +6,9 @@
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/CorrectAnswerTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/BuzzApp.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Round.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/BuzzTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/RoundTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/CorrectAnswer.java</file>
+            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Question.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/QuestionTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Randomization.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/PlayerTest.java</file>
@@ -18,8 +18,7 @@
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/RandomGenerate.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Bet.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/BetTest.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/RandomGenerateTest.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/BuzzAppTest.java</file>
+            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Player.java</file>
         </group>
     </open-files>
 </project-private>
