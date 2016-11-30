@@ -18,19 +18,11 @@ import static org.junit.Assert.*;
  */
 public class PlayerTest {
     
-    public PlayerTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private Player player;
     
     @Before
     public void setUp() {
+        player = new Player("Makos");
     }
     
     @After
@@ -43,10 +35,8 @@ public class PlayerTest {
     @Test
     public void testSetName() {
         System.out.println("SetName");
-        String name = "Makos";
-        Player instance = new Player(name);
-        instance.SetName(name);
-        
+        String name = player.GetName();
+        player.SetName(name);
     }
 
     /**
@@ -55,11 +45,10 @@ public class PlayerTest {
     @Test
     public void testGetName() {
         System.out.println("GetName");
-        Player instance = new Player("Makos");
-        String expResult = "Makos";
-        String result = instance.GetName();
-        assertEquals(expResult, result);
         
+        String expResult = "Makos";
+        String result = player.GetName();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -68,10 +57,8 @@ public class PlayerTest {
     @Test
     public void testSetScore() {
         System.out.println("SetScore");
-        int score = 0;
-        Player instance = new Player("Makos");
-        instance.SetScore(score);
-
+        int score = player.GetScore();
+        player.SetScore(score);
     }
 
     /**
@@ -80,11 +67,9 @@ public class PlayerTest {
     @Test
     public void testGetScore() {
         System.out.println("GetScore");
-        Player instance = new Player("Makos");
         int expResult = 0;
-        int result = instance.GetScore();
+        int result = player.GetScore();
         assertEquals(expResult, result);
-
     }
     
 }

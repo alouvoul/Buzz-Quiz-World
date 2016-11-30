@@ -18,19 +18,11 @@ import static org.junit.Assert.*;
  */
 public class BetTest {
     
-    public BetTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private Bet bet;
     
     @Before
     public void setUp() {
+        bet = new Bet();
     }
     
     @After
@@ -44,22 +36,18 @@ public class BetTest {
     public void testCalculate() {
         System.out.println("Calculate");
         boolean answer = true;
-        Bet instance = new Bet();
         int expResult = 0;
-        int result = instance.calculate(answer);
+        int result = bet.calculate(answer);
         assertEquals(expResult, result);
-
     }
     
     @Test
     public void testCalculate2() {
         System.out.println("Calculate");
         boolean answer = false;
-        Bet instance = new Bet();
         int expResult = 0;
-        int result = instance.calculate(answer);
+        int result = bet.calculate(answer);
         assertEquals(expResult, result);
-
     }
     
 }

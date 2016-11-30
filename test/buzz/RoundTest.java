@@ -18,19 +18,17 @@ import static org.junit.Assert.*;
  */
 public class RoundTest {
     
-    public RoundTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private Round aRound;
     
     @Before
     public void setUp() {
+        aRound = new Round() {
+
+            @Override
+            public int calculate(boolean answer) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
     }
     
     @After
@@ -44,10 +42,7 @@ public class RoundTest {
     public void testSetPoints() {
         System.out.println("setPoints");
         int points = 0;
-        Round instance = new RoundImpl();
-        instance.setPoints(points);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        aRound.setPoints(points);
     }
 
     /**
@@ -57,40 +52,7 @@ public class RoundTest {
     public void testSetQuestions() {
         System.out.println("setQuestions");
         Question questions = null;
-        Round instance = new RoundImpl();
-        instance.setQuestions(questions);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPoints method, of class Round.
-     */
-    @Test
-    public void testGetPoints() {
-        System.out.println("getPoints");
-        String answer = "";
-        Round instance = new RoundImpl();
-        int expResult = 0;
-        int result = instance.getPoints(answer);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of calculate method, of class Round.
-     */
-    @Test
-    public void testCalculate() {
-        System.out.println("calculate");
-        boolean answer = false;
-        Round instance = new RoundImpl();
-        int expResult = 0;
-        int result = instance.calculate(answer);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        aRound.setQuestions(questions);
     }
 
     public class RoundImpl extends Round {

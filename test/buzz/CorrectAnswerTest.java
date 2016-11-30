@@ -18,19 +18,11 @@ import static org.junit.Assert.*;
  */
 public class CorrectAnswerTest {
     
-    public CorrectAnswerTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private CorrectAnswer correctAnswer;
     
     @Before
     public void setUp() {
+        correctAnswer = new CorrectAnswer();        
     }
     
     @After
@@ -44,11 +36,9 @@ public class CorrectAnswerTest {
     public void testCalculate() {
         System.out.println("calculate");
         boolean answer = true;
-        CorrectAnswer instance = new CorrectAnswer();
         int expResult = 1000;
-        int result = instance.calculate(answer);
+        int result = correctAnswer.calculate(answer);
         assertEquals(expResult, result);
-
     }
     
 }

@@ -18,19 +18,11 @@ import static org.junit.Assert.*;
  */
 public class QuestionTest {
     
-    public QuestionTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private Question quest;
     
     @Before
     public void setUp() {
+        quest = new Question();
     }
     
     @After
@@ -44,10 +36,7 @@ public class QuestionTest {
     public void testSetAnswers() {
         System.out.println("setAnswers");
         String[] answers = null;
-        Question instance = new Question();
-        instance.setAnswers(answers);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        quest.setAnswers(answers);
     }
 
     /**
@@ -56,13 +45,10 @@ public class QuestionTest {
     @Test
     public void testGetAnswers() {
         System.out.println("getAnswers");
-        Question instance = new Question();
         String[] expResult = null;
-        String[] result = instance.getAnswers();
+        String[] result = quest.getAnswers();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        }
 
     /**
      * Test of setQuestion method, of class Question.
@@ -70,11 +56,8 @@ public class QuestionTest {
     @Test
     public void testSetQuestion() {
         System.out.println("setQuestion");
-        String question = "";
-        Question instance = new Question();
-        instance.setQuestion(question);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String question = quest.getQuestion();
+        quest.setQuestion(question);
     }
 
     /**
@@ -83,12 +66,9 @@ public class QuestionTest {
     @Test
     public void testGetQuestion() {
         System.out.println("getQuestion");
-        Question instance = new Question();
-        String expResult = "";
-        String result = instance.getQuestion();
+        String expResult = null;
+        String result = quest.getQuestion();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,12 +77,9 @@ public class QuestionTest {
     @Test
     public void testGetCorrectAnswer() {
         System.out.println("getCorrectAnswer");
-        Question instance = new Question();
-        String expResult = "";
-        String result = instance.getCorrectAnswer();
+        String expResult = null;
+        String result = quest.getCorrectAnswer();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -111,11 +88,8 @@ public class QuestionTest {
     @Test
     public void testSetCorrectAnswer() {
         System.out.println("setCorrectAnswer");
-        String correctAnswer = "";
-        Question instance = new Question();
-        instance.setCorrectAnswer(correctAnswer);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String correctAnswer = quest.getCorrectAnswer();
+        quest.setCorrectAnswer(correctAnswer);    
     }
 
     /**
@@ -124,11 +98,8 @@ public class QuestionTest {
     @Test
     public void testSetHasImage() {
         System.out.println("setHasImage");
-        String hasImage = "";
-        Question instance = new Question();
-        instance.setHasImage(hasImage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String hasImage = quest.getHasImage();
+        quest.setHasImage(hasImage);
     }
 
     /**
@@ -137,12 +108,9 @@ public class QuestionTest {
     @Test
     public void testGetHasImage() {
         System.out.println("getHasImage");
-        Question instance = new Question();
-        String expResult = "";
-        String result = instance.getHasImage();
+        String expResult = null;
+        String result = quest.getHasImage();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

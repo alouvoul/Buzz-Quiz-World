@@ -5,6 +5,7 @@
  */
 package buzz;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,19 +20,11 @@ import static org.junit.Assert.*;
  */
 public class QuestionCategoryTest {
     
-    public QuestionCategoryTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private QuestionCategory questionCat;
     
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
+        questionCat = new QuestionCategory("Cat");
     }
     
     @After
@@ -44,11 +37,8 @@ public class QuestionCategoryTest {
     @Test
     public void testSetQuestionCategory() {
         System.out.println("setQuestionCategory");
-        String questionCategory = "";
-        QuestionCategory instance = null;
-        instance.setQuestionCategory(questionCategory);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String questionCategory = questionCat.getQuestionCategory();
+        questionCat.setQuestionCategory(questionCategory);
     }
 
     /**
@@ -57,12 +47,9 @@ public class QuestionCategoryTest {
     @Test
     public void testGetQuestionCategory() {
         System.out.println("getQuestionCategory");
-        QuestionCategory instance = null;
-        String expResult = "";
-        String result = instance.getQuestionCategory();
+        String expResult = "Bet";
+        String result = questionCat.getQuestionCategory();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -71,10 +58,7 @@ public class QuestionCategoryTest {
     @Test
     public void testSetUsed() {
         System.out.println("setUsed");
-        QuestionCategory instance = null;
-        instance.setUsed();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        questionCat.setUsed();
     }
 
     /**
@@ -83,12 +67,9 @@ public class QuestionCategoryTest {
     @Test
     public void testGetUsed() {
         System.out.println("getUsed");
-        QuestionCategory instance = null;
         boolean expResult = false;
-        boolean result = instance.getUsed();
+        boolean result = questionCat.getUsed();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,10 +78,7 @@ public class QuestionCategoryTest {
     @Test
     public void testSetQuestions() throws Exception {
         System.out.println("setQuestions");
-        QuestionCategory instance = null;
-        instance.setQuestions();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        questionCat.setQuestions();
     }
 
     /**
@@ -109,12 +87,9 @@ public class QuestionCategoryTest {
     @Test
     public void testGetQuestions() {
         System.out.println("getQuestions");
-        QuestionCategory instance = null;
         ArrayList<Question> expResult = null;
-        ArrayList<Question> result = instance.getQuestions();
+        ArrayList<Question> result = questionCat.getQuestions();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
