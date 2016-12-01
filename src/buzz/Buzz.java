@@ -13,7 +13,8 @@ import java.util.Scanner;
  * The class that is the interface through
  * which the user interacts with the program, this can be replaced with a GUI.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class Buzz {
     BuzzApp game;

@@ -8,7 +8,8 @@ package GameRounds;
 /**
  * Class that declares the bet object.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class Bet extends Round{
     /**

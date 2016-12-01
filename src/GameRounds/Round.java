@@ -11,7 +11,8 @@ import buzz.Question;
  * Class to initialize each round, it is parent of different categories of the
  * game and contains the basic functions for each category.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public abstract class Round {
     private Question question;

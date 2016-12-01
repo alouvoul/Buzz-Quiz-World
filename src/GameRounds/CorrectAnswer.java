@@ -9,7 +9,8 @@ package GameRounds;
  * Class - child of class Round, one of the categories of the game, contains
  * the basic functions of this category.
  *
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class CorrectAnswer extends Round{
     public static final int POINTS_CORRECT_ANSWER = 1000;

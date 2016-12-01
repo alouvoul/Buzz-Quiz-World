@@ -18,7 +18,8 @@ import java.util.Random;
  * Class for setting the questions of the game and choosing the questions to
  * show to the user.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class QuestionCategory {
     private String questionCategory;

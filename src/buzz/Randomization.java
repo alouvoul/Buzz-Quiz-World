@@ -8,7 +8,8 @@ package buzz;
 /**
  * Interface for generate random numbers.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public interface Randomization {
 

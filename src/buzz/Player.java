@@ -9,7 +9,8 @@ package buzz;
  * Class that declares the player object,
  * it contains methods to set the player 's data, name and score.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class Player {
     

@@ -15,7 +15,8 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jordan
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class BetTest {
     

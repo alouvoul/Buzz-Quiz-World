@@ -5,18 +5,17 @@
         <group>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/CorrectAnswerTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/BuzzApp.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Round.java</file>
+            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/GameRounds/Round.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/RoundTest.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/CorrectAnswer.java</file>
+            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/GameRounds/CorrectAnswer.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Question.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/QuestionTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Randomization.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/PlayerTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/QuestionCategory.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/QuestionCategoryTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Buzz.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/RandomGenerate.java</file>
-            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Bet.java</file>
+            <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/GameRounds/Bet.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/test/buzz/BetTest.java</file>
             <file>file:/C:/Users/Jordan/Documents/GitHub/Buzz-Quiz-World/src/buzz/Player.java</file>
         </group>

@@ -12,7 +12,8 @@ import java.util.Random;
  * Generate array with random numbers, class which implements the
  * interface Randomization and help us in different aspects of the game.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class RandomGenerate implements Randomization{
 

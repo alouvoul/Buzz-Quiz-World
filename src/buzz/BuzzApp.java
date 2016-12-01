@@ -19,7 +19,8 @@ import java.util.Random;
 /**
  * Class to create and declare the main objects that we will be used for the game.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class BuzzApp {
     public static final int NUMBER_OF_CATEGORY_QUESTIONS = 4;

@@ -11,7 +11,8 @@ package buzz;
  * contains basic methods for reading the question and the (correct) answer,
  * also checks if a question has image or not. 
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class Question {
     private String question;
