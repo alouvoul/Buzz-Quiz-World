@@ -51,8 +51,8 @@ public class BuzzApp {
      */
     public BuzzApp() throws IOException {
         questions = new ArrayList<>();
-        setLocale();
-        InitializeQuestions();
+        //setLocale();
+        
         categoriesUsed = new boolean[questions.size()];
     }
    
@@ -237,9 +237,10 @@ public class BuzzApp {
     
     /**
      * Set game language.
+     * @param lang
      */
-    public void setLocale(){
-        language = new Locale("el-GR");
+    public void setLocale(String lang){
+        language = new Locale(lang);
     }
    
 }
