@@ -203,7 +203,7 @@ public class BuzzApp {
      * 
      * @param playerNames Names of the players
      */
-    public void setPlayers(String[] playerNames ){
+    public void setPlayers(String[] playerNames){
 
         this.players = new Player[playerNames.length];
         for (int i = 0; i < playerNames.length; i++) {

@@ -5,10 +5,8 @@
  */
 package buzz.GUI;
 
-import buzz.BuzzApp;
 import java.io.File;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -19,13 +17,14 @@ import javax.swing.JLabel;
  *
  * @author alouvoul
  */
-public class languageSelection extends javax.swing.JFrame {
+public class languageSelection extends MainGUI{
     
-    
+    playerSelection ps;
     /**
      * Creates new form languageSelection
      */
     public languageSelection() {
+        super();
         try {
             this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("./images/background/BuzzImage.JPG")))));
         } catch (IOException ex) {
@@ -109,8 +108,10 @@ public class languageSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_englishButtonActionPerformed
 
     private void changeScreen(String lang){
-        playerSelection ps = new playerSelection();
+        game.setLocale(lang);
+        ps = new playerSelection();
         ps.setEnabled(true);
+        ps.setVisible(true);
         this.dispose();
     }
     
