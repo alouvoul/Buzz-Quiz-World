@@ -5,6 +5,13 @@
  */
 package buzz.GUI;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,11 +19,18 @@ import javax.swing.JOptionPane;
  * @author alouvoul
  */
 public class playerSelection extends MainGUI {
-
+    
+    categoryChooseGUI cg;
     /**
      * Creates new form playerSelection
      */
     public playerSelection() {
+        super();
+        try {
+            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("./images/background/playerChoose.jpg")))));
+        } catch (IOException ex) {
+            Logger.getLogger(playerSelection.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
@@ -103,7 +117,7 @@ public class playerSelection extends MainGUI {
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
         String name1 = nameTextField1.getText();
         String name2 = nameTextField2.getText();
-        if(twoPlayerRadioButton.isVisible() && name2.equals(""))
+        if(twoPlayerRadioButton.isSelected() && name2.equals(""))
             JOptionPane.showMessageDialog(this,"You have to choose a name!");
         else if(name1.equals("") || name1.equals(name2))
             JOptionPane.showMessageDialog(this,"You have to choose a name!");
@@ -119,7 +133,11 @@ public class playerSelection extends MainGUI {
                 names[0] = nameTextField1.getText();
             }
             game.setPlayers(names);
-             
+            
+            cg = new categoryChooseGUI();
+            cg.setEnabled(true);
+            cg.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_OKButtonActionPerformed
 

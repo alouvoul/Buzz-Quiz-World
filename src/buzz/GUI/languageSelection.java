@@ -48,8 +48,8 @@ public class languageSelection extends MainGUI{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(600, 450));
-        setMinimumSize(new java.awt.Dimension(600, 450));
+        setMaximumSize(null);
+        setMinimumSize(null);
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 400));

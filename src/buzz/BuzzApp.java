@@ -159,9 +159,9 @@ public class BuzzApp {
         int[] random = r.generateRandoms(0,questions.size());
 
         try {
-        for (int i = 0; i < randomQuestions.length; i++) {
-            randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
-        }
+            for (int i = 0; i < randomQuestions.length; i++) {
+                randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
+            }
         } catch(Exception e)
         {System.out.println("OLEOLEOLE");}
         return randomQuestions;
@@ -171,7 +171,7 @@ public class BuzzApp {
      * Method to initialize questionCategory object with their names, will be used to 
      * choose player from this list.
      */
-    private void InitializeQuestions() throws IOException{
+    public void InitializeQuestions() throws IOException{
         File folder = new File("./questions/"+language.getLanguage());
 
         System.out.println(" DEBUG InitilizeQuestions method"+ folder.getPath());
