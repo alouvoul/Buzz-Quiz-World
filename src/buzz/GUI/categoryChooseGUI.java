@@ -132,6 +132,21 @@ public class categoryChooseGUI extends MainGUI {
         game.chooseCategory(categoryButton4.getText());
     }//GEN-LAST:event_categoryButton4ActionPerformed
 
+    /**
+     * Method to handle game, set type game, then ask questions to the user.
+     */
+    public void HandleGame(){
+        String type = game.getType();
+        if(type.equals("Bet")){
+            
+        }
+        else if(type.equals("CorrectAnswer")){
+            
+        }
+        
+        
+    }
+            
     private void initialCode(){
         try {
             game.InitializeQuestions();
