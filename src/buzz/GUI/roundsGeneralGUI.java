@@ -16,7 +16,7 @@ public class roundsGeneralGUI extends MainGUI {
     /**
      * Creates new form roundsGeneralGUI
      */
-    public roundsGeneralGUI() {
+    public roundsGeneralGUI(){
         initComponents();
     }
 

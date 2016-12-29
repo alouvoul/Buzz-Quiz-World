@@ -7,11 +7,14 @@ package buzz;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -73,37 +76,49 @@ public class QuestionCategory {
      * Find the path and load and show the questions from the text files.
      * @throws IOException 
      */
-    public void setQuestions() throws IOException{
+    public void setQuestions(){
         RandomGenerate random = new RandomGenerate();
         File folder = new File("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory);
         File[] listOfFiles = folder.listFiles();
         int[] swappedQuestion = random.generateRandoms(0, listOfFiles.length);
         for(int i=0; i<BuzzApp.QUESTIONS_PER_ROUNDS;i++){
 
-            Question tempQuestion = new Question();
-            BufferedReader in = new BufferedReader(new FileReader("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
-            String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
-            int j=0;
-            line[j] = in.readLine();
-            while(line[j] != null)
-            {
-                //System.out.println(line[j]);
-                j++;
+            BufferedReader in = null;
+            try {
+                Question tempQuestion = new Question();
+                in = new BufferedReader(new FileReader("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
+                String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
+                int j=0;
                 line[j] = in.readLine();
-            }
-            in.close();
-            
-            /*
+                while(line[j] != null)
+                {
+                    //System.out.println(line[j]);
+                    j++;
+                    line[j] = in.readLine();
+                }   in.close();
+                /*
                 Set questions and answers for Question object.
-            */
-            tempQuestion.setQuestion(line[0]);
-            String []answerOrder = random.generateRandoms(0, BuzzApp.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
-            tempQuestion.setAnswers(answerOrder);
-            tempQuestion.setCorrectAnswer(line[5]);
-            // if(!line[6].equals(""))
-            // tempQuestion.setHasImage(line[6]);
-
-            questions.add(tempQuestion);
+                */
+                tempQuestion.setQuestion(line[0]);
+                String []answerOrder = random.generateRandoms(0, BuzzApp.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
+                tempQuestion.setAnswers(answerOrder);
+                tempQuestion.setCorrectAnswer(line[5]);
+                // if(!line[6].equals(""))
+                // tempQuestion.setHasImage(line[6]);
+                questions.add(tempQuestion);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(QuestionCategory.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Read Question for a"+questionCategory+ "category problem");
+            } catch (IOException ex) {
+                Logger.getLogger(QuestionCategory.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Read Question for a"+questionCategory+ "category problem");
+            } finally {
+                try {
+                    in.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(QuestionCategory.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
 
     }

@@ -100,14 +100,23 @@ public class languageSelection extends MainGUI{
     }// </editor-fold>//GEN-END:initComponents
 
     private void greekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekButtonActionPerformed
-        changeScreen("el-GR");
+        try {
+            changeScreen("el-GR");
+        } catch (IOException ex) {
+            Logger.getLogger(languageSelection.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_greekButtonActionPerformed
 
     private void englishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishButtonActionPerformed
-        changeScreen("EN");
+        try {
+            changeScreen("EN");
+        } catch (IOException ex) {
+            Logger.getLogger(languageSelection.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_englishButtonActionPerformed
 
-    private void changeScreen(String lang){
+    private void changeScreen(String lang) throws IOException{
+        InitializeGame(); //!!!!Initialize game variable
         game.setLocale(lang);
         ps = new playerSelection();
         ps.setEnabled(true);

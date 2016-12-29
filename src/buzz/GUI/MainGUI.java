@@ -7,27 +7,23 @@ package buzz.GUI;
 
 import buzz.BuzzApp;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author alouvoul
  */
 public class MainGUI extends javax.swing.JFrame {
-    protected static buzz.BuzzApp game;
+    protected static BuzzApp game;
     /**
      * Creates new form MainGUI
      */
     public MainGUI(){
-        try {
-            game = new BuzzApp();
-        } catch (IOException ex) {
-            Logger.getLogger(MainGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
         initComponents();
     }
-
+    
+    protected void InitializeGame() throws IOException{
+        game = new BuzzApp();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

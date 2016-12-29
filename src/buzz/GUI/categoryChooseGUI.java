@@ -24,7 +24,7 @@ public class categoryChooseGUI extends MainGUI {
     /**
      * Creates new form categoryChooseGUI
      */
-    public categoryChooseGUI() {
+    public categoryChooseGUI(){
         super();
         try {
             this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("./images/background/Buzz.jpg")))));
@@ -143,8 +143,8 @@ public class categoryChooseGUI extends MainGUI {
      */
     public void HandleGame(){
         System.out.println("mpika11111");
-        game.setCurrentRound();System.out.println("mpika12");
-        String type = game.getType();System.out.println("mpika12");
+        //game.setCurrentRound();
+        String type = game.getType();
         boolean testing = true;
         if(testing || type.equals("Bet")&& false){
             System.out.println("mpika1");
