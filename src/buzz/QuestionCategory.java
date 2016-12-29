@@ -87,7 +87,7 @@ public class QuestionCategory {
             line[j] = in.readLine();
             while(line[j] != null)
             {
-                System.out.println(line[j]);
+                //System.out.println(line[j]);
                 j++;
                 line[j] = in.readLine();
             }

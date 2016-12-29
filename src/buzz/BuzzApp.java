@@ -35,6 +35,7 @@ public class BuzzApp {
     RandomGenerate r = new RandomGenerate();
 
     public static final boolean notSupported = false;
+    public static final boolean DEBUG = true;
     
     enum RoundEnum{
         CORRECT_ANSWER,
@@ -44,7 +45,7 @@ public class BuzzApp {
         FAST_ANSWER
     }
     
-    private Player[] players;
+    private ArrayList<Player> players;
     
     private int currentCategory;
     private ArrayList<QuestionCategory> questions;
@@ -59,7 +60,7 @@ public class BuzzApp {
      */
     public BuzzApp() throws IOException {
         questions = new ArrayList<>();
-        //setLocale();
+        players = new ArrayList();
         
         categoriesUsed = new boolean[questions.size()];
     }
@@ -90,7 +91,7 @@ public class BuzzApp {
             flag = true;
         }
         int tempScore = type.calculate(flag);
-        players[i].SetScore(tempScore);
+        players.get(i).SetScore(tempScore);
         return flag;
     }
     
@@ -107,24 +108,26 @@ public class BuzzApp {
         int tempScore=-1;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
-            System.out.println("Debug1");
+            if(DEBUG)
+                System.out.println("Debug1");
         }
         type.setPoints(pointsToBet);
         tempScore = type.calculate(flag);
-        players[i].SetScore(tempScore);
+        players.get(i).SetScore(tempScore);
         return flag;
     }
     
     /**
      * Set values for the new round.
      */
-    private void setCurrentRound() {
+    public void setCurrentRound() {
         Random random = new Random();
-
+        //System.out.println("21312");
         if(notSupported){
             System.out.println("setCurrentRound() needs some more CODE!!!");
         }
-        int player = getPlayers().length;
+        int player = getPlayers().size();
+
         RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
         boolean flag = true;
         while(flag){
@@ -137,18 +140,19 @@ public class BuzzApp {
                 flag = false;
             }
             else if(round == RoundEnum.FAST_ANSWER ){
-                
+                type = new fastAnswer();
                 flag = false;
             }
             else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
-
+                type = new thermometer();
                 flag = false;
             }
             else if (round == RoundEnum.TIMER && (player > 1)) { // Sets the game if there are 2 players
-
+                type = new timer();
                 flag = false;
             }
         }
+        
     }
     
     /**
@@ -165,7 +169,7 @@ public class BuzzApp {
                 questions.get(i).setUsed(); // sets that the category is used
             }
         }
-        setCurrentRound();
+        //setCurrentRound();
     }
     
     /**
@@ -183,7 +187,9 @@ public class BuzzApp {
                 randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
             }
         } catch(Exception e)
-        {System.out.println("OLEOLEOLE");}
+        {
+            System.out.println("Problem BuzzApp-->getQuestionCategories");
+        }
         return randomQuestions;
     }
     
@@ -193,8 +199,8 @@ public class BuzzApp {
      */
     public void InitializeQuestions() throws IOException{
         File folder = new File("./questions/"+language.getLanguage());
-
-        System.out.println(" DEBUG InitilizeQuestions method"+ folder.getPath());
+        if(DEBUG)
+            System.out.println("InitilizeQuestions() method="+ folder.getPath()+"Language-->"+language.getLanguage());
         
         if (folder==null) {
             System.out.println("Couldn't find the file!");
@@ -206,7 +212,7 @@ public class BuzzApp {
                 for (int i = 0; i < listOfFiles.length; i++) {
                 QuestionCategory c = new QuestionCategory(listOfFiles[i].getName());
                 if (listOfFiles[i].isDirectory()) {
-                    System.out.println("Directory " + listOfFiles[i].getName());
+                    //System.out.println("Directory " + listOfFiles[i].getName());
                     
                     c.setQuestionCategory(listOfFiles[i].getName());
                     questions.add(c);
@@ -225,9 +231,13 @@ public class BuzzApp {
      */
     public void setPlayers(String[] playerNames){
 
-        this.players = new Player[playerNames.length];
         for (int i = 0; i < playerNames.length; i++) {
-            this.players[i] = new Player(playerNames[i]);
+            Player temp = new Player(playerNames[i]);
+            players.add(temp);
+            if(DEBUG)
+                System.out.println("setPlayers-->BuzzApp = "+ playerNames[i]);
+            if(DEBUG)
+                System.out.println("setPlayers()-->"+players.get(i).GetName());
         }
     }
     
@@ -236,7 +246,8 @@ public class BuzzApp {
      * 
      * @return player names
      */
-    public Player[] getPlayers(){
+    public ArrayList<Player> getPlayers(){
+        
         return players;
     }
 

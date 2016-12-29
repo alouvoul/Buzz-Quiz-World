@@ -32,6 +32,7 @@ public class playerSelection extends MainGUI {
             Logger.getLogger(playerSelection.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
+        //nameTextField2.setVisible(false);
     }
 
     /**
@@ -123,7 +124,7 @@ public class playerSelection extends MainGUI {
             JOptionPane.showMessageDialog(this,"You have to choose a name!");
         else{
             String names[];
-            if(twoPlayerRadioButton.isVisible()){
+            if(twoPlayerRadioButton.isSelected()){
                 names = new String[2];
                 names[0] = nameTextField1.getText();
                 names[1] = nameTextField2.getText();
@@ -132,6 +133,7 @@ public class playerSelection extends MainGUI {
                 names = new String[1];
                 names[0] = nameTextField1.getText();
             }
+            System.out.println(""+names[0]);
             game.setPlayers(names);
             
             cg = new categoryChooseGUI();

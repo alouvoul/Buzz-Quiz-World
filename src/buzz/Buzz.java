@@ -90,7 +90,7 @@ public class Buzz {
             game.playerAnswer(q.getAnswers()[answer], 0);
         }
         
-        System.out.println("Οι πόντοι του παίχτη "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
+        System.out.println("Οι πόντοι του παίχτη "+game.getPlayers().get(0).GetName()+" :"+game.getPlayers().get(0).GetScore());
         // System.out.println("Points of "+game.getPlayers()[0].GetName()+" :"+game.getPlayers()[0].GetScore());
     }
     
@@ -135,9 +135,9 @@ public class Buzz {
     public String ChooseQuestions(){
         Scanner reader = new Scanner(System.in);
         Random r1 = new Random();
-        int playerTurn = r1.nextInt(game.getPlayers().length);
+        int playerTurn = r1.nextInt(game.getPlayers().size());
         
-        System.out.println(game.getPlayers()[playerTurn].GetName()+" ποια ερώτηση θα ήθελες στον επόμενο γύρο?");
+        System.out.println(game.getPlayers().get(playerTurn).GetName()+" ποια ερώτηση θα ήθελες στον επόμενο γύρο?");
         // System.out.println(game.getPlayers()[playerTurn].GetName()+" which question would you like in the next round?");
         
         String [] questionCategories = game.getQuestionCategories();

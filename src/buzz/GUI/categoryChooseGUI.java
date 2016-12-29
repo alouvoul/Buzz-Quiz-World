@@ -19,6 +19,8 @@ import javax.swing.JLabel;
  */
 public class categoryChooseGUI extends MainGUI {
 
+    
+    private roundsGeneralGUI mg;
     /**
      * Creates new form categoryChooseGUI
      */
@@ -140,15 +142,23 @@ public class categoryChooseGUI extends MainGUI {
      * Method to handle game, set type game, then ask questions to the user.
      */
     public void HandleGame(){
-        String type = game.getType();
-        MainGUI mg;
-        if(type.equals("Bet")){
+        System.out.println("mpika11111");
+        game.setCurrentRound();System.out.println("mpika12");
+        String type = game.getType();System.out.println("mpika12");
+        boolean testing = true;
+        if(testing || type.equals("Bet")&& false){
+            System.out.println("mpika1");
             mg = new betGUI();
+            mg.setEnabled(true);
+            mg.setVisible(true);
+            this.dispose();
         }
-        else if(type.equals("CorrectAnswer")){
+        else if(type.equals("CorrectAnswer") && false){
+            System.out.println("mpika12");
             mg = new correctAnswerGUI();
         }
-        else if(type.equals("Thermometer")){
+        else if(type.equals("Thermometer") && false){
+            System.out.println("mpika123");
             //-----TODO 
         }
         
