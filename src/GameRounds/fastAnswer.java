@@ -10,10 +10,24 @@ package GameRounds;
  * @author alouvoul
  */
 public class fastAnswer extends Round{
+    private short position;
 
+    public fastAnswer() {
+        position = 1;
+    }
+    
     @Override
     public int calculate(boolean answer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int points = 0;
+        if(answer){
+            points = 1000;
+            position++;
+            if(position>=2){
+                position = 1;
+            }
+        }
+            
+        return points;
     }
     
 }

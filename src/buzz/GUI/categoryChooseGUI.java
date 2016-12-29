@@ -54,28 +54,28 @@ public class categoryChooseGUI extends MainGUI {
 
         playerTurnToChooseLabel.setEditable(false);
 
-        categoryButton2.setText("jButton1");
+        categoryButton2.setText("category2");
         categoryButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryButton2ActionPerformed(evt);
             }
         });
 
-        categoryButton1.setText("jButton1");
+        categoryButton1.setText("category1");
         categoryButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryButton1ActionPerformed(evt);
             }
         });
 
-        categoryButton4.setText("jButton1");
+        categoryButton4.setText("category4");
         categoryButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryButton4ActionPerformed(evt);
             }
         });
 
-        categoryButton3.setText("jButton1");
+        categoryButton3.setText("category3");
         categoryButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryButton3ActionPerformed(evt);
@@ -118,18 +118,22 @@ public class categoryChooseGUI extends MainGUI {
 
     private void categoryButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton1ActionPerformed
         game.chooseCategory(categoryButton1.getText());
+        HandleGame();
     }//GEN-LAST:event_categoryButton1ActionPerformed
 
     private void categoryButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton2ActionPerformed
         game.chooseCategory(categoryButton2.getText());
+        HandleGame();
     }//GEN-LAST:event_categoryButton2ActionPerformed
 
     private void categoryButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton3ActionPerformed
         game.chooseCategory(categoryButton3.getText());
+        HandleGame();
     }//GEN-LAST:event_categoryButton3ActionPerformed
 
     private void categoryButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton4ActionPerformed
         game.chooseCategory(categoryButton4.getText());
+        HandleGame();
     }//GEN-LAST:event_categoryButton4ActionPerformed
 
     /**
@@ -137,11 +141,15 @@ public class categoryChooseGUI extends MainGUI {
      */
     public void HandleGame(){
         String type = game.getType();
+        MainGUI mg;
         if(type.equals("Bet")){
-            
+            mg = new betGUI();
         }
         else if(type.equals("CorrectAnswer")){
-            
+            mg = new correctAnswerGUI();
+        }
+        else if(type.equals("Thermometer")){
+            //-----TODO 
         }
         
         

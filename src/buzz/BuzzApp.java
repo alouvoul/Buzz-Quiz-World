@@ -8,6 +8,9 @@ package buzz;
 import GameRounds.Bet;
 import GameRounds.CorrectAnswer;
 import GameRounds.Round;
+import GameRounds.fastAnswer;
+import GameRounds.thermometer;
+import GameRounds.timer;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.System.exit;
@@ -31,9 +34,14 @@ public class BuzzApp {
     public static Locale language;
     RandomGenerate r = new RandomGenerate();
 
+    public static final boolean notSupported = false;
+    
     enum RoundEnum{
         CORRECT_ANSWER,
-        BET
+        BET,
+        TIMER,
+        THERMOMETER,
+        FAST_ANSWER
     }
     
     private Player[] players;
@@ -112,23 +120,35 @@ public class BuzzApp {
      */
     private void setCurrentRound() {
         Random random = new Random();
-        RoundEnum round = RoundEnum.values()[random.nextInt(2)];
-        
-        /*if(players.length>1){
-          //  /=============================================TODO===============================
+
+        if(notSupported){
+            System.out.println("setCurrentRound() needs some more CODE!!!");
         }
-        else{
-            
-        }*/
-        
-        if(round == RoundEnum.CORRECT_ANSWER){
-            type = new CorrectAnswer();
+        int player = getPlayers().length;
+        RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
+        boolean flag = true;
+        while(flag){
+            if(round == RoundEnum.CORRECT_ANSWER){
+                type = new CorrectAnswer();
+                flag = false;
+            }
+            else if(round == RoundEnum.BET){
+                type = new Bet();
+                flag = false;
+            }
+            else if(round == RoundEnum.FAST_ANSWER ){
+                
+                flag = false;
+            }
+            else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
+
+                flag = false;
+            }
+            else if (round == RoundEnum.TIMER && (player > 1)) { // Sets the game if there are 2 players
+
+                flag = false;
+            }
         }
-        else if(round == RoundEnum.BET)
-        {
-            type = new Bet();
-        }
-        
     }
     
     /**
@@ -231,6 +251,12 @@ public class BuzzApp {
             return "Bet";
         else if(type instanceof CorrectAnswer)
             return "CorrectAnswer";
+        else if(type instanceof fastAnswer)
+            return "Fast Answer";
+        else if(type instanceof timer)
+            return "Timer";
+        else if(type instanceof thermometer)
+            return "Thermometer";
         
         return null;
     }
