@@ -119,7 +119,7 @@ public class correctAnswerGUI extends roundsGeneralGUI {
     }//GEN-LAST:event_answerButton4ActionPerformed
 
     private void update(String answer){
-        boolean temp = result(answer);
+        //boolean temp = result(answer);
         //game.playerAnswer(answer, );
     }
     

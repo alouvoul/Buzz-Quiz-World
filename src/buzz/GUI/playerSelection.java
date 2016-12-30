@@ -133,12 +133,17 @@ public class playerSelection extends MainGUI {
                 names = new String[1];
                 names[0] = nameTextField1.getText();
             }
-            System.out.println(""+names[0]);
+            //System.out.println(""+names[0]);
             game.setPlayers(names);
+            try {
+                cg = new categoryChooseGUI();
+                cg.setEnabled(true);
+                cg.setVisible(true);
+            } catch (Exception e) {
+                
+                e.printStackTrace();
+            }
             
-            cg = new categoryChooseGUI();
-            cg.setEnabled(true);
-            cg.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_OKButtonActionPerformed

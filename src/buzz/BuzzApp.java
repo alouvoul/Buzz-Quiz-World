@@ -46,6 +46,7 @@ public class BuzzApp {
     }
     
     private final ArrayList<Player> players;
+    private Player currentPlayer;
     private int currentCategory;
     private final ArrayList<QuestionCategory> questions;
     private boolean categoriesUsed[];
@@ -98,11 +99,11 @@ public class BuzzApp {
      * Check if player's answer is correct and is about bet round.
      * 
      * @param playerAnswer the answer of the player
-     * @param i player number in the array
+     * @param temp
      * @param pointsToBet set how many points to bet
      * @return if answer is correct or not
      */
-    public boolean playerAnswer(String playerAnswer, int i, int pointsToBet){
+    public boolean playerAnswer(String playerAnswer, Player temp, int pointsToBet){
         boolean flag = false;
         int tempScore=-1;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
@@ -112,7 +113,7 @@ public class BuzzApp {
         }
         type.setPoints(pointsToBet);
         tempScore = type.calculate(flag);
-        players.get(i).SetScore(tempScore);
+        temp.SetScore(tempScore);
         return flag;
     }
     
@@ -271,6 +272,13 @@ public class BuzzApp {
      */
     public void setLocale(String lang){
         language = new Locale(lang);
+    }
+    
+    public void setCurrentPlayer(Player pl){
+        currentPlayer = pl;
+    }
+    public Player getCurrentPlayer(){
+        return currentPlayer;
     }
    
 }

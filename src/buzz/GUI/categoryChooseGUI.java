@@ -5,8 +5,10 @@
  */
 package buzz.GUI;
 
+import buzz.Player;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -19,7 +21,7 @@ import javax.swing.JLabel;
  */
 public class categoryChooseGUI extends MainGUI {
 
-    
+    //private ArrayList<Player> pl;
     private roundsGeneralGUI mg;
     /**
      * Creates new form categoryChooseGUI
@@ -142,7 +144,7 @@ public class categoryChooseGUI extends MainGUI {
      * Method to handle game, set type game, then ask questions to the user.
      */
     public void HandleGame(){
-        System.out.println("mpika11111");
+        //System.out.println("mpika11111");
         //game.setCurrentRound();
         String type = game.getType();
         boolean testing = true;
@@ -171,13 +173,20 @@ public class categoryChooseGUI extends MainGUI {
         } catch (IOException ex) {
             Logger.getLogger(categoryChooseGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        int num = 0;
         String[] categories = game.getQuestionCategories();
         categoryButton1.setText(categories[0]);
         categoryButton2.setText(categories[1]);
         categoryButton3.setText(categories[2]);
         categoryButton4.setText(categories[3]);
-        
-        playerTurnToChooseLabel.setText("Is your turn to choose category:");
+        int i=0;
+        if(i>=game.getPlayers().size())
+            i=0;
+        else if(game.getPlayers().size()>1)
+            i++;
+        game.setCurrentPlayer(game.getPlayers().get(i));
+        playerTurnToChooseLabel.setText(game.getCurrentPlayer().GetName()+" choose category for next round:");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

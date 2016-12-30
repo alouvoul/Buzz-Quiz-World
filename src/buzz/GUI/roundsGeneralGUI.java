@@ -13,6 +13,7 @@ import buzz.Question;
  */
 public class roundsGeneralGUI extends MainGUI {
     Question q;
+    
     /**
      * Creates new form roundsGeneralGUI
      */
@@ -64,14 +65,15 @@ public class roundsGeneralGUI extends MainGUI {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    protected boolean result(String answer){
-        boolean res = false;
-        if(q.getCorrectAnswer().equals(answer)){
-            res = true;
-        }
-        return res;
-    }
     
+    protected void setCurrentPlayer(){
+        int i=0;
+        if(i>=game.getPlayers().size())
+            i=0;
+        else if(game.getPlayers().size()>1)
+            i++;
+        game.setCurrentPlayer(game.getPlayers().get(i));
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

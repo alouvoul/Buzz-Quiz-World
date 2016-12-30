@@ -5,6 +5,8 @@
  */
 package buzz.GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alouvoul
@@ -17,7 +19,11 @@ public class betGUI extends roundsGeneralGUI{
     public betGUI() {
         super();
         initComponents();
-        setQuestions();
+        
+        for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
+            setQuestions();
+        }
+        
     }
 
     /**
@@ -123,22 +129,44 @@ public class betGUI extends roundsGeneralGUI{
     }//GEN-LAST:event_answerButton2ActionPerformed
 
     private void update(String answer){
-        boolean temp = result(answer);
-        game.playerAnswer(answer, WIDTH, PROPERTIES);
+        //boolean temp = result(answer);
+        int bet = bettingMethod();
+        game.playerAnswer(answer, game.getCurrentPlayer(), bet);
     }
     
     public void setQuestions(){
-        
-        q = game.play();
-        String[] temp = q.getAnswers();
-        
-        questionLabel.setText(q.getQuestion());
-        answerButton1.setText(temp[0]);
-        answerButton2.setText(temp[1]);
-        answerButton3.setText(temp[2]);
-        answerButton4.setText(temp[3]);
+        setCurrentPlayer();
+        int bet = bettingMethod();
+        if(bet>0){
+            q = game.play();
+            String[] temp = q.getAnswers();
+            System.out.println("setQuiestions");
+            questionLabel.setText(q.getQuestion());
+            answerButton1.setText(temp[0]);
+            answerButton2.setText(temp[1]);
+            answerButton3.setText(temp[2]);
+            answerButton4.setText(temp[3]);
+        }
     }
 
+    private int bettingMethod() {
+        Object[] possibilities = {"250", "500", "750","1000"};
+        String s = (String)JOptionPane.showInputDialog(this,game.getCurrentPlayer().GetName()+" how many points would you like to bet?",
+                    "Customized Dialog",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    possibilities,
+                    "ham");
+
+        //If a string was returned, say so.
+        if ((s != null) && (s.length() > 0)) {
+            int bet = Integer.parseInt(s);
+            return bet;
+        }
+
+        return 0;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton answerButton1;
     private javax.swing.JButton answerButton2;
@@ -147,4 +175,6 @@ public class betGUI extends roundsGeneralGUI{
     private javax.swing.JPopupMenu betMenu;
     private javax.swing.JLabel questionLabel;
     // End of variables declaration//GEN-END:variables
+
+
 }
