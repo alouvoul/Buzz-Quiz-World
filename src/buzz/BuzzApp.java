@@ -82,16 +82,16 @@ public class BuzzApp {
      * Check if player's answer is correct.
      * 
      * @param playerAnswer the answer of the player
-     * @param i number of the player
+     * @param temp
      * @return if answer is correct or not
      */
-    public boolean playerAnswer(String playerAnswer, int i){
+    public boolean playerAnswer(String playerAnswer, Player temp){
         boolean flag = false;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
         }
         int tempScore = type.calculate(flag);
-        players.get(i).SetScore(tempScore);
+        temp.SetScore(tempScore);
         return flag;
     }
     

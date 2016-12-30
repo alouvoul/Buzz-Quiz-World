@@ -5,22 +5,27 @@
  */
 package buzz.GUI;
 
+import buzz.Configurations;
 import buzz.Player;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.security.auth.login.Configuration;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import static sun.misc.GThreadHelper.lock;
 
 /**
  *
  * @author alouvoul
  */
 public class categoryChooseGUI extends MainGUI {
-
+private static Object lock = new Object();
     //private ArrayList<Player> pl;
     private roundsGeneralGUI mg;
     /**
@@ -122,52 +127,100 @@ public class categoryChooseGUI extends MainGUI {
 
     private void categoryButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton1ActionPerformed
         game.chooseCategory(categoryButton1.getText());
-        HandleGame();
+        try {
+            HandleGame();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(categoryChooseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_categoryButton1ActionPerformed
 
     private void categoryButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton2ActionPerformed
         game.chooseCategory(categoryButton2.getText());
-        HandleGame();
+        try {
+            HandleGame();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(categoryChooseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_categoryButton2ActionPerformed
 
     private void categoryButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton3ActionPerformed
-        game.chooseCategory(categoryButton3.getText());
-        HandleGame();
+        try {
+            game.chooseCategory(categoryButton3.getText());
+            HandleGame();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(categoryChooseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_categoryButton3ActionPerformed
 
     private void categoryButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryButton4ActionPerformed
-        game.chooseCategory(categoryButton4.getText());
-        HandleGame();
+        try {
+            game.chooseCategory(categoryButton4.getText());
+            HandleGame();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(categoryChooseGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_categoryButton4ActionPerformed
 
     /**
      * Method to handle game, set type game, then ask questions to the user.
      */
-    public void HandleGame(){
+    public void HandleGame() throws InterruptedException{
         //System.out.println("mpika11111");
         //game.setCurrentRound();
         //for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
             String type = game.getType();
             boolean testing = true;
-            if(testing || type.equals("Bet")&& false){
+            if(testing || false && type.equals("Bet")){
                 System.out.println("mpika1");
 
                 mg = new betGUI();
                 mg.setEnabled(true);
                 mg.setVisible(true);
                 
-                this.dispose();
+                //this.dispose();
             }
-            else if(type.equals("CorrectAnswer") && false){
-                System.out.println("mpika12");
+            else if(testing || type.equals("CorrectAnswer") && false){
+                if(Configurations.DEBUG)
+                    System.out.println("correctAnswer");
                 mg = new correctAnswerGUI();
+                mg.setEnabled(true);
+                mg.setVisible(true);
             }
             else if(type.equals("Thermometer") && false){
                 System.out.println("mpika123");
                 //-----TODO 
             }
             
-            
+     /*   //================================================================
+        Thread t = new Thread() {
+        @Override
+        public void run() {
+                synchronized(lock) {
+                    while (mg.isVisible())
+                        try {
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    System.out.println("Working now");
+                }
+            }
+        };
+        t.start();
+
+        mg.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent arg0) {
+                synchronized (lock) {
+                    mg.setVisible(false);
+                    lock.notify();
+                }
+            }
+
+        });
+
+        t.join();
+    */ //=/===============================================================
 
         //}
     }

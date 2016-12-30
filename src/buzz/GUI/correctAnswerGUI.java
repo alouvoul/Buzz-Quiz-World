@@ -5,17 +5,23 @@
  */
 package buzz.GUI;
 
+import static buzz.GUI.MainGUI.game;
+import buzz.Player;
+import java.util.ArrayList;
+
 /**
  *
  * @author alouvoul
  */
 public class correctAnswerGUI extends roundsGeneralGUI {
-
+    int i = 0;
     /**
      * Creates new form correctAnswerGUI
      */
     public correctAnswerGUI() {
+        super();
         initComponents();
+        iteration();
     }
 
     /**
@@ -32,6 +38,8 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         answerButton3 = new javax.swing.JButton();
         answerButton4 = new javax.swing.JButton();
         questionLabel = new javax.swing.JLabel();
+        name1 = new javax.swing.JTextField();
+        name2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,30 +73,45 @@ public class correctAnswerGUI extends roundsGeneralGUI {
 
         questionLabel.setText("jLabel1");
 
+        name1.setText("name1:score1");
+
+        name2.setText("name1:score2");
+        name2.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 12, Short.MAX_VALUE)
                         .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(name1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                            .addComponent(name2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(answerButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(answerButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(answerButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                        .addGap(348, 348, 348))))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(answerButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addComponent(answerButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(answerButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
+                .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(answerButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(answerButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,25 +126,25 @@ public class correctAnswerGUI extends roundsGeneralGUI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
-        
+        update(answerButton1.getText());
+        iteration();
     }//GEN-LAST:event_answerButton1ActionPerformed
 
     private void answerButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton2ActionPerformed
-        // TODO add your handling code here:
+        update(answerButton2.getText());
+        iteration();
     }//GEN-LAST:event_answerButton2ActionPerformed
 
     private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
-        // TODO add your handling code here:
+        update(answerButton3.getText());
+        iteration();
     }//GEN-LAST:event_answerButton3ActionPerformed
 
     private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
-        // TODO add your handling code here:
+        update(answerButton4.getText());
+        iteration();
     }//GEN-LAST:event_answerButton4ActionPerformed
 
-    private void update(String answer){
-        //boolean temp = result(answer);
-        //game.playerAnswer(answer, );
-    }
     
     public void setQuestions(){
         
@@ -135,11 +158,49 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         answerButton4.setText(temp[3]);
     }
 
+    private void iteration(){
+        
+        if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
+            setQuestions();
+        }
+        else
+            return ;
+        i++;
+    }
+    
+    private void update(String answer){
+        game.playerAnswer(answer, game.getCurrentPlayer());
+        
+        ArrayList<Player> pl = game.getPlayers();
+        name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
+        if(pl.size()==2){
+            name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
+        }
+        //this.dispose();
+    }
+    
+    public void setQuestions(int bet){
+        setCurrentPlayer();
+        //int bet = bettingMethod();
+        if(bet>0){
+            q = game.play();
+            String[] temp = q.getAnswers();
+            System.out.println("setQuestions");
+            questionLabel.setText(q.getQuestion());
+            answerButton1.setText(temp[0]);
+            answerButton2.setText(temp[1]);
+            answerButton3.setText(temp[2]);
+            answerButton4.setText(temp[3]);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton answerButton1;
     private javax.swing.JButton answerButton2;
     private javax.swing.JButton answerButton3;
     private javax.swing.JButton answerButton4;
+    private javax.swing.JTextField name1;
+    private javax.swing.JTextField name2;
     private javax.swing.JLabel questionLabel;
     // End of variables declaration//GEN-END:variables
 }
