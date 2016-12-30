@@ -21,6 +21,8 @@ public class correctAnswerGUI extends roundsGeneralGUI {
     public correctAnswerGUI() {
         super();
         initComponents();
+        if(game.getPlayers().size()>1)
+            name2.setVisible(true);
         iteration();
     }
 

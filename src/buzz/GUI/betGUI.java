@@ -22,6 +22,8 @@ public class betGUI extends roundsGeneralGUI{
     public betGUI() {
         super();
         initComponents();
+        if(game.getPlayers().size()>1)
+            name2.setVisible(true);
         iteration();
     }
 
