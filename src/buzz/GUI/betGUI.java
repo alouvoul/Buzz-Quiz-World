@@ -12,17 +12,15 @@ import javax.swing.JOptionPane;
  * @author alouvoul
  */
 public class betGUI extends roundsGeneralGUI{
-
+    int bet;
+    int i=0;
     /**
      * Creates new form betGUI
      */
     public betGUI() {
         super();
         initComponents();
-        
-        for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
-            setQuestions();
-        }
+        iteration();
         
     }
 
@@ -114,33 +112,47 @@ public class betGUI extends roundsGeneralGUI{
 
     private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
         update(answerButton1.getText());
+        iteration();
     }//GEN-LAST:event_answerButton1ActionPerformed
 
     private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
         update(answerButton2.getText());
+        iteration();
     }//GEN-LAST:event_answerButton3ActionPerformed
 
     private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
         update(answerButton3.getText());
+        iteration();
     }//GEN-LAST:event_answerButton4ActionPerformed
 
     private void answerButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton2ActionPerformed
         update(answerButton4.getText());
+        iteration();
     }//GEN-LAST:event_answerButton2ActionPerformed
 
+    private void iteration(){
+        
+        if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
+            bet = bettingMethod();
+            setQuestions(bet);
+        }
+        else
+            return;
+        i++;
+        
+    }
     private void update(String answer){
-        //boolean temp = result(answer);
-        int bet = bettingMethod();
         game.playerAnswer(answer, game.getCurrentPlayer(), bet);
+        //this.dispose();
     }
     
-    public void setQuestions(){
+    public void setQuestions(int bet){
         setCurrentPlayer();
-        int bet = bettingMethod();
+        //int bet = bettingMethod();
         if(bet>0){
             q = game.play();
             String[] temp = q.getAnswers();
-            System.out.println("setQuiestions");
+            System.out.println("setQuestions");
             questionLabel.setText(q.getQuestion());
             answerButton1.setText(temp[0]);
             answerButton2.setText(temp[1]);
@@ -151,19 +163,20 @@ public class betGUI extends roundsGeneralGUI{
 
     private int bettingMethod() {
         Object[] possibilities = {"250", "500", "750","1000"};
+        this.setVisible(false);
         String s = (String)JOptionPane.showInputDialog(this,game.getCurrentPlayer().GetName()+" how many points would you like to bet?",
                     "Customized Dialog",
                     JOptionPane.PLAIN_MESSAGE,
                     null,
                     possibilities,
                     "ham");
-
+        this.setVisible(true);
         //If a string was returned, say so.
         if ((s != null) && (s.length() > 0)) {
             int bet = Integer.parseInt(s);
             return bet;
         }
-
+        System.out.println("178-->betGUI");
         return 0;
     }
     

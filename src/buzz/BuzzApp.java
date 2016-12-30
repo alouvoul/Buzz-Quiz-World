@@ -105,7 +105,7 @@ public class BuzzApp {
      */
     public boolean playerAnswer(String playerAnswer, Player temp, int pointsToBet){
         boolean flag = false;
-        int tempScore=-1;
+        int tempScore;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
             if(DEBUG)

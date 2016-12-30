@@ -146,25 +146,30 @@ public class categoryChooseGUI extends MainGUI {
     public void HandleGame(){
         //System.out.println("mpika11111");
         //game.setCurrentRound();
-        String type = game.getType();
-        boolean testing = true;
-        if(testing || type.equals("Bet")&& false){
-            System.out.println("mpika1");
-            mg = new betGUI();
-            mg.setEnabled(true);
-            mg.setVisible(true);
-            this.dispose();
-        }
-        else if(type.equals("CorrectAnswer") && false){
-            System.out.println("mpika12");
-            mg = new correctAnswerGUI();
-        }
-        else if(type.equals("Thermometer") && false){
-            System.out.println("mpika123");
-            //-----TODO 
-        }
-        
-        
+        //for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
+            String type = game.getType();
+            boolean testing = true;
+            if(testing || type.equals("Bet")&& false){
+                System.out.println("mpika1");
+
+                mg = new betGUI();
+                mg.setEnabled(true);
+                mg.setVisible(true);
+                
+                this.dispose();
+            }
+            else if(type.equals("CorrectAnswer") && false){
+                System.out.println("mpika12");
+                mg = new correctAnswerGUI();
+            }
+            else if(type.equals("Thermometer") && false){
+                System.out.println("mpika123");
+                //-----TODO 
+            }
+            
+            
+
+        //}
     }
             
     private void initialCode(){
