@@ -32,7 +32,7 @@ public class playerSelection extends MainGUI {
             Logger.getLogger(playerSelection.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
-        //nameTextField2.setVisible(false);
+        //nameTextField2.setVisible(true);
     }
 
     /**
@@ -152,7 +152,6 @@ public class playerSelection extends MainGUI {
                 
                 e.printStackTrace();
             }
-            
             this.dispose();
         }
     }//GEN-LAST:event_OKButtonActionPerformed

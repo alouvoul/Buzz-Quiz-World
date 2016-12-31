@@ -68,7 +68,7 @@ public class BuzzApp {
      * 
      * @return random question
      */
-    public Question play(){
+    public Question getNextQuestion(){
         Random r = new Random();
         if(DEBUG)
             System.out.println("play() prints currentCategorynumber-->"+questions.size());
@@ -85,13 +85,13 @@ public class BuzzApp {
      * @param temp
      * @return if answer is correct or not
      */
-    public boolean playerAnswer(String playerAnswer, Player temp){
+    public boolean playerAnswer(String playerAnswer, int temp){
         boolean flag = false;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
         }
         int tempScore = type.calculate(flag);
-        temp.SetScore(tempScore);
+        players.get(temp).SetScore(tempScore);
         return flag;
     }
     

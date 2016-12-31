@@ -250,7 +250,7 @@ public class betGUI extends roundsGeneralGUI{
         setCurrentPlayer();
         //int bet = bettingMethod();
         if(bet>0){
-            q = game.play();
+            q = game.getNextQuestion();
             String[] temp = q.getAnswers();
             System.out.println("setQuestions");
             questionLabel.setText(q.getQuestion());

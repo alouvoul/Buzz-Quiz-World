@@ -164,7 +164,7 @@ private static Object lock = new Object();
         //for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
             String type = game.getType();
             boolean testing = true;
-            if(testing || false && type.equals("Bet")){
+            if( false && type.equals("Bet")){
                 System.out.println("mpika1");
 
                 mg = new betGUI();
@@ -185,38 +185,6 @@ private static Object lock = new Object();
                 //-----TODO 
             }
             
-     /*   //================================================================
-        Thread t = new Thread() {
-        @Override
-        public void run() {
-                synchronized(lock) {
-                    while (mg.isVisible())
-                        try {
-                            lock.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    System.out.println("Working now");
-                }
-            }
-        };
-        t.start();
-
-        mg.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent arg0) {
-                synchronized (lock) {
-                    mg.setVisible(false);
-                    lock.notify();
-                }
-            }
-
-        });
-
-        t.join();
-    */ //=/===============================================================
-
-        //}
     }
             
     private void initialCode(){

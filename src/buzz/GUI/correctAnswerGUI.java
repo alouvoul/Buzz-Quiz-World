@@ -16,14 +16,20 @@ import java.util.ArrayList;
  */
 public class correctAnswerGUI extends roundsGeneralGUI {
     int i = 0;
+    boolean answered[] = new boolean[2];
     /**
      * Creates new form correctAnswerGUI
      */
     public correctAnswerGUI() {
         super();
+        
         initComponents();
-        if(game.getPlayers().size()>1)
+        if(game.getPlayers().size()>1){
+            name2.setEnabled(true);
             name2.setVisible(true);
+        }
+            
+            
         iteration();
     }
 
@@ -96,8 +102,10 @@ public class correctAnswerGUI extends roundsGeneralGUI {
 
         questionLabel.setText("jLabel1");
 
+        name1.setEditable(false);
         name1.setText("name1:score1");
 
+        name2.setEditable(false);
         name2.setText("name1:score2");
         name2.setEnabled(false);
 
@@ -148,65 +156,73 @@ public class correctAnswerGUI extends roundsGeneralGUI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
-        update(answerButton3.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton3.getText(),0);
+            iteration();
+        }
     }//GEN-LAST:event_answerButton3ActionPerformed
 
     private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
-        update(answerButton1.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton1.getText(),0);
+            iteration();
+        }
     }//GEN-LAST:event_answerButton1ActionPerformed
 
     private void answerButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton2ActionPerformed
-        update(answerButton2.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton2.getText(),0);
+            iteration();
+        }
     }//GEN-LAST:event_answerButton2ActionPerformed
 
     private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
-        update(answerButton4.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton4.getText(),0);
+            iteration();
+        }
     }//GEN-LAST:event_answerButton4ActionPerformed
 
     private void answerButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_1){
-            update(answerButton1.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[0]){
+            update(answerButton1.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1){
-            update(answerButton1.getText());
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[1]){
+            update(answerButton1.getText(),1);
         }
     }//GEN-LAST:event_answerButton1KeyPressed
 
     private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_2){
-            update(answerButton2.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[0]){
+            update(answerButton2.getText(),1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2){
-            update(answerButton2.getText());
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[1]){
+            update(answerButton2.getText(),0);
         }
     }//GEN-LAST:event_answerButton2KeyPressed
 
     private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_3){
-            update(answerButton3.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[0]){
+            update(answerButton3.getText(),1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3){
-            update(answerButton3.getText());
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[1]){
+            update(answerButton3.getText(),1);
         }
     }//GEN-LAST:event_answerButton3KeyPressed
 
     private void answerButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton4KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_4){
-            update(answerButton4.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[0]){
+            update(answerButton4.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4){
-            update(answerButton4.getText());
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[1]){
+            update(answerButton4.getText(),1);
         }
     }//GEN-LAST:event_answerButton4KeyPressed
 
     
     public void setQuestions(){
         
-        q = game.play();
+        q = game.getNextQuestion();
         String[] temp = q.getAnswers();
         
         questionLabel.setText(q.getQuestion());
@@ -226,22 +242,22 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         i++;
     }
     
-    private void update(String answer){
-        game.playerAnswer(answer, game.getCurrentPlayer());
-        
+    private void update(String answer,int i){
+        game.playerAnswer(answer, i);
+        answered[i] = true;
         ArrayList<Player> pl = game.getPlayers();
         name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
         if(pl.size()==2){
             name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
         }
-        //this.dispose();
+        
     }
     
     public void setQuestions(int bet){
         setCurrentPlayer();
         //int bet = bettingMethod();
         if(bet>0){
-            q = game.play();
+            q = game.getNextQuestion();
             String[] temp = q.getAnswers();
             System.out.println("setQuestions");
             questionLabel.setText(q.getQuestion());
