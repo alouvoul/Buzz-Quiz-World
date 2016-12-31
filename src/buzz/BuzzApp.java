@@ -35,7 +35,6 @@ public class BuzzApp {
     RandomGenerate r = new RandomGenerate();
 
     public static final boolean notSupported = false;
-    public static final boolean DEBUG = true;
     
     enum RoundEnum{
         CORRECT_ANSWER,
@@ -70,7 +69,7 @@ public class BuzzApp {
      */
     public Question getNextQuestion(){
         Random r = new Random();
-        if(DEBUG)
+        if(Configurations.DEBUG)
             System.out.println("play() prints currentCategorynumber-->"+questions.size());
         int question = r.nextInt(questions.get(currentCategory).getQuestions().size());
         tempQuestion = questions.get(currentCategory).getQuestions().get(question);
@@ -108,7 +107,7 @@ public class BuzzApp {
         int tempScore;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
             flag = true;
-            if(DEBUG)
+            if(Configurations.DEBUG)
                 System.out.println("Debug1");
         }
         type.setPoints(pointsToBet);
@@ -122,13 +121,13 @@ public class BuzzApp {
      */
     private void setCurrentRound() {
         Random random = new Random();
-        if(DEBUG)
+        if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->");
         if(notSupported){
             System.out.println("setCurrentRound() needs some more CODE!!!");
         }
         int player = getPlayers().size();
-        if(DEBUG)
+        if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->2");
         RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
         
@@ -193,8 +192,8 @@ public class BuzzApp {
      * choose player from this list.
      */
     public void InitializeQuestions() throws IOException{
-        File folder = new File("./questions/"+language.getLanguage());
-        if(DEBUG)
+        File folder = new File(Configurations.pathToCategories);
+        if(Configurations.DEBUG)
             System.out.println("InitilizeQuestions() method="+ folder.getPath()+"Language-->"+language.getLanguage());
         
         if (folder==null) {
@@ -229,9 +228,9 @@ public class BuzzApp {
         for (int i = 0; i < playerNames.length; i++) {
             Player temp = new Player(playerNames[i]);
             players.add(temp);
-            if(DEBUG)
+            if(Configurations.DEBUG)
                 System.out.println("setPlayers-->BuzzApp = "+ playerNames[i]);
-            if(DEBUG)
+            if(Configurations.DEBUG)
                 System.out.println("setPlayers()-->"+players.get(i).GetName());
         }
     }

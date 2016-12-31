@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 public class categoryChooseGUI extends MainGUI {
 private static Object lock = new Object();
     //private ArrayList<Player> pl;
-    private roundsGeneralGUI mg;
+    private MainGUI mg;
     /**
      * Creates new form categoryChooseGUI
      */
@@ -206,7 +206,7 @@ private static Object lock = new Object();
         else if(game.getPlayers().size()>1)
             i++;
         game.setCurrentPlayer(game.getPlayers().get(i));
-        playerTurnToChooseLabel.setText(game.getCurrentPlayer().GetName()+" choose category for next round:");
+        playerTurnToChooseLabel.setText(game.getCurrentPlayer().GetName()+Configurations.categoryChoose);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

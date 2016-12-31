@@ -19,10 +19,53 @@ public class Configurations {
     public static final int NUMBER_ROUNDS = 5;
     public static final int QUESTIONS_PER_ROUNDS = 6;
     public static Locale language;
-
+    
+    //Language selection window
+    public static String chooseLanguage = "Select your language:";
+    
+    /*
+     *  player selection window   
+    */
+    public static String playersSum = " How many players?";
+    public static String playerError = "You have to choose a name!";
+    public static String player1 = "1 player";
+    public static String player2 = "2 players";
+    
+    /*
+     *  Category choose messages  
+    */
+    public static String categoryChoose = " choose category for next round:";
+    
+    /*
+    **  Bet window messages
+    */
+    public static String playerTurn = " is your turn to play";
+    public static String betMessage = " How many points would you like to bet?";
+    
+    
+    public static String pathToCategories;
+    
+    
+            
     public Configurations() {
         
     }
     
+    public static void init(){
+        if(language.getLanguage().equals("el-gr")){
+            playerTurn = " είναι η σειρά σου να παίξεις";
+            betMessage = " πόσους πόντους θα ήθελες να στοιχιματίσεις?";
+            playersSum = "Πόσοι παίκτες θα παίξουν?";
+            player1 = "1 παίκτης";
+            player2 = "2 παίκτες";
+            categoryChoose = " διάλεξε κατηγρία για τον επόμενο γύρο";
+        }
+        pathToCategories = "./questions/"+language.getLanguage();
+        
+    }
+    
+    public static void setLanguage(String lang){
+        language = new Locale(lang);
+    }
     
 }

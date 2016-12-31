@@ -42,13 +42,13 @@
           <Group type="102" attributes="0">
               <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="englishButton" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                       <Component id="greekButton" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="204" max="32767" attributes="0"/>
+              <EmptySpace pref="178" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

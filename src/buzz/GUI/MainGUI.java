@@ -6,6 +6,7 @@
 package buzz.GUI;
 
 import buzz.BuzzApp;
+import buzz.Configurations;
 import java.io.IOException;
 
 /**
@@ -14,6 +15,7 @@ import java.io.IOException;
  */
 public class MainGUI extends javax.swing.JFrame {
     protected static BuzzApp game;
+    Configurations cf = new Configurations();
     /**
      * Creates new form MainGUI
      */
@@ -21,8 +23,9 @@ public class MainGUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    protected void InitializeGame() throws IOException{
+    protected static void InitializeGame() throws IOException{
         game = new BuzzApp();
+        Configurations.init();
     }
     /**
      * This method is called from within the constructor to initialize the form.

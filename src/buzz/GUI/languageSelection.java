@@ -5,6 +5,7 @@
  */
 package buzz.GUI;
 
+import buzz.Configurations;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -81,8 +82,8 @@ public class languageSelection extends MainGUI{
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(englishButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(greekButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(204, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,8 +117,10 @@ public class languageSelection extends MainGUI{
     }//GEN-LAST:event_englishButtonActionPerformed
 
     private void changeScreen(String lang) throws IOException{
+        Configurations.setLanguage(lang);
         InitializeGame(); //!!!!Initialize game variable
         game.setLocale(lang);
+        
         ps = new playerSelection();
         ps.setEnabled(true);
         ps.setVisible(true);

@@ -7,6 +7,7 @@ package buzz.GUI;
 
 import static buzz.GUI.MainGUI.game;
 import buzz.Player;
+import buzz.Question;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -14,9 +15,10 @@ import java.util.ArrayList;
  *
  * @author alouvoul
  */
-public class correctAnswerGUI extends roundsGeneralGUI {
+public class correctAnswerGUI extends MainGUI {
     int i = 0;
     boolean answered[] = new boolean[2];
+    Question q ;
     /**
      * Creates new form correctAnswerGUI
      */
@@ -224,7 +226,6 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         
         q = game.getNextQuestion();
         String[] temp = q.getAnswers();
-        
         questionLabel.setText(q.getQuestion());
         answerButton3.setText(temp[0]);
         answerButton1.setText(temp[1]);
@@ -253,20 +254,8 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         
     }
     
-    public void setQuestions(int bet){
-        setCurrentPlayer();
-        //int bet = bettingMethod();
-        if(bet>0){
-            q = game.getNextQuestion();
-            String[] temp = q.getAnswers();
-            System.out.println("setQuestions");
-            questionLabel.setText(q.getQuestion());
-            answerButton3.setText(temp[0]);
-            answerButton1.setText(temp[1]);
-            answerButton2.setText(temp[2]);
-            answerButton4.setText(temp[3]);
-        }
-    }
+
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton answerButton1;

@@ -5,7 +5,9 @@
  */
 package buzz.GUI;
 
+import buzz.Configurations;
 import buzz.Player;
+import buzz.Question;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -14,9 +16,11 @@ import javax.swing.JOptionPane;
  *
  * @author alouvoul
  */
-public class betGUI extends roundsGeneralGUI{
+public class betGUI extends MainGUI{
     int bet;
     int i=0;
+    Player tempPlayer;
+    Question q;
     //int players = 0;
     /**
      * Creates new form betGUI
@@ -248,7 +252,6 @@ public class betGUI extends roundsGeneralGUI{
     
     public void setQuestions(int bet){
         setCurrentPlayer();
-        //int bet = bettingMethod();
         if(bet>0){
             q = game.getNextQuestion();
             String[] temp = q.getAnswers();
@@ -264,7 +267,7 @@ public class betGUI extends roundsGeneralGUI{
     private int bettingMethod() {
         Object[] possibilities = {"250", "500", "750","1000"};
         this.setVisible(false);
-        String s = (String)JOptionPane.showInputDialog(this,game.getCurrentPlayer().GetName()+" how many points would you like to bet?",
+        String s = (String)JOptionPane.showInputDialog(this,game.getCurrentPlayer().GetName()+Configurations.betMessage,
                     "Customized Dialog",
                     JOptionPane.PLAIN_MESSAGE,
                     null,
@@ -289,6 +292,11 @@ public class betGUI extends roundsGeneralGUI{
     private javax.swing.JTextField name2;
     private javax.swing.JLabel questionLabel;
     // End of variables declaration//GEN-END:variables
+
+    private void setCurrentPlayer() {
+        ArrayList<Player> players = game.getPlayers();
+        tempPlayer = game.getPlayers().get(i%2);
+    }
 
 
 }
