@@ -7,6 +7,7 @@ package buzz.GUI;
 
 import static buzz.GUI.MainGUI.game;
 import buzz.Player;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 /**
@@ -35,9 +36,9 @@ public class correctAnswerGUI extends roundsGeneralGUI {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        answerButton3 = new javax.swing.JButton();
         answerButton1 = new javax.swing.JButton();
         answerButton2 = new javax.swing.JButton();
-        answerButton3 = new javax.swing.JButton();
         answerButton4 = new javax.swing.JButton();
         questionLabel = new javax.swing.JLabel();
         name1 = new javax.swing.JTextField();
@@ -45,10 +46,27 @@ public class correctAnswerGUI extends roundsGeneralGUI {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        answerButton3.setText("answer");
+        answerButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerButton3ActionPerformed(evt);
+            }
+        });
+        answerButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton3KeyPressed(evt);
+            }
+        });
+
         answerButton1.setText("answer");
         answerButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton1ActionPerformed(evt);
+            }
+        });
+        answerButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton1KeyPressed(evt);
             }
         });
 
@@ -58,11 +76,9 @@ public class correctAnswerGUI extends roundsGeneralGUI {
                 answerButton2ActionPerformed(evt);
             }
         });
-
-        answerButton3.setText("answer");
-        answerButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton3ActionPerformed(evt);
+        answerButton2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton2KeyPressed(evt);
             }
         });
 
@@ -70,6 +86,11 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         answerButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton4ActionPerformed(evt);
+            }
+        });
+        answerButton4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton4KeyPressed(evt);
             }
         });
 
@@ -96,11 +117,10 @@ public class correctAnswerGUI extends roundsGeneralGUI {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(answerButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                .addComponent(answerButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(answerButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(answerButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(answerButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(answerButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -114,11 +134,11 @@ public class correctAnswerGUI extends roundsGeneralGUI {
                     .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(answerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(answerButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(answerButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(answerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(answerButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77))
@@ -126,6 +146,11 @@ public class correctAnswerGUI extends roundsGeneralGUI {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
+        update(answerButton3.getText());
+        iteration();
+    }//GEN-LAST:event_answerButton3ActionPerformed
 
     private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
         update(answerButton1.getText());
@@ -137,15 +162,46 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         iteration();
     }//GEN-LAST:event_answerButton2ActionPerformed
 
-    private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
-        update(answerButton3.getText());
-        iteration();
-    }//GEN-LAST:event_answerButton3ActionPerformed
-
     private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
         update(answerButton4.getText());
         iteration();
     }//GEN-LAST:event_answerButton4ActionPerformed
+
+    private void answerButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_1){
+            update(answerButton1.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1){
+            update(answerButton1.getText());
+        }
+    }//GEN-LAST:event_answerButton1KeyPressed
+
+    private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_2){
+            update(answerButton2.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2){
+            update(answerButton2.getText());
+        }
+    }//GEN-LAST:event_answerButton2KeyPressed
+
+    private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_3){
+            update(answerButton3.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3){
+            update(answerButton3.getText());
+        }
+    }//GEN-LAST:event_answerButton3KeyPressed
+
+    private void answerButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton4KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_4){
+            update(answerButton4.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4){
+            update(answerButton4.getText());
+        }
+    }//GEN-LAST:event_answerButton4KeyPressed
 
     
     public void setQuestions(){
@@ -154,9 +210,9 @@ public class correctAnswerGUI extends roundsGeneralGUI {
         String[] temp = q.getAnswers();
         
         questionLabel.setText(q.getQuestion());
-        answerButton1.setText(temp[0]);
-        answerButton2.setText(temp[1]);
-        answerButton3.setText(temp[2]);
+        answerButton3.setText(temp[0]);
+        answerButton1.setText(temp[1]);
+        answerButton2.setText(temp[2]);
         answerButton4.setText(temp[3]);
     }
 
@@ -189,9 +245,9 @@ public class correctAnswerGUI extends roundsGeneralGUI {
             String[] temp = q.getAnswers();
             System.out.println("setQuestions");
             questionLabel.setText(q.getQuestion());
-            answerButton1.setText(temp[0]);
-            answerButton2.setText(temp[1]);
-            answerButton3.setText(temp[2]);
+            answerButton3.setText(temp[0]);
+            answerButton1.setText(temp[1]);
+            answerButton2.setText(temp[2]);
             answerButton4.setText(temp[3]);
         }
     }

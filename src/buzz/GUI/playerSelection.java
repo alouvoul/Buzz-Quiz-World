@@ -50,6 +50,7 @@ public class playerSelection extends MainGUI {
         OKButton = new javax.swing.JButton();
         onePlayerRadioButton = new javax.swing.JRadioButton();
         twoPlayerRadioButton = new javax.swing.JRadioButton();
+        scoreButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +78,8 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        scoreButton.setText("scores");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,7 +95,11 @@ public class playerSelection extends MainGUI {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(twoPlayerRadioButton)
                     .addComponent(onePlayerRadioButton))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scoreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +116,9 @@ public class playerSelection extends MainGUI {
                 .addComponent(nameTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(OKButton)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(scoreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -165,6 +174,7 @@ public class playerSelection extends MainGUI {
     private javax.swing.JTextField nameTextField1;
     private javax.swing.JTextField nameTextField2;
     private javax.swing.JRadioButton onePlayerRadioButton;
+    private javax.swing.JButton scoreButton;
     private javax.swing.JRadioButton twoPlayerRadioButton;
     // End of variables declaration//GEN-END:variables
 }

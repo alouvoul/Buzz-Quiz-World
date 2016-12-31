@@ -6,6 +6,7 @@
 package buzz.GUI;
 
 import buzz.Player;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,14 +17,19 @@ import javax.swing.JOptionPane;
 public class betGUI extends roundsGeneralGUI{
     int bet;
     int i=0;
+    //int players = 0;
     /**
      * Creates new form betGUI
      */
     public betGUI() {
         super();
         initComponents();
-        if(game.getPlayers().size()>1)
+        name1.setText(game.getPlayers().get(0).GetName()+": "+game.getPlayers().get(0).GetScore());
+        if(game.getPlayers().size()>1){
+            name2.setEnabled(true);
             name2.setVisible(true);
+            name2.setText(game.getPlayers().get(1).GetName()+": "+game.getPlayers().get(1).GetScore());
+        }
         iteration();
     }
 
@@ -52,11 +58,21 @@ public class betGUI extends roundsGeneralGUI{
                 answerButton1ActionPerformed(evt);
             }
         });
+        answerButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton1KeyPressed(evt);
+            }
+        });
 
         answerButton3.setText("answer");
         answerButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton3ActionPerformed(evt);
+            }
+        });
+        answerButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton3KeyPressed(evt);
             }
         });
 
@@ -66,6 +82,11 @@ public class betGUI extends roundsGeneralGUI{
                 answerButton4ActionPerformed(evt);
             }
         });
+        answerButton4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton4KeyPressed(evt);
+            }
+        });
 
         answerButton2.setText("answer");
         answerButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +94,18 @@ public class betGUI extends roundsGeneralGUI{
                 answerButton2ActionPerformed(evt);
             }
         });
+        answerButton2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                answerButton2KeyPressed(evt);
+            }
+        });
 
         questionLabel.setText("jLabel1");
 
+        name1.setEditable(false);
         name1.setText("name1:score1");
 
+        name2.setEditable(false);
         name2.setText("name1:score2");
         name2.setEnabled(false);
 
@@ -130,24 +158,73 @@ public class betGUI extends roundsGeneralGUI{
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
-        update(answerButton1.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton1.getText());
+            iteration();
+        }
+        
     }//GEN-LAST:event_answerButton1ActionPerformed
 
     private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
-        update(answerButton2.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton2.getText());
+            iteration();
+        }
     }//GEN-LAST:event_answerButton3ActionPerformed
 
     private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
-        update(answerButton3.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton3.getText());
+            iteration();
+        }
     }//GEN-LAST:event_answerButton4ActionPerformed
 
     private void answerButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton2ActionPerformed
-        update(answerButton4.getText());
-        iteration();
+        if(game.getPlayers().size()==1){
+            update(answerButton4.getText());
+            iteration();
+        }
     }//GEN-LAST:event_answerButton2ActionPerformed
+
+    private void answerButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_1){
+            update(answerButton1.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1){
+            update(answerButton1.getText());
+        }
+        iteration();
+    }//GEN-LAST:event_answerButton1KeyPressed
+
+    private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_2){
+            update(answerButton2.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2){
+            update(answerButton2.getText());
+        }
+        iteration();
+    }//GEN-LAST:event_answerButton2KeyPressed
+
+    private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_3){
+            update(answerButton3.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3){
+            update(answerButton3.getText());
+        }
+        iteration();
+    }//GEN-LAST:event_answerButton3KeyPressed
+
+    private void answerButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton4KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_4){
+            update(answerButton4.getText());
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4){
+            update(answerButton4.getText());
+        }
+        iteration();
+    }//GEN-LAST:event_answerButton4KeyPressed
 
     private void iteration(){
         
@@ -158,7 +235,6 @@ public class betGUI extends roundsGeneralGUI{
         else
             return ;
         i++;
-        
     }
     private void update(String answer){
         game.playerAnswer(answer, game.getCurrentPlayer(), bet);
@@ -200,7 +276,7 @@ public class betGUI extends roundsGeneralGUI{
             int bet = Integer.parseInt(s);
             return bet;
         }
-        System.out.println("178-->betGUI");
+        
         return 0;
     }
     

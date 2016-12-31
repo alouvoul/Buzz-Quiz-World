@@ -37,9 +37,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="answerButton1" pref="250" max="32767" attributes="0"/>
-                          <Component id="answerButton3" alignment="1" pref="250" max="32767" attributes="0"/>
-                          <Component id="answerButton2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="answerButton3" pref="250" max="32767" attributes="0"/>
+                          <Component id="answerButton2" alignment="1" pref="250" max="32767" attributes="0"/>
+                          <Component id="answerButton1" alignment="0" max="32767" attributes="0"/>
                           <Component id="answerButton4" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -60,11 +60,11 @@
                   <Component id="questionLabel" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="56" max="32767" attributes="0"/>
+              <Component id="answerButton1" min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="answerButton2" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="answerButton3" min="-2" pref="43" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="answerButton1" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="answerButton4" min="-2" pref="43" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
@@ -73,12 +73,22 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="answerButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="answer"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton3ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton3KeyPressed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="answerButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="answer"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton1ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton1KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="answerButton2">
@@ -87,14 +97,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton2ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="answerButton3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="answer"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton3ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton2KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="answerButton4">
@@ -103,6 +106,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton4ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton4KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="questionLabel">

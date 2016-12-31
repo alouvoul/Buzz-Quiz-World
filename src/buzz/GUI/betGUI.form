@@ -84,6 +84,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton1ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton1KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="answerButton3">
@@ -92,6 +93,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton3ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton3KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="answerButton4">
@@ -100,6 +102,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton4ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton4KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="answerButton2">
@@ -108,6 +111,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerButton2ActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="answerButton2KeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="questionLabel">
@@ -117,11 +121,13 @@
     </Component>
     <Component class="javax.swing.JTextField" name="name1">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="name1:score1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="name2">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="text" type="java.lang.String" value="name1:score2"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>

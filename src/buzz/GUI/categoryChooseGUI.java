@@ -6,19 +6,13 @@
 package buzz.GUI;
 
 import buzz.Configurations;
-import buzz.Player;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.security.auth.login.Configuration;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import static sun.misc.GThreadHelper.lock;
 
 /**
  *
