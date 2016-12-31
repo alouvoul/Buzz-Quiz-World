@@ -21,12 +21,14 @@ public class betGUI extends MainGUI{
     int i=0;
     Player tempPlayer;
     Question q;
+    categoryChooseGUI cc;
     //int players = 0;
     /**
      * Creates new form betGUI
      */
-    public betGUI() {
+    public betGUI(categoryChooseGUI cc) {
         super();
+        this.cc = cc;
         initComponents();
         name1.setText(game.getPlayers().get(0).GetName()+": "+game.getPlayers().get(0).GetScore());
         if(game.getPlayers().size()>1){
@@ -236,8 +238,12 @@ public class betGUI extends MainGUI{
             bet = bettingMethod();
             setQuestions(bet);
         }
-        else
-            return ;
+        else{
+            cc.setEnabled(true);
+            cc.setVisible(true);
+            this.dispose();
+        }
+        //return ;
         i++;
     }
     private void update(String answer){

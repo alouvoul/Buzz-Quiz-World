@@ -33,9 +33,10 @@ public class playerSelection extends MainGUI {
             Logger.getLogger(playerSelection.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
-        jLabel1.setText(cf.playersSum);
+        jLabel1.setText(Configurations.playersSum);
         onePlayerRadioButton.setText(Configurations.player1);
         twoPlayerRadioButton.setText(Configurations.player2);
+        scoreButton.setText(Configurations.scoreMessage);
         //nameTextField2.setVisible(true);
     }
 
@@ -132,9 +133,9 @@ public class playerSelection extends MainGUI {
         String name1 = nameTextField1.getText();
         String name2 = nameTextField2.getText();
         if(twoPlayerRadioButton.isSelected() && name2.equals(""))
-            JOptionPane.showMessageDialog(this,cf.playerError);
+            JOptionPane.showMessageDialog(this,Configurations.playerError);
         else if(name1.equals("") || name1.equals(name2))
-            JOptionPane.showMessageDialog(this,cf.playerError);
+            JOptionPane.showMessageDialog(this,Configurations.playerError);
         else{
             String names[];
             if(twoPlayerRadioButton.isSelected()){

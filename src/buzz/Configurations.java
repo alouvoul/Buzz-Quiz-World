@@ -30,6 +30,8 @@ public class Configurations {
     public static String playerError = "You have to choose a name!";
     public static String player1 = "1 player";
     public static String player2 = "2 players";
+    public static String scoreMessage = "Scores";
+    
     
     /*
      *  Category choose messages  
@@ -59,6 +61,7 @@ public class Configurations {
             player1 = "1 παίκτης";
             player2 = "2 παίκτες";
             categoryChoose = " διάλεξε κατηγρία για τον επόμενο γύρο";
+            scoreMessage = "Σκορ";
         }
         pathToCategories = "./questions/"+language.getLanguage();
         

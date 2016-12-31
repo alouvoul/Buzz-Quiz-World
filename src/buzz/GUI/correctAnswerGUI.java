@@ -19,19 +19,19 @@ public class correctAnswerGUI extends MainGUI {
     int i = 0;
     boolean answered[] = new boolean[2];
     Question q ;
+    categoryChooseGUI previous;
     /**
      * Creates new form correctAnswerGUI
      */
-    public correctAnswerGUI() {
+    public correctAnswerGUI(categoryChooseGUI previous) {
         super();
-        
+        this.previous = previous;
         initComponents();
         if(game.getPlayers().size()>1){
             name2.setEnabled(true);
             name2.setVisible(true);
         }
-            
-            
+
         iteration();
     }
 
@@ -192,20 +192,21 @@ public class correctAnswerGUI extends MainGUI {
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[1]){
             update(answerButton1.getText(),1);
         }
+        
     }//GEN-LAST:event_answerButton1KeyPressed
 
     private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[0]){
-            update(answerButton2.getText(),1);
+            update(answerButton2.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[1]){
-            update(answerButton2.getText(),0);
+            update(answerButton2.getText(),1);
         }
     }//GEN-LAST:event_answerButton2KeyPressed
 
     private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[0]){
-            update(answerButton3.getText(),1);
+            update(answerButton3.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[1]){
             update(answerButton3.getText(),1);
@@ -231,6 +232,8 @@ public class correctAnswerGUI extends MainGUI {
         answerButton1.setText(temp[1]);
         answerButton2.setText(temp[2]);
         answerButton4.setText(temp[3]);
+        answered[0] = false;
+        answered[1] = false;
     }
 
     private void iteration(){
@@ -238,20 +241,27 @@ public class correctAnswerGUI extends MainGUI {
         if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
             setQuestions();
         }
-        else
-            return ;
+        else{
+            previous.setEnabled(true);
+            previous.setVisible(true);
+            this.dispose();
+        }
         i++;
     }
     
     private void update(String answer,int i){
-        game.playerAnswer(answer, i);
+        boolean flagAnswer = false;
+        if(answer.equals(q.getCorrectAnswer()))
+            flagAnswer = true;
+        game.playerAnswer(flagAnswer, i);
         answered[i] = true;
         ArrayList<Player> pl = game.getPlayers();
         name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
         if(pl.size()==2){
             name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
         }
-        
+        if(answered[0] &&  answered[1])
+            iteration();
     }
     
 

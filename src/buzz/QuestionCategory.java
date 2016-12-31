@@ -12,7 +12,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -78,7 +77,7 @@ public class QuestionCategory {
      */
     public void setQuestions(){
         RandomGenerate random = new RandomGenerate();
-        File folder = new File("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory);
+        File folder = new File(Configurations.pathToCategories+"/"+questionCategory);
         File[] listOfFiles = folder.listFiles();
         int[] swappedQuestion = random.generateRandoms(0, listOfFiles.length);
         for(int i=0; i<BuzzApp.QUESTIONS_PER_ROUNDS;i++){
@@ -86,7 +85,7 @@ public class QuestionCategory {
             BufferedReader in = null;
             try {
                 Question tempQuestion = new Question();
-                in = new BufferedReader(new FileReader("./questions/"+BuzzApp.language.getLanguage()+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
+                in = new BufferedReader(new FileReader(Configurations.pathToCategories+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
                 String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
                 int j=0;
                 line[j] = in.readLine();

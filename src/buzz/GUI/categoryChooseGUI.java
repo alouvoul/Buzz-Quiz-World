@@ -164,26 +164,26 @@ private static Object lock = new Object();
         //for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
             String type = game.getType();
             boolean testing = true;
-            if( false && type.equals("Bet")){
+            if(type.equals("Bet")){
                 System.out.println("mpika1");
 
-                mg = new betGUI();
+                mg = new betGUI(this);
                 mg.setEnabled(true);
                 mg.setVisible(true);
                 
                 //this.dispose();
             }
-            else if(testing || type.equals("CorrectAnswer") && false){
+            else if( type.equals("CorrectAnswer") && false){
                 if(Configurations.DEBUG)
                     System.out.println("correctAnswer");
-                mg = new correctAnswerGUI();
+                mg = new correctAnswerGUI(this);
                 mg.setEnabled(true);
                 mg.setVisible(true);
             }
-            else if(type.equals("Thermometer") && false){
+            /*else if(type.equals("Thermometer") && false){
                 System.out.println("mpika123");
                 //-----TODO 
-            }
+            }*/
             
     }
             

@@ -80,18 +80,18 @@ public class BuzzApp {
     /**
      * Check if player's answer is correct.
      * 
-     * @param playerAnswer the answer of the player
+     * @param answer
      * @param temp
      * @return if answer is correct or not
      */
-    public boolean playerAnswer(String playerAnswer, int temp){
-        boolean flag = false;
-        if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
-            flag = true;
-        }
-        int tempScore = type.calculate(flag);
+    public boolean playerAnswer(boolean answer, int temp){
+//        boolean flag = false;
+//        if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
+//            flag = true;
+//        }
+        int tempScore = type.calculate(answer);
         players.get(temp).SetScore(tempScore);
-        return flag;
+        return answer;
     }
     
     /**
@@ -207,8 +207,6 @@ public class BuzzApp {
                 for (int i = 0; i < listOfFiles.length; i++) {
                     c = new QuestionCategory(listOfFiles[i].getName());
                     if (listOfFiles[i].isDirectory()) {
-                        //System.out.println("Directory " + listOfFiles[i].getName());
-                        //c.setQuestionCategory(listOfFiles[i].getName());
                         questions.add(c);
                     }
                 }
