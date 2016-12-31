@@ -46,6 +46,7 @@ public class Configurations {
     
     
     public static String pathToCategories;
+    public static String PATH_TO_IMAGES = "./questions/"+"images/";
     
     
             

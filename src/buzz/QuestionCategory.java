@@ -86,7 +86,7 @@ public class QuestionCategory {
             try {
                 Question tempQuestion = new Question();
                 in = new BufferedReader(new FileReader(Configurations.pathToCategories+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
-                String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3];
+                String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3+1];
                 int j=0;
                 line[j] = in.readLine();
                 while(line[j] != null)
@@ -94,7 +94,8 @@ public class QuestionCategory {
                     //System.out.println(line[j]);
                     j++;
                     line[j] = in.readLine();
-                }   in.close();
+                }   
+                in.close();
                 /*
                 Set questions and answers for Question object.
                 */
@@ -102,9 +103,12 @@ public class QuestionCategory {
                 String []answerOrder = random.generateRandoms(0, BuzzApp.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
                 tempQuestion.setAnswers(answerOrder);
                 tempQuestion.setCorrectAnswer(line[5]);
-                // if(!line[6].equals(""))
-                // tempQuestion.setHasImage(line[6]);
+                if(j==7){
+                    System.out.println("Image selection");
+                    tempQuestion.setHasImage(line[6]);
+                }
                 questions.add(tempQuestion);
+                
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(QuestionCategory.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("Read Question for a"+questionCategory+ "category problem");

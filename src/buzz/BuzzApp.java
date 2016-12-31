@@ -203,15 +203,18 @@ public class BuzzApp {
         else{
             File[] listOfFiles = folder.listFiles();
             try {
+                
                 QuestionCategory c;
                 for (int i = 0; i < listOfFiles.length; i++) {
+                    if(Configurations.DEBUG)
+                        System.out.println(listOfFiles[i]);
                     c = new QuestionCategory(listOfFiles[i].getName());
                     if (listOfFiles[i].isDirectory()) {
                         questions.add(c);
                     }
                 }
             } catch(Exception e){ 
-                System.out.println("Initialize Question Problem");
+                System.out.println("Initialize Question Problem" );
             }
         }        
     }

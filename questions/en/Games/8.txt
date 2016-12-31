@@ -3,4 +3,5 @@ MMORPG
 MMOFPS
 Singleplayer
 Strategy
-MMORPG 
+MMORPG
+Dishonored.png
