@@ -195,46 +195,51 @@ public class betGUI extends MainGUI{
     private void answerButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_1){
             update(answerButton1.getText());
+            iteration();
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1){
             update(answerButton1.getText());
         }
-        iteration();
+        
     }//GEN-LAST:event_answerButton1KeyPressed
 
     private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_2){
             update(answerButton2.getText());
+            iteration();
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2){
             update(answerButton2.getText());
         }
-        iteration();
+        
     }//GEN-LAST:event_answerButton2KeyPressed
 
     private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_3){
             update(answerButton3.getText());
+            iteration();
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3){
             update(answerButton3.getText());
         }
-        iteration();
+        
     }//GEN-LAST:event_answerButton3KeyPressed
 
     private void answerButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton4KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_4){
             update(answerButton4.getText());
+            iteration();
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4){
             update(answerButton4.getText());
         }
-        iteration();
+        
     }//GEN-LAST:event_answerButton4KeyPressed
 
     private void iteration(){
         
         if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
+            setCurrentPlayer();
             bet = bettingMethod();
             setQuestions(bet);
         }
@@ -243,7 +248,6 @@ public class betGUI extends MainGUI{
             cc.setVisible(true);
             this.dispose();
         }
-        //return ;
         i++;
     }
     private void update(String answer){
@@ -253,11 +257,11 @@ public class betGUI extends MainGUI{
         if(pl.size()==2){
             name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
         }
-        //this.dispose();
+        
     }
     
     public void setQuestions(int bet){
-        setCurrentPlayer();
+        
         if(bet>0){
             q = game.getNextQuestion();
             String[] temp = q.getAnswers();
@@ -273,7 +277,7 @@ public class betGUI extends MainGUI{
     private int bettingMethod() {
         Object[] possibilities = {"250", "500", "750","1000"};
         this.setVisible(false);
-        String s = (String)JOptionPane.showInputDialog(this,game.getCurrentPlayer().GetName()+Configurations.betMessage,
+        String s = (String)JOptionPane.showInputDialog(this,tempPlayer.GetName()+Configurations.betMessage,
                     "Customized Dialog",
                     JOptionPane.PLAIN_MESSAGE,
                     null,
