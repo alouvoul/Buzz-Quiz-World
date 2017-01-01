@@ -129,6 +129,7 @@ public class BuzzApp {
         int player = getPlayers().size();
         if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->2");
+        
         RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
         
             if(round == RoundEnum.CORRECT_ANSWER){
@@ -137,13 +138,13 @@ public class BuzzApp {
             else if(round == RoundEnum.BET){
                 type = new Bet();
             }
-            else if(round == RoundEnum.FAST_ANSWER ){
+            else if(round == RoundEnum.TIMER ){
                 type = new fastAnswer();
             }
             else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
                 type = new thermometer();
             }
-            else if (round == RoundEnum.TIMER && (player > 1)) { // Sets the game if there are 2 players
+            else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
                 type = new timer();
             }
             
