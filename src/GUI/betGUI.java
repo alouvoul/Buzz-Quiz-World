@@ -75,16 +75,16 @@ public class betGUI extends MainGUI{
         imagePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         answerButton1.setText("answer");
         answerButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton1ActionPerformed(evt);
-            }
-        });
-        answerButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton1KeyPressed(evt);
             }
         });
 
@@ -94,11 +94,6 @@ public class betGUI extends MainGUI{
                 answerButton3ActionPerformed(evt);
             }
         });
-        answerButton3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton3KeyPressed(evt);
-            }
-        });
 
         answerButton4.setText("answer");
         answerButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -106,21 +101,11 @@ public class betGUI extends MainGUI{
                 answerButton4ActionPerformed(evt);
             }
         });
-        answerButton4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton4KeyPressed(evt);
-            }
-        });
 
         answerButton2.setText("answer");
         answerButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton2ActionPerformed(evt);
-            }
-        });
-        answerButton2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton2KeyPressed(evt);
             }
         });
 
@@ -228,7 +213,7 @@ public class betGUI extends MainGUI{
         }
     }//GEN-LAST:event_answerButton2ActionPerformed
 
-    private void answerButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton1KeyPressed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_1 ){
             update(answerButton1.getText(),PLAYER1);
             iteration();
@@ -237,9 +222,6 @@ public class betGUI extends MainGUI{
             update(answerButton1.getText(),PLAYER2);
             iteration();
         }
-    }//GEN-LAST:event_answerButton1KeyPressed
-
-    private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_2){
             update(answerButton2.getText(), PLAYER1);
             iteration();
@@ -248,10 +230,6 @@ public class betGUI extends MainGUI{
             update(answerButton2.getText(),PLAYER2);
             iteration();
         }
-        
-    }//GEN-LAST:event_answerButton2KeyPressed
-
-    private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_3){
             update(answerButton3.getText(),PLAYER1);
             iteration();
@@ -260,10 +238,6 @@ public class betGUI extends MainGUI{
             update(answerButton3.getText(),PLAYER2);
             iteration();
         }
-        
-    }//GEN-LAST:event_answerButton3KeyPressed
-
-    private void answerButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton4KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_4){
             update(answerButton4.getText(),PLAYER1);
             iteration();
@@ -272,8 +246,7 @@ public class betGUI extends MainGUI{
             update(answerButton4.getText(),PLAYER2);
             iteration();
         }
-        
-    }//GEN-LAST:event_answerButton4KeyPressed
+    }//GEN-LAST:event_formKeyPressed
 
     private void iteration(){
         
@@ -296,7 +269,6 @@ public class betGUI extends MainGUI{
         if(pl.size()==2){
             name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
         }
-        
     }
     
     public void setQuestions(int bet){

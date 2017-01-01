@@ -53,16 +53,16 @@ public class correctAnswerGUI extends MainGUI {
         name2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         answerButton3.setText("answer");
         answerButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton3ActionPerformed(evt);
-            }
-        });
-        answerButton3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton3KeyPressed(evt);
             }
         });
 
@@ -72,11 +72,6 @@ public class correctAnswerGUI extends MainGUI {
                 answerButton1ActionPerformed(evt);
             }
         });
-        answerButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton1KeyPressed(evt);
-            }
-        });
 
         answerButton2.setText("answer");
         answerButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,21 +79,11 @@ public class correctAnswerGUI extends MainGUI {
                 answerButton2ActionPerformed(evt);
             }
         });
-        answerButton2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton2KeyPressed(evt);
-            }
-        });
 
         answerButton4.setText("answer");
         answerButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answerButton4ActionPerformed(evt);
-            }
-        });
-        answerButton4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                answerButton4KeyPressed(evt);
             }
         });
 
@@ -129,8 +114,8 @@ public class correctAnswerGUI extends MainGUI {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(answerButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                             .addComponent(answerButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(answerButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -185,42 +170,32 @@ public class correctAnswerGUI extends MainGUI {
         }
     }//GEN-LAST:event_answerButton4ActionPerformed
 
-    private void answerButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton1KeyPressed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[0]){
             update(answerButton1.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[1]){
             update(answerButton1.getText(),1);
         }
-        
-    }//GEN-LAST:event_answerButton1KeyPressed
-
-    private void answerButton2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton2KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[0]){
             update(answerButton2.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[1]){
             update(answerButton2.getText(),1);
         }
-    }//GEN-LAST:event_answerButton2KeyPressed
-
-    private void answerButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton3KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[0]){
             update(answerButton3.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[1]){
             update(answerButton3.getText(),1);
         }
-    }//GEN-LAST:event_answerButton3KeyPressed
-
-    private void answerButton4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_answerButton4KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[0]){
             update(answerButton4.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[1]){
             update(answerButton4.getText(),1);
         }
-    }//GEN-LAST:event_answerButton4KeyPressed
+    }//GEN-LAST:event_formKeyPressed
 
     
     public void setQuestions(){

@@ -162,7 +162,7 @@ public class categoryChooseGUI extends MainGUI {
         if(numberOfIterations<Configurations.NUMBER_ROUNDS){
             String type = game.getType();
             boolean testing = true;
-            if(type.equals("Bet")){
+            if(type.equals("Bet")&& false){
                 System.out.println("mpika1");
 
                 mg = new betGUI(this);
@@ -180,10 +180,15 @@ public class categoryChooseGUI extends MainGUI {
                 
                 this.dispose();
             }
-            /*else if(type.equals("Thermometer") && false){
-                System.out.println("mpika123");
-                //-----TODO 
-            }*/
+            else if(type.equals("Timer") ||true){
+                if(Configurations.DEBUG)
+                    System.out.println(" categoryChoose -->Timer");
+                mg = new timerGUI(this);
+                mg.setEnabled(true);
+                mg.setVisible(true);
+                
+                this.dispose();
+            }
             numberOfIterations++;
         }
         else{
