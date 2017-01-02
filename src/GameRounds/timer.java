@@ -10,10 +10,13 @@ package GameRounds;
  * @author alouvoul
  */
 public class timer extends Round{
-
+    public static final float BET_MULTIPLY = (float) 0.2;
     @Override
     public int calculate(boolean answer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(answer)
+            return (int)(BET_MULTIPLY*points);
+        return 0;
     }
+    
     
 }

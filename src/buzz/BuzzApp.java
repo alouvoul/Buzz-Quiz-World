@@ -85,10 +85,6 @@ public class BuzzApp {
      * @return if answer is correct or not
      */
     public boolean playerAnswer(boolean answer, int temp){
-//        boolean flag = false;
-//        if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
-//            flag = true;
-//        }
         int tempScore = type.calculate(answer);
         players.get(temp).SetScore(tempScore);
         return answer;
@@ -117,6 +113,29 @@ public class BuzzApp {
     }
     
     /**
+     * This method claculates for timer game type
+     * 
+     * @param playerAnswer
+     * @param tempPlayer
+     * @param time
+     * @return 
+     */
+    public boolean playerAnswer(String playerAnswer, Player tempPlayer, float time){
+        boolean flag = false;
+        float tempScore;
+        if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
+            flag = true;
+            if(Configurations.DEBUG)
+                System.out.println("Debug1");
+        }
+        type.setPoints(time);
+        tempScore = type.calculate(flag);
+        tempPlayer.SetScore((int)tempScore);
+        return flag;
+    }
+    
+    
+    /**
      * Set values for the new round.
      */
     private void setCurrentRound() {
@@ -139,13 +158,13 @@ public class BuzzApp {
                 type = new Bet();
             }
             else if(round == RoundEnum.TIMER ){
-                type = new fastAnswer();
+                type = new timer();
             }
             else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
                 type = new thermometer();
             }
             else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
-                type = new timer();
+                type = new fastAnswer();
             }
             
     }
@@ -181,8 +200,7 @@ public class BuzzApp {
             for (int i = 0; i < randomQuestions.length; i++) {
                 randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
             }
-        } catch(Exception e)
-        {
+        } catch(Exception e){
             System.out.println("Problem BuzzApp-->getQuestionCategories");
         }
         return randomQuestions;
@@ -204,7 +222,6 @@ public class BuzzApp {
         else{
             File[] listOfFiles = folder.listFiles();
             try {
-                
                 QuestionCategory c;
                 for (int i = 0; i < listOfFiles.length; i++) {
                     if(Configurations.DEBUG)
@@ -264,6 +281,10 @@ public class BuzzApp {
             return "Timer";
         else if(type instanceof thermometer)
             return "Thermometer";
+        else{
+            System.out.println("Doesn't match a round type");
+            exit(0);
+        }
         return null;
     }
     
@@ -281,5 +302,4 @@ public class BuzzApp {
     public Player getCurrentPlayer(){
         return currentPlayer;
     }
-   
 }

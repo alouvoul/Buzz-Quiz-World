@@ -32,7 +32,7 @@ public class CorrectAnswer extends Round{
     @Override
     public int calculate(boolean answer) {
         if(answer){
-            return points;
+            return (int)points;
         }
         
         return 0;

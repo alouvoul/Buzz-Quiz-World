@@ -13,21 +13,21 @@ public class fastAnswer extends Round{
     private short position;
 
     public fastAnswer() {
-        position = 1;
+        position = 0;
     }
     
     @Override
     public int calculate(boolean answer) {
-        int points = 0;
+        //int points = 0;
         if(answer){
             points = 1000;
             position++;
-            if(position>=2){
+            if(position>2){
                 position = 1;
             }
         }
             
-        return points;
+        return (int)(points/position);
     }
     
 }

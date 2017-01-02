@@ -28,9 +28,9 @@ public class Bet extends Round{
     public int calculate(boolean answer) {
         int temp;
         if(answer)
-            temp = points;
+            temp = (int)points;
         else
-            temp=-points;
+            temp=-(int)points;
         
         return temp;
     }

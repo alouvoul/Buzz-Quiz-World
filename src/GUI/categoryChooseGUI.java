@@ -157,12 +157,10 @@ public class categoryChooseGUI extends MainGUI {
     private void HandleGame(String categoryChoosen) throws InterruptedException{
         game.chooseCategory(categoryChoosen);        
         
-        //game.setCurrentRound();
-        //for (int i = 0; i < buzz.BuzzApp.QUESTIONS_PER_ROUNDS; i++) {
         if(numberOfIterations<Configurations.NUMBER_ROUNDS){
             String type = game.getType();
-            boolean testing = true;
-            if(type.equals("Bet")&& false){
+            boolean testing = false;
+            if(testing & type.equals("Bet")){
                 System.out.println("mpika1");
 
                 mg = new betGUI(this);
@@ -171,7 +169,7 @@ public class categoryChooseGUI extends MainGUI {
                 
                 this.dispose();
             }
-            else if( type.equals("CorrectAnswer") && false){
+            else if(testing &  type.equals("CorrectAnswer")){
                 if(Configurations.DEBUG)
                     System.out.println("correctAnswer");
                 mg = new correctAnswerGUI(this);
@@ -180,7 +178,7 @@ public class categoryChooseGUI extends MainGUI {
                 
                 this.dispose();
             }
-            else if(type.equals("Timer") ||true){
+            else if(testing & type.equals("Timer")){
                 if(Configurations.DEBUG)
                     System.out.println(" categoryChoose -->Timer");
                 mg = new timerGUI(this);
@@ -188,6 +186,18 @@ public class categoryChooseGUI extends MainGUI {
                 mg.setVisible(true);
                 
                 this.dispose();
+            }
+            else if(true|type.equals("Fast Answer")){
+                if(Configurations.DEBUG)
+                    System.out.println(" categoryChoose -->Fast Answer");
+                mg = new fastAnswerGUI(this);
+                mg.setEnabled(true);
+                mg.setVisible(true);
+                
+                this.dispose();
+            }
+            else if(type.equals("Thermometer")){
+                
             }
             numberOfIterations++;
         }

@@ -16,7 +16,7 @@ import buzz.Question;
  */
 public abstract class Round {
     private Question question;
-    int points;
+    float points;
     int round;
     
     /**
@@ -30,6 +30,14 @@ public abstract class Round {
      * @param points 
      */
     public void setPoints(int points) {
+        this.points = points;
+    }
+    
+    /**
+     * Setter of points.
+     * @param points 
+     */
+    public void setPoints(float points) {
         this.points = points;
     }
     
@@ -48,7 +56,7 @@ public abstract class Round {
      */
     public int getPoints(String answer){
         if(question.getCorrectAnswer().equals(answer)){
-            return points;
+            return (int)points;
         }
         
         return 0;

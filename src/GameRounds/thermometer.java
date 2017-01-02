@@ -10,10 +10,15 @@ package GameRounds;
  * @author alouvoul
  */
 public class thermometer extends Round{
+    public static final int POINTS_BET = 5000;
+    public thermometer() {
+        points = POINTS_BET;
+    }
 
+    
     @Override
     public int calculate(boolean answer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 5000;
     }
     
 }
