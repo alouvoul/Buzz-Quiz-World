@@ -142,15 +142,14 @@ public class BuzzApp {
         Random random = new Random();
         if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->");
-        if(notSupported){
-            System.out.println("setCurrentRound() needs some more CODE!!!");
-        }
+        
         int player = getPlayers().size();
         if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->2");
         
         RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
-        
+        //if(Configurations.DEBUG)
+            //round = RoundEnum.FAST_ANSWER;
             if(round == RoundEnum.CORRECT_ANSWER){
                 type = new CorrectAnswer();
             }
@@ -165,6 +164,9 @@ public class BuzzApp {
             }
             else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
                 type = new fastAnswer();
+            }
+            else{   //Used for debugging
+                System.out.println("Cant find a game!!");
             }
             
     }

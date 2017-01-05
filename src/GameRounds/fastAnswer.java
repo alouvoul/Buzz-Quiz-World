@@ -19,15 +19,17 @@ public class fastAnswer extends Round{
     @Override
     public int calculate(boolean answer) {
         //int points = 0;
+        int temp = 0;
         if(answer){
             points = 1000;
             position++;
             if(position>2){
                 position = 1;
             }
+            temp = (int)(points/position);
         }
             
-        return (int)(points/position);
+        return temp;
     }
     
 }
