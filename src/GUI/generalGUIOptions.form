@@ -85,6 +85,7 @@
     <Component class="javax.swing.JButton" name="answerButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="answer"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
@@ -93,6 +94,7 @@
     <Component class="javax.swing.JButton" name="answerButton2">
       <Properties>
         <Property name="text" type="java.lang.String" value="answer"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
@@ -101,6 +103,7 @@
     <Component class="javax.swing.JButton" name="answerButton3">
       <Properties>
         <Property name="text" type="java.lang.String" value="answer"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
@@ -109,6 +112,7 @@
     <Component class="javax.swing.JButton" name="answerButton4">
       <Properties>
         <Property name="text" type="java.lang.String" value="answer"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>

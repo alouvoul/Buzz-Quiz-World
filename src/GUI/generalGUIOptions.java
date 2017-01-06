@@ -57,12 +57,16 @@ public class generalGUIOptions extends MainGUI {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         answerButton1.setText("answer");
+        answerButton1.setFocusable(false);
 
         answerButton2.setText("answer");
+        answerButton2.setFocusable(false);
 
         answerButton3.setText("answer");
+        answerButton3.setFocusable(false);
 
         answerButton4.setText("answer");
+        answerButton4.setFocusable(false);
 
         questionLabel.setText("jLabel1");
 
