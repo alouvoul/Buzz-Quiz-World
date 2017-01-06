@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 public class categoryChooseGUI extends MainGUI {
     int numberOfIterations = 0;
     private MainGUI mg;
+    int i=0;
     /**
      * Creates new form categoryChooseGUI
      */
@@ -206,6 +207,11 @@ public class categoryChooseGUI extends MainGUI {
                 this.dispose();
             }
             numberOfIterations++;
+            String[] categories = game.getQuestionCategories();
+            categoryButton1.setText(categories[0]);
+            categoryButton2.setText(categories[1]);
+            categoryButton3.setText(categories[2]);
+            categoryButton4.setText(categories[3]);
         }
         else{
             //----------TODO write score to file and close
@@ -220,13 +226,12 @@ public class categoryChooseGUI extends MainGUI {
             Logger.getLogger(categoryChooseGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        int num = 0;
         String[] categories = game.getQuestionCategories();
         categoryButton1.setText(categories[0]);
         categoryButton2.setText(categories[1]);
         categoryButton3.setText(categories[2]);
         categoryButton4.setText(categories[3]);
-        int i=0;
+        
         if(i>=game.getPlayers().size())
             i=0;
         else if(game.getPlayers().size()>1)

@@ -6,8 +6,10 @@
 package GUI;
 
 import static GUI.MainGUI.game;
+import buzz.Configurations;
 import buzz.Player;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +22,7 @@ public class generalGUIOptions extends MainGUI {
      */
     public generalGUIOptions() {
         initComponents();
+        JOptionPane.showMessageDialog(this,game.getType());
     }
 
     /**

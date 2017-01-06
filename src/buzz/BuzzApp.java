@@ -49,7 +49,8 @@ public class BuzzApp {
     private int currentCategory;
     private final ArrayList<QuestionCategory> questions;
     private boolean categoriesUsed[];
-    private int roundNumber = 0;
+    private int iterations = 0;
+    private int[] roundNumber;
     private Round type;
     private Question tempQuestion;
 
@@ -60,6 +61,7 @@ public class BuzzApp {
     public BuzzApp() throws IOException {
         questions = new ArrayList();
         players = new ArrayList();
+        roundNumber = r.generateRandoms(0, 5);
     }
    
     /**
@@ -147,29 +149,44 @@ public class BuzzApp {
         if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->2");
         
-        RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
-        //if(Configurations.DEBUG)
-        //    round = RoundEnum.CORRECT_ANSWER;
+        RoundEnum round;
+        boolean flag = true;
+                    //Sets round game different for game
+        do{
+            round = RoundEnum.values()[roundNumber[iterations]];
+            iterations++;
+            if(iterations>=RoundEnum.values().length)
+                iterations=0;
+            System.out.println(roundNumber[iterations]+"  "+iterations);
         
-        if(round == RoundEnum.CORRECT_ANSWER){
-            type = new CorrectAnswer();
-        }
-        else if(round == RoundEnum.BET){
-            type = new Bet();
-        }
-        else if(round == RoundEnum.TIMER ){
-            type = new timer();
-        }
-        else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
-            type = new thermometer();
-        }
-        else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
-            type = new fastAnswer();
-        }
-        else{   //Used for debugging
-            System.out.println("Cant find a game!!");
-        }
-            
+        
+            //if(Configurations.DEBUG)
+            //    round = RoundEnum.CORRECT_ANSWER;
+
+            if(round == RoundEnum.CORRECT_ANSWER){
+                type = new CorrectAnswer();
+                flag = false;
+            }
+            else if(round == RoundEnum.BET){
+                type = new Bet();
+                flag = false;
+            }
+            else if(round == RoundEnum.TIMER ){
+                type = new timer();
+                flag = false;
+            }
+            else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
+                type = new thermometer();
+                flag = false;
+            }
+            else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
+                type = new fastAnswer();
+                flag = false;
+            }
+            else{   //Used for debugging
+                System.out.println("Cant find a game!!");
+            }
+        }while(flag);
     }
     
     /**
@@ -195,13 +212,16 @@ public class BuzzApp {
      * @return only 4 question as the real game.
      */
     public String[] getQuestionCategories() {
-        // Random r = new Random();
         String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS]; // Default if 4 categories to choose
-        int[] random = r.generateRandoms(0,questions.size());
+        int[] random = r.generateRandoms(0,questions.size()-1);
 
         try {
+            int j=0;
             for (int i = 0; i < randomQuestions.length; i++) {
-                randomQuestions[i] = questions.get(random[i]).getQuestionCategory();
+                if(!questions.get(random[i]).getUsed()){
+                    randomQuestions[j] = questions.get(random[i]).getQuestionCategory();
+                    j++;
+                }
             }
         } catch(Exception e){
             System.out.println("Problem BuzzApp-->getQuestionCategories");
