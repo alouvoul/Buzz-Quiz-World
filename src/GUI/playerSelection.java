@@ -59,7 +59,13 @@ public class playerSelection extends MainGUI {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(600, 450));
+        setMinimumSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(600, 450));
+        setResizable(false);
 
+        jLabel1.setBackground(new java.awt.Color(12, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 255, 62));
         jLabel1.setText("How many players?");
 
         OKButton.setText("OK");
@@ -69,6 +75,7 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        onePlayerRadioButton.setForeground(new java.awt.Color(0, 255, 92));
         onePlayerRadioButton.setSelected(true);
         onePlayerRadioButton.setText("1 Player");
         onePlayerRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +84,7 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        twoPlayerRadioButton.setForeground(new java.awt.Color(0, 255, 105));
         twoPlayerRadioButton.setText("2 Players");
         twoPlayerRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
