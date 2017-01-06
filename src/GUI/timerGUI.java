@@ -77,16 +77,16 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton1.getText(),PLAYER1);
+            update(answerButton1.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton2.getText(),PLAYER1);
+            update(answerButton2.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton3.getText(),PLAYER1);
+            update(answerButton3.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton4.getText(),PLAYER1);
+            update(answerButton4.getText(),PLAYER1);
         }
         
         if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[PLAYER1]){
@@ -145,10 +145,11 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
 
     private void update(String answer, int player) {
         end = System.currentTimeMillis();
-        float points = (end-start)/1000;
-
+        int points = (int) (end-start);
+        if(Configurations.DEBUG)
+            System.out.println(points);
         game.playerAnswer(answer, player, points);
-        answered[player] = true;
+        answered[player] = false;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

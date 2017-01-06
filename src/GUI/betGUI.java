@@ -7,7 +7,6 @@ package GUI;
 
 import buzz.Configurations;
 import buzz.Player;
-import buzz.Question;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JComponent;

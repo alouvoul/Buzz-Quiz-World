@@ -122,7 +122,7 @@ public class BuzzApp {
      * @param time
      * @return 
      */
-    public boolean playerAnswer(String playerAnswer, int tempPlayer, float time){
+    public boolean playerAnswer(String playerAnswer, int tempPlayer, int time){
         boolean flag = false;
         float tempScore;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
