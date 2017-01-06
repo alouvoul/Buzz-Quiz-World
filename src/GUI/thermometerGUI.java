@@ -10,7 +10,6 @@ import static GUI.MainGUI.PLAYER2;
 import static GUI.MainGUI.game;
 import buzz.Configurations;
 import buzz.Player;
-import buzz.Question;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.Timer;
@@ -19,15 +18,13 @@ import javax.swing.Timer;
  *
  * @author alouvoul
  */
-public class thermometerGUI extends MainGUI {
-    private categoryChooseGUI previous;
+public class thermometerGUI extends generalGUIOptions {
     Timer timer;
-    boolean answered[] = new boolean[2];
     int[] playerWin;
-    Question q;
     int iterations = 0;
     /**
      * Creates new form thermometerGUI
+     * @param previous
      */
     public thermometerGUI(categoryChooseGUI previous) {
         super();
@@ -37,9 +34,13 @@ public class thermometerGUI extends MainGUI {
         this.previous = previous;
         initComponents();
         setQuestions();
-        answered[0] = false;
-        answered[1] = false;
         this.setFocusable(true);
+        name1.setText(game.getPlayers().get(0).GetName()+": "+game.getPlayers().get(0).GetScore());
+        if(game.getPlayers().size()>1){
+            name2.setEnabled(true);
+            name2.setVisible(true);
+            name2.setText(game.getPlayers().get(1).GetName()+": "+game.getPlayers().get(1).GetScore());
+        }
     }
 
     /**
@@ -131,6 +132,7 @@ public class thermometerGUI extends MainGUI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+
         if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[PLAYER1]){
             update(answerButton1.getText(),PLAYER1);
         }
@@ -160,9 +162,7 @@ public class thermometerGUI extends MainGUI {
     }//GEN-LAST:event_formKeyPressed
 
     private void update(String answer,int i){
-        //boolean flagAnswer = false;
         if(answer.equals(q.getCorrectAnswer()) && !answered[i]){
-            //flagAnswer = true;
             playerWin[i]++;
             answered[i] = true;
         }
@@ -171,7 +171,8 @@ public class thermometerGUI extends MainGUI {
             iteration();
     }
     
-    private void iteration(){
+    @Override
+    protected void iteration(){
         
         if(playerWin[0]< 5 && playerWin[1] < 5){
             setQuestions();
@@ -189,18 +190,7 @@ public class thermometerGUI extends MainGUI {
         iterations++;
     }
     
-    public void setQuestions(){
-        
-        q = game.getNextQuestion();
-        String[] temp = q.getAnswers();
-        questionLabel.setText(q.getQuestion());
-        answerButton3.setText(temp[0]);
-        answerButton1.setText(temp[1]);
-        answerButton2.setText(temp[2]);
-        answerButton4.setText(temp[3]);
-        answered[0] = false;
-        answered[1] = false;
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton answerButton1;

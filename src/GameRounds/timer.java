@@ -11,6 +11,7 @@ package GameRounds;
  */
 public class timer extends Round{
     public static final float BET_MULTIPLY = (float) 0.2;
+    
     @Override
     public int calculate(boolean answer) {
         if(answer)

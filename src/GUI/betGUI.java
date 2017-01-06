@@ -9,38 +9,26 @@ import buzz.Configurations;
 import buzz.Player;
 import buzz.Question;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
 
 /**
  *
  * @author alouvoul
  */
-public class betGUI extends MainGUI{
+public class betGUI extends generalGUIOptions{
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     int bet;
     int i=0;
     Player tempPlayer;
-    Question q;
-    categoryChooseGUI cc;
     
-    //int players = 0;
     /**
      * Creates new form betGUI
      */
     public betGUI(categoryChooseGUI cc) {
         super();
-        this.cc = cc;
+        previous = cc;
         initComponents();
         name1.setText(game.getPlayers().get(0).GetName()+": "+game.getPlayers().get(0).GetScore());
         if(game.getPlayers().size()>1){
@@ -50,10 +38,6 @@ public class betGUI extends MainGUI{
         }
         iteration();
         this.setFocusable(true);
-        answerButton1.setFocusable(true);
-        answerButton2.setFocusable(true);
-        answerButton3.setFocusable(true);
-        answerButton4.setFocusable(true);
     }
 
     /**
@@ -65,13 +49,6 @@ public class betGUI extends MainGUI{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        answerButton1 = new javax.swing.JButton();
-        answerButton3 = new javax.swing.JButton();
-        answerButton4 = new javax.swing.JButton();
-        answerButton2 = new javax.swing.JButton();
-        questionLabel = new javax.swing.JLabel();
-        name1 = new javax.swing.JTextField();
-        name2 = new javax.swing.JTextField();
         imagePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,43 +57,6 @@ public class betGUI extends MainGUI{
                 formKeyPressed(evt);
             }
         });
-
-        answerButton1.setText("answer");
-        answerButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton1ActionPerformed(evt);
-            }
-        });
-
-        answerButton3.setText("answer");
-        answerButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton3ActionPerformed(evt);
-            }
-        });
-
-        answerButton4.setText("answer");
-        answerButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton4ActionPerformed(evt);
-            }
-        });
-
-        answerButton2.setText("answer");
-        answerButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton2ActionPerformed(evt);
-            }
-        });
-
-        questionLabel.setText("jLabel1");
-
-        name1.setEditable(false);
-        name1.setText("name1:score1");
-
-        name2.setEditable(false);
-        name2.setText("name1:score2");
-        name2.setEnabled(false);
 
         imagePanel.setEnabled(false);
 
@@ -136,84 +76,35 @@ public class betGUI extends MainGUI{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(name1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                            .addComponent(name2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(answerButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(answerButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addContainerGap(294, Short.MAX_VALUE)
+                .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(answerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(answerButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(answerButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(answerButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(167, Short.MAX_VALUE)
+                .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton1.getText(),PLAYER1);
-            iteration();
-        }
-        
-    }//GEN-LAST:event_answerButton1ActionPerformed
-
-    private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton2.getText(),PLAYER1);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton3ActionPerformed
-
-    private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton3.getText(),PLAYER1);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton4ActionPerformed
-
-    private void answerButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton2ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton4.getText(),PLAYER1);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton2ActionPerformed
-
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton1.getText(),PLAYER1);
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton2.getText(),PLAYER1);
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton3.getText(),PLAYER1);
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton4.getText(),PLAYER1);
+        }        
+        
         if(evt.getKeyCode() == KeyEvent.VK_1 ){
             update(answerButton1.getText(),PLAYER1);
             iteration();
@@ -248,20 +139,21 @@ public class betGUI extends MainGUI{
         }
     }//GEN-LAST:event_formKeyPressed
 
-    private void iteration(){
+    protected void iteration(){
         
         if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
             setCurrentPlayer();
             bet = bettingMethod();
-            setQuestions(bet);
+            setQuestions();
         }
         else{
-            cc.setEnabled(true);
-            cc.setVisible(true);
+            previous.setEnabled(true);
+            previous.setVisible(true);
             this.dispose();
         }
         i++;
     }
+    
     private void update(String answer, int player){
         game.playerAnswer(answer, game.getCurrentPlayer() , bet);
         ArrayList<Player> pl = game.getPlayers();
@@ -271,7 +163,7 @@ public class betGUI extends MainGUI{
         }
     }
     
-    public void setQuestions(int bet){
+/*    public void setQuestions(int bet){
         
         if(bet>0){
             q = game.getNextQuestion();
@@ -295,25 +187,25 @@ public class betGUI extends MainGUI{
                 
             }
         }
-    }
+    }*/
 
     private int bettingMethod() {
         Object[] possibilities = {"250", "500", "750","1000"};
         this.setVisible(false);
-        String s = (String)JOptionPane.showInputDialog(this,tempPlayer.GetName()+Configurations.betMessage,
-                    "Customized Dialog",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    possibilities,
-                    "ham");
-        this.setVisible(true);
-        //If a string was returned, say so.
-        if ((s != null) && (s.length() > 0)) {
-            int bet = Integer.parseInt(s);
-            return bet;
+        while(true){
+            String s = (String)JOptionPane.showInputDialog(this,tempPlayer.GetName()+Configurations.betMessage,
+                        "Customized Dialog",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        possibilities,
+                        "ham");
+            this.setVisible(true);
+            //If a string was returned, say so.
+            if ((s != null) && (s.length() > 0)) {
+                int bet = Integer.parseInt(s);
+                return bet;
+            }
         }
-        
-        return 0;
     }
     
     private void setCurrentPlayer() {
@@ -321,14 +213,7 @@ public class betGUI extends MainGUI{
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton answerButton1;
-    private javax.swing.JButton answerButton2;
-    private javax.swing.JButton answerButton3;
-    private javax.swing.JButton answerButton4;
     private javax.swing.JPanel imagePanel;
-    private javax.swing.JTextField name1;
-    private javax.swing.JTextField name2;
-    private javax.swing.JLabel questionLabel;
     // End of variables declaration//GEN-END:variables
 
 }

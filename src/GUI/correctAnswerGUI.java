@@ -6,32 +6,29 @@
 package GUI;
 
 import static GUI.MainGUI.game;
-import buzz.Player;
-import buzz.Question;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 /**
  *
  * @author alouvoul
  */
-public class correctAnswerGUI extends MainGUI {
-    int i = 0;
-    boolean answered[] = new boolean[2];
-    Question q ;
-    categoryChooseGUI previous;
+public class correctAnswerGUI extends generalGUIOptions {
+    
     /**
      * Creates new form correctAnswerGUI
+     * @param previous
      */
     public correctAnswerGUI(categoryChooseGUI previous) {
         super();
         this.previous = previous;
         initComponents();
+        this.setFocusable(true);
+        name1.setText(game.getPlayers().get(0).GetName()+": "+game.getPlayers().get(0).GetScore());
         if(game.getPlayers().size()>1){
             name2.setEnabled(true);
             name2.setVisible(true);
+            name2.setText(game.getPlayers().get(1).GetName()+": "+game.getPlayers().get(1).GetScore());
         }
-
         iteration();
     }
 
@@ -44,14 +41,6 @@ public class correctAnswerGUI extends MainGUI {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        answerButton3 = new javax.swing.JButton();
-        answerButton1 = new javax.swing.JButton();
-        answerButton2 = new javax.swing.JButton();
-        answerButton4 = new javax.swing.JButton();
-        questionLabel = new javax.swing.JLabel();
-        name1 = new javax.swing.JTextField();
-        name2 = new javax.swing.JTextField();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -59,196 +48,61 @@ public class correctAnswerGUI extends MainGUI {
             }
         });
 
-        answerButton3.setText("answer");
-        answerButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton3ActionPerformed(evt);
-            }
-        });
-
-        answerButton1.setText("answer");
-        answerButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton1ActionPerformed(evt);
-            }
-        });
-
-        answerButton2.setText("answer");
-        answerButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton2ActionPerformed(evt);
-            }
-        });
-
-        answerButton4.setText("answer");
-        answerButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answerButton4ActionPerformed(evt);
-            }
-        });
-
-        questionLabel.setText("jLabel1");
-
-        name1.setEditable(false);
-        name1.setText("name1:score1");
-
-        name2.setEditable(false);
-        name2.setText("name1:score2");
-        name2.setEnabled(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 12, Short.MAX_VALUE)
-                        .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(name1, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                            .addComponent(name2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(answerButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(answerButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(answerButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(answerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(answerButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(answerButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(answerButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+            .addGap(0, 451, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void answerButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton3ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton3.getText(),0);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton3ActionPerformed
-
-    private void answerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton1ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton1.getText(),0);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton1ActionPerformed
-
-    private void answerButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton2ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton2.getText(),0);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton2ActionPerformed
-
-    private void answerButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerButton4ActionPerformed
-        if(game.getPlayers().size()==1){
-            update(answerButton4.getText(),0);
-            iteration();
-        }
-    }//GEN-LAST:event_answerButton4ActionPerformed
-
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton1.getText(),PLAYER1);
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton2.getText(),PLAYER1);
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton3.getText(),PLAYER1);
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+            updateUI(answerButton4.getText(),PLAYER1);
+        }
+        
+        
         if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[0]){
-            update(answerButton1.getText(),0);
+            updateUI(answerButton1.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[1]){
-            update(answerButton1.getText(),1);
+            updateUI(answerButton1.getText(),1);
         }
         if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[0]){
-            update(answerButton2.getText(),0);
+            updateUI(answerButton2.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[1]){
-            update(answerButton2.getText(),1);
+            updateUI(answerButton2.getText(),1);
         }
         if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[0]){
-            update(answerButton3.getText(),0);
+            updateUI(answerButton3.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[1]){
-            update(answerButton3.getText(),1);
+            updateUI(answerButton3.getText(),1);
         }
         if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[0]){
-            update(answerButton4.getText(),0);
+            updateUI(answerButton4.getText(),0);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[1]){
-            update(answerButton4.getText(),1);
+            updateUI(answerButton4.getText(),1);
         }
     }//GEN-LAST:event_formKeyPressed
 
-    
-    public void setQuestions(){
-        
-        q = game.getNextQuestion();
-        String[] temp = q.getAnswers();
-        questionLabel.setText(q.getQuestion());
-        answerButton3.setText(temp[0]);
-        answerButton1.setText(temp[1]);
-        answerButton2.setText(temp[2]);
-        answerButton4.setText(temp[3]);
-        answered[0] = false;
-        answered[1] = false;
-    }
-
-    private void iteration(){
-        
-        if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
-            setQuestions();
-        }
-        else{
-            previous.setEnabled(true);
-            previous.setVisible(true);
-            this.dispose();
-        }
-        i++;
-    }
-    
-    private void update(String answer,int i){
-        boolean flagAnswer = false;
-        if(answer.equals(q.getCorrectAnswer()))
-            flagAnswer = true;
-        game.playerAnswer(flagAnswer, i);
-        answered[i] = true;
-        ArrayList<Player> pl = game.getPlayers();
-        name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
-        if(pl.size()==2){
-            name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
-        }
-        if(answered[0] &&  answered[1])
-            iteration();
-    }
-    
-
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton answerButton1;
-    private javax.swing.JButton answerButton2;
-    private javax.swing.JButton answerButton3;
-    private javax.swing.JButton answerButton4;
-    private javax.swing.JTextField name1;
-    private javax.swing.JTextField name2;
-    private javax.swing.JLabel questionLabel;
     // End of variables declaration//GEN-END:variables
 }

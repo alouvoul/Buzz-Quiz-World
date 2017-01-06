@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/alouvoul/Documents/GitHub/Buzz/src/GameRounds/CorrectAnswer.java</file>
-            <file>file:/home/alouvoul/Documents/GitHub/Buzz/src/buzz/BuzzApp.java</file>
-            <file>file:/home/alouvoul/Documents/GitHub/Buzz/src/GUI/categoryChooseGUI.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/timerGUI.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/correctAnswerGUI.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/playerSelection.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/buzz/Configurations.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/generalGUIOptions.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/buzz/BuzzApp.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/betGUI.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/fastAnswerGUI.java</file>
+            <file>file:/home/alouvoul/Yandex.Disk/Buzz/src/GUI/thermometerGUI.java</file>
         </group>
     </open-files>
 </project-private>

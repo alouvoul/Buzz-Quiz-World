@@ -120,7 +120,7 @@ public class BuzzApp {
      * @param time
      * @return 
      */
-    public boolean playerAnswer(String playerAnswer, Player tempPlayer, float time){
+    public boolean playerAnswer(String playerAnswer, int tempPlayer, float time){
         boolean flag = false;
         float tempScore;
         if(playerAnswer.equals(tempQuestion.getCorrectAnswer())){
@@ -130,7 +130,7 @@ public class BuzzApp {
         }
         type.setPoints(time);
         tempScore = type.calculate(flag);
-        tempPlayer.SetScore((int)tempScore);
+        players.get(tempPlayer).SetScore((int)tempScore);
         return flag;
     }
     
@@ -149,25 +149,26 @@ public class BuzzApp {
         
         RoundEnum round = RoundEnum.values()[random.nextInt(RoundEnum.values().length)];
         //if(Configurations.DEBUG)
-            //round = RoundEnum.FAST_ANSWER;
-            if(round == RoundEnum.CORRECT_ANSWER){
-                type = new CorrectAnswer();
-            }
-            else if(round == RoundEnum.BET){
-                type = new Bet();
-            }
-            else if(round == RoundEnum.TIMER ){
-                type = new timer();
-            }
-            else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
-                type = new thermometer();
-            }
-            else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
-                type = new fastAnswer();
-            }
-            else{   //Used for debugging
-                System.out.println("Cant find a game!!");
-            }
+        //    round = RoundEnum.CORRECT_ANSWER;
+        
+        if(round == RoundEnum.CORRECT_ANSWER){
+            type = new CorrectAnswer();
+        }
+        else if(round == RoundEnum.BET){
+            type = new Bet();
+        }
+        else if(round == RoundEnum.TIMER ){
+            type = new timer();
+        }
+        else if(round == RoundEnum.THERMOMETER && (player > 1)){ // Sets the game if there are 2 players
+            type = new thermometer();
+        }
+        else if (round == RoundEnum.FAST_ANSWER && (player > 1)) { // Sets the game if there are 2 players
+            type = new fastAnswer();
+        }
+        else{   //Used for debugging
+            System.out.println("Cant find a game!!");
+        }
             
     }
     
@@ -262,7 +263,6 @@ public class BuzzApp {
      * @return player names
      */
     public ArrayList<Player> getPlayers(){
-        
         return players;
     }
 

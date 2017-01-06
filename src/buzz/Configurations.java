@@ -5,6 +5,7 @@
  */
 package buzz;
 
+import java.awt.event.KeyEvent;
 import java.util.Locale;
 
 /**
@@ -48,6 +49,25 @@ public class Configurations {
     public static String pathToCategories;
     public static String PATH_TO_IMAGES = "./questions/"+"images/";
     
+    // Configs for control Settings
+    public static String saveButton = "Save";
+    public static String answer1Label = "Answer1";
+    public static String answer2Label = "Answer2";
+    public static String answer3Label = "Answer3";
+    public static String answer4Label = "Answer4";
+    public static String player1Label = "Player 1";
+    public static String player2Label = "Player 2";
+    
+    public static int p1a1 = KeyEvent.VK_1;
+    public static int p1a2 = KeyEvent.VK_2;
+    public static int p1a3 = KeyEvent.VK_3;
+    public static int p1a4 = KeyEvent.VK_4;
+    
+    public static int p2a1 = KeyEvent.VK_NUMPAD1;
+    public static int p2a2 = KeyEvent.VK_NUMPAD2;
+    public static int p2a3 = KeyEvent.VK_NUMPAD3;
+    public static int p2a4 = KeyEvent.VK_NUMPAD4;
+    // End
     
             
     public Configurations() {
@@ -63,6 +83,13 @@ public class Configurations {
             player2 = "2 παίκτες";
             categoryChoose = " διάλεξε κατηγρία για τον επόμενο γύρο";
             scoreMessage = "Σκορ";
+            saveButton = "Αποθήκευση";
+            answer1Label = "Απάντηση1";
+            answer2Label = "Απάντηση2";
+            answer3Label = "Απάντηση3";
+            answer4Label = "Απάντηση4";
+            player1Label = "Παίκτης 1";
+            player2Label = "Παίκτης 2";
         }
         pathToCategories = "./questions/"+language.getLanguage();
         
@@ -71,5 +98,6 @@ public class Configurations {
     public static void setLanguage(String lang){
         language = new Locale(lang);
     }
+    
     
 }

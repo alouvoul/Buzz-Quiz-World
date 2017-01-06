@@ -159,8 +159,8 @@ public class categoryChooseGUI extends MainGUI {
         
         if(numberOfIterations<Configurations.NUMBER_ROUNDS){
             String type = game.getType();
-            boolean testing = false;
-            if(testing & type.equals("Bet")){
+            //boolean testing = false;
+            if(type.equals("Bet")){
                 System.out.println("mpika1");
 
                 mg = new betGUI(this);
@@ -169,7 +169,7 @@ public class categoryChooseGUI extends MainGUI {
                 
                 this.dispose();
             }
-            else if(testing &  type.equals("CorrectAnswer")){
+            else if(type.equals("CorrectAnswer")){
                 if(Configurations.DEBUG)
                     System.out.println("correctAnswer");
                 mg = new correctAnswerGUI(this);
@@ -178,7 +178,7 @@ public class categoryChooseGUI extends MainGUI {
                 
                 this.dispose();
             }
-            else if(testing & type.equals("Timer")){
+            else if(type.equals("Timer")){
                 if(Configurations.DEBUG)
                     System.out.println(" categoryChoose -->Timer");
                 mg = new timerGUI(this);
@@ -187,7 +187,7 @@ public class categoryChooseGUI extends MainGUI {
                 
                 this.dispose();
             }
-            else if(true|type.equals("Fast Answer")){
+            else if(type.equals("Fast Answer")){
                 if(Configurations.DEBUG)
                     System.out.println(" categoryChoose -->Fast Answer");
                 mg = new fastAnswerGUI(this);
@@ -197,7 +197,13 @@ public class categoryChooseGUI extends MainGUI {
                 this.dispose();
             }
             else if(type.equals("Thermometer")){
+                if(Configurations.DEBUG)
+                    System.out.println(" categoryChoose -->Thermometer");
+                mg = new thermometerGUI(this);
+                mg.setEnabled(true);
+                mg.setVisible(true);
                 
+                this.dispose();
             }
             numberOfIterations++;
         }

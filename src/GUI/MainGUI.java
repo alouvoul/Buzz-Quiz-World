@@ -7,6 +7,7 @@ package GUI;
 
 import buzz.BuzzApp;
 import buzz.Configurations;
+import buzz.Question;
 import java.io.IOException;
 
 /**
@@ -17,7 +18,12 @@ public class MainGUI extends javax.swing.JFrame {
     protected static BuzzApp game;
     public static final int PLAYER1 = 0;
     public static final int PLAYER2 = 1;
-    Configurations cf = new Configurations();
+    public Configurations cf = new Configurations();
+    protected boolean answered[] = new boolean[2];
+    
+    
+    protected Question q ;
+    protected categoryChooseGUI previous;
     /**
      * Creates new form MainGUI
      */
@@ -29,6 +35,9 @@ public class MainGUI extends javax.swing.JFrame {
         game = new BuzzApp();
         Configurations.init();
     }
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,7 +50,6 @@ public class MainGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 450));
         setMinimumSize(new java.awt.Dimension(600, 450));
-        setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 450));
 
