@@ -37,7 +37,7 @@ public class playerSelection extends MainGUI {
         onePlayerRadioButton.setText(Configurations.player1);
         twoPlayerRadioButton.setText(Configurations.player2);
         scoreButton.setText(Configurations.scoreMessage);
-        //nameTextField2.setVisible(true);
+        nameTextField2.setVisible(false);
     }
 
     /**
@@ -49,6 +49,7 @@ public class playerSelection extends MainGUI {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         nameTextField1 = new javax.swing.JTextField();
         nameTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -64,6 +65,8 @@ public class playerSelection extends MainGUI {
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
 
+        nameTextField2.setOpaque(false);
+
         jLabel1.setBackground(new java.awt.Color(12, 0, 255));
         jLabel1.setForeground(new java.awt.Color(0, 255, 62));
         jLabel1.setText("How many players?");
@@ -75,6 +78,7 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        buttonGroup1.add(onePlayerRadioButton);
         onePlayerRadioButton.setForeground(new java.awt.Color(0, 255, 92));
         onePlayerRadioButton.setSelected(true);
         onePlayerRadioButton.setText("1 Player");
@@ -84,6 +88,7 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        buttonGroup1.add(twoPlayerRadioButton);
         twoPlayerRadioButton.setForeground(new java.awt.Color(0, 255, 105));
         twoPlayerRadioButton.setText("2 Players");
         twoPlayerRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +183,6 @@ public class playerSelection extends MainGUI {
                 cg.setEnabled(true);
                 cg.setVisible(true);
             } catch (Exception e) {
-                
                 e.printStackTrace();
             }
             this.dispose();
@@ -187,12 +191,10 @@ public class playerSelection extends MainGUI {
 
     private void onePlayerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onePlayerRadioButtonActionPerformed
         nameTextField2.setVisible(false);
-        twoPlayerRadioButton.setSelected(false);
     }//GEN-LAST:event_onePlayerRadioButtonActionPerformed
 
     private void twoPlayerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoPlayerRadioButtonActionPerformed
         nameTextField2.setVisible(true);
-        onePlayerRadioButton.setSelected(false);
     }//GEN-LAST:event_twoPlayerRadioButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -205,6 +207,7 @@ public class playerSelection extends MainGUI {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OKButton;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nameTextField1;
