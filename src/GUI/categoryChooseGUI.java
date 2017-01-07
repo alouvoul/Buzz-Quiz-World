@@ -161,6 +161,15 @@ public class categoryChooseGUI extends MainGUI {
         if(numberOfIterations<Configurations.NUMBER_ROUNDS){
             String type = game.getType();
             //boolean testing = false;
+            
+            //Refresh buttons to show next round categories
+            //---------------CHECK IF THIS WORKING---------------
+            String[] categories = game.getQuestionCategories();
+            categoryButton1.setText(categories[0]);
+            categoryButton2.setText(categories[1]);
+            categoryButton3.setText(categories[2]);
+            categoryButton4.setText(categories[3]);
+            //---------------------------------------------------
             if(type.equals("Bet")){
                 System.out.println("mpika1");
 
@@ -207,11 +216,7 @@ public class categoryChooseGUI extends MainGUI {
                 this.dispose();
             }
             numberOfIterations++;
-            String[] categories = game.getQuestionCategories();
-            categoryButton1.setText(categories[0]);
-            categoryButton2.setText(categories[1]);
-            categoryButton3.setText(categories[2]);
-            categoryButton4.setText(categories[3]);
+            
         }
         else{
             //----------TODO write score to file and close

@@ -152,7 +152,7 @@ public class BuzzApp {
         RoundEnum round;
         boolean flag = true;
                     //Sets round game different for game
-        do{
+        do{ //loop to avoid collusion if there is one player and a wrong round type
             round = RoundEnum.values()[roundNumber[iterations]];
             iterations++;
             if(iterations>=RoundEnum.values().length)
@@ -213,14 +213,20 @@ public class BuzzApp {
      */
     public String[] getQuestionCategories() {
         String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS]; // Default if 4 categories to choose
-        int[] random = r.generateRandoms(0,questions.size()-1);
-
+        int[] random = r.generateRandoms(0,questions.size());
+        if(Configurations.DEBUG){
+            for (int i = 0; i < questions.size(); i++) {
+                System.out.println("--->>>>> "+random[i]);
+            }
+        }
         try {
             int j=0;
-            for (int i = 0; i < randomQuestions.length; i++) {
+            for (int i = 0; i < questions.size(); i++) {
                 if(!questions.get(random[i]).getUsed()){
                     randomQuestions[j] = questions.get(random[i]).getQuestionCategory();
                     j++;
+                    if(j>randomQuestions.length)
+                        break;
                 }
             }
         } catch(Exception e){
@@ -232,6 +238,7 @@ public class BuzzApp {
     /**
      * Method to initialize questionCategory object with their names, will be used to 
      * choose player from this list.
+     * @throws java.io.IOException
      */
     public void InitializeQuestions() throws IOException{
         File folder = new File(Configurations.pathToCategories);
