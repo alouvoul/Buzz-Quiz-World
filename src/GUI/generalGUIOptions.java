@@ -6,7 +6,9 @@
 package GUI;
 
 import static GUI.MainGUI.game;
+import buzz.Configurations;
 import buzz.Player;
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import javax.swing.JOptionPane;
  * @author alouvoul
  */
 public class generalGUIOptions extends MainGUI {
+    ImageIcon defaultImage;
     /**
      * Variable for iterations limit.
      */
@@ -55,7 +58,7 @@ public class generalGUIOptions extends MainGUI {
         questionLabel = new javax.swing.JLabel();
         name1 = new javax.swing.JTextField();
         name2 = new javax.swing.JTextField();
-        imagePanel = new javax.swing.JPanel();
+        imageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,23 +83,6 @@ public class generalGUIOptions extends MainGUI {
         name2.setText("name1:score2");
         name2.setEnabled(false);
 
-        imagePanel.setEnabled(false);
-        imagePanel.setFocusable(false);
-        imagePanel.setMaximumSize(new java.awt.Dimension(308, 263));
-        imagePanel.setMinimumSize(new java.awt.Dimension(308, 263));
-        imagePanel.setOpaque(false);
-
-        javax.swing.GroupLayout imagePanelLayout = new javax.swing.GroupLayout(imagePanel);
-        imagePanel.setLayout(imagePanelLayout);
-        imagePanelLayout.setHorizontalGroup(
-            imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        imagePanelLayout.setVerticalGroup(
-            imagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 263, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,13 +98,13 @@ public class generalGUIOptions extends MainGUI {
                             .addComponent(name2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(answerButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(answerButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                                 .addComponent(answerButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(answerButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(answerButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addComponent(imagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -141,7 +127,7 @@ public class generalGUIOptions extends MainGUI {
                         .addComponent(answerButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(answerButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(imagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -191,6 +177,24 @@ public class generalGUIOptions extends MainGUI {
         answerButton4.setText(temp[3]);
         answered[0] = false;
         answered[1] = false;
+        imageLabel.setVisible(false);
+                //random path
+        if(q.getHasImage()!=null){
+            imageLabel.setVisible(true);
+            String path=q.getHasImage();
+            try {
+                //creating image
+                defaultImage=new ImageIcon(ImageIO.read(new File(Configurations.PATH_TO_IMAGES+path)));
+            } catch (IOException ex) {
+                System.err.println("could not create image from path : "+path);
+            }
+            //scaling image to labels size
+            Image finalImage= defaultImage.getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+            //saving image
+            defaultImage=new ImageIcon(finalImage);
+            //seting
+            imageLabel.setIcon(defaultImage);
+        }
     }
 
     /**
@@ -215,7 +219,7 @@ public class generalGUIOptions extends MainGUI {
     protected javax.swing.JButton answerButton2;
     protected javax.swing.JButton answerButton3;
     protected javax.swing.JButton answerButton4;
-    private javax.swing.JPanel imagePanel;
+    private javax.swing.JLabel imageLabel;
     protected javax.swing.JTextField name1;
     protected javax.swing.JTextField name2;
     private javax.swing.JLabel questionLabel;

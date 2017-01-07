@@ -14,6 +14,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -37,8 +39,9 @@ public class playerSelection extends MainGUI {
         onePlayerRadioButton.setText(Configurations.player1);
         twoPlayerRadioButton.setText(Configurations.player2);
         scoreButton.setText(Configurations.scoreMessage);
-        nameTextField2.setVisible(false);
+        //nameTextField2.setVisible(false);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -98,6 +101,11 @@ public class playerSelection extends MainGUI {
         });
 
         scoreButton.setText("scores");
+        scoreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scoreButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Control Settings");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +211,10 @@ public class playerSelection extends MainGUI {
         cs.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void scoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scoreButtonActionPerformed
+        scoreGUI sg = new scoreGUI();
+    }//GEN-LAST:event_scoreButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
