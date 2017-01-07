@@ -22,6 +22,9 @@ import javax.swing.JOptionPane;
  * @author alouvoul
  */
 public class generalGUIOptions extends MainGUI {
+    /**
+     * Variable for iterations limit.
+     */
     private int i = 0;
     /**
      * Creates new form generalGUIOptions
@@ -144,27 +147,39 @@ public class generalGUIOptions extends MainGUI {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /**
+     * Checks if answer is correct and call method to calculate points to add. 
+     * Update scores for players if both of them answer and call iteration mathod
+     * to change questions.
+     * 
+     * @param answer Player's answer to check if this is correct.
+     * @param i Player number 0 or 1 for 2 players
+     */
     protected void updateUI(String answer,int i){
         boolean flagAnswer = false;
         if(answer.equals(q.getCorrectAnswer()))
             flagAnswer = true;
+        
         game.playerAnswer(flagAnswer, i);
         answered[i] = true;
         ArrayList<Player> pl = game.getPlayers();
         
-        if(game.getPlayers().size()>2 && answered[0] &&  answered[1]){
+        if(game.getPlayers().size()>2 && answered[0] &&  answered[1]){  //Sets only if both players answered
             iteration();
             name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
             if(pl.size()==2){
                 name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
             }
         }
-        else if(game.getPlayers().size()==1){
+        else if(game.getPlayers().size()==1){   //if there is one player 
             iteration();
             name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
         }
     }
     
+    /**
+     * Method to change question and answers in every turn.
+     */
     protected void setQuestions(){
         
         q = game.getNextQuestion();
@@ -178,6 +193,10 @@ public class generalGUIOptions extends MainGUI {
         answered[1] = false;
     }
 
+    /**
+     * Check for iteration limit for rounds. Refresh the questions by calling setQuestions
+     * method. if limit reached enable previous frame (categoryChoose object).
+     */
     protected void iteration(){
         
         if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
