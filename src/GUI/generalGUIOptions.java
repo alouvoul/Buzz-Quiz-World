@@ -199,7 +199,7 @@ public class generalGUIOptions extends MainGUI {
      */
     protected void iteration(){
         
-        if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
+        if(i < buzz.Configurations.QUESTIONS_PER_ROUNDS){
             setQuestions();
         }
         else{
