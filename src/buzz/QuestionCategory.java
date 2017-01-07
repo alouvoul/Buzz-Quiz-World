@@ -81,7 +81,6 @@ public class QuestionCategory {
         File[] listOfFiles = folder.listFiles();
         int[] swappedQuestion = random.generateRandoms(0, listOfFiles.length);
         for(int i=0; i<BuzzApp.QUESTIONS_PER_ROUNDS;i++){
-
             BufferedReader in = null;
             try {
                 Question tempQuestion = new Question();

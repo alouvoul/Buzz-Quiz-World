@@ -36,7 +36,6 @@ public class RandomGenerate implements Randomization{
                 temp = r.nextInt(end-start);
             }while(!set.add(temp));
             array[i] = temp;
-
         }
         return array;
     }

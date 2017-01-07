@@ -151,7 +151,8 @@ public class BuzzApp {
         
         RoundEnum round;
         boolean flag = true;
-                    //Sets round game different for game
+        
+        //Sets round game different for game
         do{ //loop to avoid collusion if there is one player and a wrong round type
             round = RoundEnum.values()[roundNumber[iterations]];
             iterations++;
@@ -159,10 +160,8 @@ public class BuzzApp {
                 iterations=0;
             System.out.println(roundNumber[iterations]+"  "+iterations);
         
-        
             //if(Configurations.DEBUG)
             //    round = RoundEnum.CORRECT_ANSWER;
-
             if(round == RoundEnum.CORRECT_ANSWER){
                 type = new CorrectAnswer();
                 flag = false;
@@ -214,11 +213,6 @@ public class BuzzApp {
     public String[] getQuestionCategories() {
         String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS]; // Default if 4 categories to choose
         int[] random = r.generateRandoms(0,questions.size());
-        if(Configurations.DEBUG){
-            for (int i = 0; i < questions.size(); i++) {
-                System.out.println("--->>>>> "+random[i]);
-            }
-        }
         try {
             int j=0;
             for (int i = 0; i < questions.size(); i++) {
