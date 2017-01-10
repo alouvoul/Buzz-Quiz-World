@@ -214,6 +214,8 @@ public class playerSelection extends MainGUI {
 
     private void scoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scoreButtonActionPerformed
         scoreGUI sg = new scoreGUI();
+        sg.setEnabled(true);
+        sg.setVisible(true);
     }//GEN-LAST:event_scoreButtonActionPerformed
 
 

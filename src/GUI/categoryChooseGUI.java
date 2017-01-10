@@ -6,6 +6,7 @@
 package GUI;
 
 import buzz.Configurations;
+import buzz.scores;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -218,8 +219,21 @@ public class categoryChooseGUI extends MainGUI {
             numberOfIterations++;
             
         }
-        else{
-            //----------TODO write score to file and close
+        else{   //Write scores and terminate
+            scores s = new scores();
+            if(game.getPlayers().size()==1)
+                s.writeOnePlayerScore(game.getPlayers().get(0).GetName(),game.getPlayers().get(0).GetScore());
+            else{
+                String[] names = new String[2];
+                int[] scores = new int[2];
+                
+                names[0]= game.getPlayers().get(0).GetName();
+                names[1]= game.getPlayers().get(1).GetName();
+                scores[1]= game.getPlayers().get(1).GetScore();
+                scores[1]= game.getPlayers().get(1).GetScore();
+                s.writeTwoPlayersScore(names, scores);
+            }
+            this.dispose();
         }
             
     }

@@ -69,6 +69,10 @@ public class Configurations {
     public static int p2a4 = KeyEvent.VK_NUMPAD4;
     // End
     
+    //Score configs
+    public static String label1 = "One Player game";
+    public static String label2 = "Two Players game";
+    public static String table1 = "Name";
             
     public Configurations() {
         
@@ -90,6 +94,9 @@ public class Configurations {
             answer4Label = "Απάντηση4";
             player1Label = "Παίκτης 1";
             player2Label = "Παίκτης 2";
+            label1 = "1 παίκτης";
+            label2 = "2 παίκτες";
+            table1 = "όνομα";
         }
         pathToCategories = "./questions/"+language.getLanguage();
         
