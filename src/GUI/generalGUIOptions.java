@@ -143,19 +143,24 @@ public class generalGUIOptions extends MainGUI {
      */
     protected void updateUI(String answer,int i){
         boolean flagAnswer = false;
-        if(answer.equals(q.getCorrectAnswer()))
-            flagAnswer = true;
+        if(!answered[i]){
+            if(answer.equals(q.getCorrectAnswer()))
+                flagAnswer = true;
+
+            game.playerAnswer(flagAnswer, i);
+            answered[i] = true;    
+        }
         
-        game.playerAnswer(flagAnswer, i);
-        answered[i] = true;
         ArrayList<Player> pl = game.getPlayers();
         
-        if(game.getPlayers().size()>2 && answered[0] &&  answered[1]){  //Sets only if both players answered
+        if(game.getPlayers().size()>1 && answered[0] &&  answered[1]){  //Sets only if both players answered
             iteration();
             name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
+            
             if(pl.size()==2){
                 name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
             }
+            
         }
         else if(game.getPlayers().size()==1){   //if there is one player 
             iteration();

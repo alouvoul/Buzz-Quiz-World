@@ -164,9 +164,9 @@ public class thermometerGUI extends generalGUIOptions {
     private void update(String answer,int i){
         if(answer.equals(q.getCorrectAnswer()) && !answered[i]){
             playerWin[i]++;
-            answered[i] = true;
+            
         }
-        
+        answered[i] = true;
         if(answered[0] &&  answered[1])
             iteration();
     }

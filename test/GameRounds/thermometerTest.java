@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buzz;
+package GameRounds;
 
-import GameRounds.CorrectAnswer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,16 +14,15 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Iordanidis Georgios AEM: 2353
- * @author Louvoulinas Anastasios AEM: 2447
+ * @author alouvoul
  */
-public class CorrectAnswerTest {
+public class thermometerTest {
     
-    private CorrectAnswer correctAnswer;
+    public thermometerTest() {
+    }
     
     @Before
     public void setUp() {
-        correctAnswer = new CorrectAnswer();        
     }
     
     @After
@@ -32,14 +30,15 @@ public class CorrectAnswerTest {
     }
 
     /**
-     * Test of calculate method, of class CorrectAnswer.
+     * Test of calculate method, of class thermometer.
      */
     @Test
     public void testCalculate() {
         System.out.println("calculate");
-        boolean answer = true;
-        int expResult = 1000;
-        int result = correctAnswer.calculate(answer);
+        boolean answer = false;
+        thermometer instance = new thermometer();
+        int expResult = 0;
+        int result = instance.calculate(answer);
         assertEquals(expResult, result);
     }
     
