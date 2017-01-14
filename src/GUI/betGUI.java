@@ -71,16 +71,16 @@ public class betGUI extends generalGUIOptions{
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton1.getText(),PLAYER1);
+            update(answerButton1.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton2.getText(),PLAYER1);
+            update(answerButton2.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton3.getText(),PLAYER1);
+            update(answerButton3.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
-            updateUI(answerButton4.getText(),PLAYER1);
+            update(answerButton4.getText(),PLAYER1);
         }        
         
         if(evt.getKeyCode() == KeyEvent.VK_1 ){
@@ -115,6 +115,7 @@ public class betGUI extends generalGUIOptions{
             update(answerButton4.getText(),PLAYER2);
             iteration();
         }
+        //iteration();
     }//GEN-LAST:event_formKeyPressed
 
     protected void iteration(){
@@ -133,7 +134,7 @@ public class betGUI extends generalGUIOptions{
     }
     
     private void update(String answer, int player){
-        game.playerAnswer(answer, game.getCurrentPlayer() , bet);
+        game.playerAnswer(answer, tempPlayer , bet);
         ArrayList<Player> pl = game.getPlayers();
         name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
         if(pl.size()==2){
@@ -141,31 +142,6 @@ public class betGUI extends generalGUIOptions{
         }
     }
     
-/*    public void setQuestions(int bet){
-        
-        if(bet>0){
-            q = game.getNextQuestion();
-            String[] temp = q.getAnswers();
-            System.out.println("setQuestions");
-            questionLabel.setText(q.getQuestion());
-            answerButton1.setText(temp[0]);
-            answerButton2.setText(temp[1]);
-            answerButton3.setText(temp[2]);
-            answerButton4.setText(temp[3]);
-            if(q.getHasImage()!=null){
-                try {
-                    BufferedImage myPicture = ImageIO.read(new File(Configurations.PATH_TO_IMAGES+q.getHasImage()));
-                    JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-                    imagePanel.add(picLabel);
-                    imagePanel.setEnabled(true);
-                    imagePanel.setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(betGUI.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-            }
-        }
-    }*/
 
     private int bettingMethod() {
         Object[] possibilities = {"250", "500", "750","1000"};
