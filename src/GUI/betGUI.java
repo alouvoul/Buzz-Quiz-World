@@ -120,7 +120,7 @@ public class betGUI extends generalGUIOptions{
 
     protected void iteration(){
         
-        if(i<buzz.BuzzApp.QUESTIONS_PER_ROUNDS){
+        if(i<buzz.Configurations.QUESTIONS_PER_ROUNDS){
             setCurrentPlayer();
             bet = bettingMethod();
             setQuestions();

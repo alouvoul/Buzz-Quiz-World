@@ -26,11 +26,7 @@ import java.util.Random;
  * @author Louvoulinas Anastasios AEM: 2447
  */
 public class BuzzApp {
-    public static final int NUMBER_OF_CATEGORY_QUESTIONS = 4;
-    public static final int NUMBER_OF_ANSWERS = 4;
-    
-    public static final int NUMBER_ROUNDS = 5;
-    public static final int QUESTIONS_PER_ROUNDS = 6;
+
     public static Locale language;
     RandomGenerate r = new RandomGenerate();
 
@@ -51,6 +47,8 @@ public class BuzzApp {
     private boolean categoriesUsed[];
     private int iterations = 0;
     private int[] roundNumber;
+    private int[] questionNumber;
+    int iterateQuestion = 0;
     private Round type;
     private Question tempQuestion;
 
@@ -70,12 +68,12 @@ public class BuzzApp {
      * @return random question
      */
     public Question getNextQuestion(){
-        Random r = new Random();
+        //Random r = new Random();
         if(Configurations.DEBUG)
             System.out.println("play() prints currentCategorynumber-->"+questions.size());
-        int question = r.nextInt(questions.get(currentCategory).getQuestions().size());
-        tempQuestion = questions.get(currentCategory).getQuestions().get(question);
-        
+        //int question = r.nextInt(questions.get(currentCategory).getQuestions().size());
+        tempQuestion = questions.get(currentCategory).getQuestions().get(questionNumber[iterateQuestion]);
+        iterateQuestion++;
         return tempQuestion;
     }
     
@@ -96,7 +94,7 @@ public class BuzzApp {
      * Check if player's answer is correct and is about bet round.
      * 
      * @param playerAnswer the answer of the player
-     * @param temp
+     * @param temp player object that answers the question
      * @param pointsToBet set how many points to bet
      * @return if answer is correct or not
      */
@@ -117,10 +115,10 @@ public class BuzzApp {
     /**
      * This method claculates for timer game type
      * 
-     * @param playerAnswer
-     * @param tempPlayer
-     * @param time
-     * @return 
+     * @param playerAnswer the answer of the player
+     * @param tempPlayer player that answers the question
+     * @param time time of answer
+     * @return if answer is correct or not
      */
     public boolean playerAnswer(String playerAnswer, int tempPlayer, int time){
         boolean flag = false;
@@ -138,10 +136,10 @@ public class BuzzApp {
     
     
     /**
-     * Set values for the new round.
+     * Set values for the new round. Initialize a type round for next category.
      */
     private void setCurrentRound() {
-        Random random = new Random();
+        //Random random = new Random();
         if(Configurations.DEBUG)
             System.out.println("setCurrentRound()-->");
         
@@ -200,9 +198,12 @@ public class BuzzApp {
             if(questions.get(i).getQuestionCategory().equals(category)){
                 currentCategory = i;
                 questions.get(i).setUsed(); // sets that the category is used
+                questionNumber = r.generateRandoms(questions.get(i).getQuestions().size()-1); //set random question
+                iterateQuestion = 0;
             }
         }
         setCurrentRound();
+        
     }
     
     /**
@@ -211,7 +212,7 @@ public class BuzzApp {
      * @return only 4 question as the real game.
      */
     public String[] getQuestionCategories() {
-        String[] randomQuestions = new String[BuzzApp.NUMBER_OF_CATEGORY_QUESTIONS]; // Default if 4 categories to choose
+        String[] randomQuestions = new String[Configurations.NUMBER_OF_CATEGORY_QUESTIONS]; // Default if 4 categories to choose
         int[] random = r.generateRandoms(0,questions.size());
         try {
             int j=0;
@@ -313,15 +314,24 @@ public class BuzzApp {
     
     /**
      * Set game language.
-     * @param lang
+     * @param lang language selection
      */
     public void setLocale(String lang){
         language = new Locale(lang);
     }
     
+    /**
+     * Sets a current player for bet round
+     * @param pl 
+     */
     public void setCurrentPlayer(Player pl){
         currentPlayer = pl;
     }
+    
+    /**
+     * Getter for current  player
+     * @return 
+     */
     public Player getCurrentPlayer(){
         return currentPlayer;
     }

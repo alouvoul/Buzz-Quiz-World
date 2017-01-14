@@ -80,12 +80,12 @@ public class QuestionCategory {
         File folder = new File(Configurations.pathToCategories+"/"+questionCategory);
         File[] listOfFiles = folder.listFiles();
         int[] swappedQuestion = random.generateRandoms(0, listOfFiles.length);
-        for(int i=0; i<BuzzApp.QUESTIONS_PER_ROUNDS;i++){
+        for(int i=0; i < listOfFiles.length-1;i++){
             BufferedReader in = null;
             try {
                 Question tempQuestion = new Question();
                 in = new BufferedReader(new FileReader(Configurations.pathToCategories+"/"+questionCategory+"/"+(swappedQuestion[i]+1)+".txt"));
-                String[] line = new String[BuzzApp.NUMBER_OF_ANSWERS+3+1];
+                String[] line = new String[Configurations.NUMBER_OF_ANSWERS+3+1];
                 int j=0;
                 line[j] = in.readLine();
                 while(line[j] != null)
@@ -99,7 +99,7 @@ public class QuestionCategory {
                 Set questions and answers for Question object.
                 */
                 tempQuestion.setQuestion(line[0]);
-                String []answerOrder = random.generateRandoms(0, BuzzApp.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, BuzzApp.NUMBER_OF_ANSWERS+1));
+                String []answerOrder = random.generateRandoms(0, Configurations.NUMBER_OF_ANSWERS, Arrays.copyOfRange(line, 1, Configurations.NUMBER_OF_ANSWERS+1));
                 tempQuestion.setAnswers(answerOrder);
                 tempQuestion.setCorrectAnswer(line[5]);
                 if(j==7){

@@ -176,7 +176,7 @@ public class thermometerGUI extends MainGUI {
     }//GEN-LAST:event_formKeyPressed
 
     private void update(String answer,int i){
-        if(answer.equals(q.getCorrectAnswer()) && !answered[i]){
+        if(answer.equals(q.getCorrectAnswer())){
             playerWin[i]++;
             
         }
@@ -191,6 +191,11 @@ public class thermometerGUI extends MainGUI {
             setQuestions();
         }
         else{
+            if(playerWin[0]==5)
+                game.playerAnswer(true, PLAYER1);
+            if(playerWin[1]==5)
+                game.playerAnswer(true, PLAYER2);
+            
             ArrayList<Player> pl = game.getPlayers();
             name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
             //if(pl.size()==2){
@@ -204,7 +209,7 @@ public class thermometerGUI extends MainGUI {
     }
     
     
-        /**
+    /**
      * Method to change question and answers in every turn.
      */
     protected void setQuestions(){
