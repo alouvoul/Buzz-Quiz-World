@@ -42,8 +42,8 @@ public class scores {
      */
     public void writeOnePlayerScore(String name,int score){
         try {
-            out = new BufferedWriter(new FileWriter("scores_one"));
-            out.append(name+"-"+Integer.toString(score));
+            out = new BufferedWriter(new FileWriter("scores_one",true));
+            out.append(name+"-"+Integer.toString(score)+"\n");
         } catch (IOException ex) {
             Logger.getLogger(scores.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,8 +64,8 @@ public class scores {
      */
     public void writeTwoPlayersScore(String[] names, int[] scores){
         try {
-            out = new BufferedWriter(new FileWriter("scores_two"));
-            out.append(names[0]+"-"+Integer.toString(scores[0])+"-"+Integer.toString(scores[1])+"-"+names[1]);
+            out = new BufferedWriter(new FileWriter("scores_two",true));
+            out.append(names[0]+"-"+Integer.toString(scores[0])+"-"+Integer.toString(scores[1])+"-"+names[1]+"\n");
         } catch (IOException ex) {
             Logger.getLogger(scores.class.getName()).log(Level.SEVERE, null, ex);
         }

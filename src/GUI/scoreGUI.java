@@ -145,8 +145,8 @@ public class scoreGUI extends javax.swing.JFrame {
             Vector row = new Vector();
             row.add(str[0]);
             row.add(str[1]);
-            row.add(str[3]);
             row.add(str[2]);
+            row.add(str[3]);
             model2.addRow(row);
         }
     }

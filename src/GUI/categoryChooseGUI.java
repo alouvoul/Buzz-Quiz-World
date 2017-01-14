@@ -229,7 +229,7 @@ public class categoryChooseGUI extends MainGUI {
                 
                 names[0]= game.getPlayers().get(0).GetName();
                 names[1]= game.getPlayers().get(1).GetName();
-                scores[1]= game.getPlayers().get(1).GetScore();
+                scores[0]= game.getPlayers().get(0).GetScore();
                 scores[1]= game.getPlayers().get(1).GetScore();
                 s.writeTwoPlayersScore(names, scores);
             }
