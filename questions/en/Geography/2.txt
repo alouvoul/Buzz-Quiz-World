@@ -1,0 +1,6 @@
+How many time zones are there in the world?
+6
+12
+18
+24
+Time.png

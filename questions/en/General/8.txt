@@ -1,0 +1,6 @@
+What is the largest number of five digits?
+10000
+99999
+12345
+98765
+99999
