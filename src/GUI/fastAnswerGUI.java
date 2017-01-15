@@ -9,7 +9,10 @@ import static GUI.MainGUI.game;
 import java.awt.event.KeyEvent;
 
 /**
- *
+ * Class to show fast answer game round. This round is played only with keys and
+ * not with clicks. Inherits from generalGUIOptions so doesn't have methods. 
+ * 
+ * @see generalGUIOptions
  * @author alouvoul
  */
 public class fastAnswerGUI extends generalGUIOptions{

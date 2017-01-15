@@ -79,48 +79,48 @@ public class betGUI extends generalGUIOptions{
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        if(evt.getKeyCode() == Configurations.p1a1 && game.getPlayers().size()==1){
             update(answerButton1.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a2 && game.getPlayers().size()==1){
             update(answerButton2.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a3 && game.getPlayers().size()==1){
             update(answerButton3.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a4 && game.getPlayers().size()==1){
             update(answerButton4.getText(),PLAYER1);
         }        
         
-        if(evt.getKeyCode() == KeyEvent.VK_1 ){
+        if(evt.getKeyCode() == Configurations.p1a1 ){
             update(answerButton1.getText(),PLAYER1);
             iteration();
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && game.getPlayers().size()>1){
+        else if(evt.getKeyCode() == Configurations.p2a1 && game.getPlayers().size()>1){
             update(answerButton1.getText(),PLAYER2);
             iteration();
         }
-        if(evt.getKeyCode() == KeyEvent.VK_2){
+        if(evt.getKeyCode() == Configurations.p1a2){
             update(answerButton2.getText(), PLAYER1);
             iteration();
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && game.getPlayers().size()>1){
+        else if(evt.getKeyCode() == Configurations.p2a2 && game.getPlayers().size()>1){
             update(answerButton2.getText(),PLAYER2);
             iteration();
         }
-        if(evt.getKeyCode() == KeyEvent.VK_3){
+        if(evt.getKeyCode() == Configurations.p1a3){
             update(answerButton3.getText(),PLAYER1);
             iteration();
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && game.getPlayers().size()>1){
+        else if(evt.getKeyCode() == Configurations.p2a3 && game.getPlayers().size()>1){
             update(answerButton3.getText(),PLAYER2);
             iteration();
         }
-        if(evt.getKeyCode() == KeyEvent.VK_4){
+        if(evt.getKeyCode() == Configurations.p1a4){
             update(answerButton4.getText(),PLAYER1);
             iteration();
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && game.getPlayers().size()>1){
+        else if(evt.getKeyCode() == Configurations.p2a4 && game.getPlayers().size()>1){
             update(answerButton4.getText(),PLAYER2);
             iteration();
         }

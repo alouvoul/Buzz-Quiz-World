@@ -6,6 +6,7 @@
 package GUI;
 
 import static GUI.MainGUI.game;
+import buzz.Configurations;
 import java.awt.event.KeyEvent;
 
 /**
@@ -67,42 +68,42 @@ public class correctAnswerGUI extends generalGUIOptions {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        if(evt.getKeyCode() == Configurations.p1a1 && game.getPlayers().size()==1){
             updateUI(answerButton1.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a2 && game.getPlayers().size()==1){
             updateUI(answerButton2.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a3 && game.getPlayers().size()==1){
             updateUI(answerButton3.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a4 && game.getPlayers().size()==1){
             updateUI(answerButton4.getText(),PLAYER1);
         }
         
         
-        if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[0]){
+        if(evt.getKeyCode() == Configurations.p1a1 && !answered[0]){
             updateUI(answerButton1.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[1]){
+        else if(evt.getKeyCode() == Configurations.p2a1 && !answered[1]){
             updateUI(answerButton1.getText(),1);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[0]){
+        if(evt.getKeyCode() == Configurations.p1a2 && !answered[0]){
             updateUI(answerButton2.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[1]){
+        else if(evt.getKeyCode() == Configurations.p2a2 && !answered[1]){
             updateUI(answerButton2.getText(),1);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[0]){
+        if(evt.getKeyCode() == Configurations.p1a3 && !answered[0]){
             updateUI(answerButton3.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[1]){
+        else if(evt.getKeyCode() == Configurations.p2a3 && !answered[1]){
             updateUI(answerButton3.getText(),1);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[0]){
+        if(evt.getKeyCode() == Configurations.p1a4 && !answered[0]){
             updateUI(answerButton4.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[1]){
+        else if(evt.getKeyCode() == Configurations.p2a4 && !answered[1]){
             updateUI(answerButton4.getText(),1);
         }
     }//GEN-LAST:event_formKeyPressed

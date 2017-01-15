@@ -76,42 +76,43 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        if(evt.getKeyCode() == Configurations.p1a1 && game.getPlayers().size()==1){
             update(answerButton1.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a2 && game.getPlayers().size()==1){
             update(answerButton2.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a3 && game.getPlayers().size()==1){
             update(answerButton3.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_1 && game.getPlayers().size()==1){
+        else if(evt.getKeyCode() == Configurations.p1a4 && game.getPlayers().size()==1){
             update(answerButton4.getText(),PLAYER1);
         }
         
-        if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[PLAYER1]){
-            update(answerButton1.getText(),PLAYER1);
+        
+        if(evt.getKeyCode() == Configurations.p1a1 && !answered[0]){
+            update(answerButton1.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[PLAYER2]){
-            update(answerButton1.getText(),PLAYER2);
+        else if(evt.getKeyCode() == Configurations.p2a1 && !answered[1]){
+            update(answerButton1.getText(),1);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[PLAYER1]){
-            update(answerButton2.getText(),PLAYER1);
+        if(evt.getKeyCode() == Configurations.p1a2 && !answered[0]){
+            update(answerButton2.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[PLAYER2]){
-            update(answerButton2.getText(),PLAYER2);
+        else if(evt.getKeyCode() == Configurations.p2a2 && !answered[1]){
+            update(answerButton2.getText(),1);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[PLAYER1]){
-            update(answerButton3.getText(),PLAYER1);
+        if(evt.getKeyCode() == Configurations.p1a3 && !answered[0]){
+            update(answerButton3.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[PLAYER2]){
-            update(answerButton3.getText(),PLAYER2);
+        else if(evt.getKeyCode() == Configurations.p2a3 && !answered[1]){
+            update(answerButton3.getText(),1);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[PLAYER1]){
-            update(answerButton4.getText(),PLAYER1);
+        if(evt.getKeyCode() == Configurations.p1a4 && !answered[0]){
+            update(answerButton4.getText(),0);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[PLAYER2]){
-            update(answerButton4.getText(),PLAYER2);
+        else if(evt.getKeyCode() == Configurations.p2a4 && !answered[1]){
+            update(answerButton4.getText(),1);
         }
         if(Configurations.DEBUG)
             System.out.println("Keypressed: "+evt.getKeyChar());
@@ -129,12 +130,10 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
         setQuestions();
         // Update score labels
         ArrayList<Player> pl = game.getPlayers();
-        if(game.getPlayers().size()>2 && answered[0] &&  answered[1]){
+        if(game.getPlayers().size()==2){
             iteration();
             name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
-            if(pl.size()==2){
-                name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
-            }
+            name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
         }
         else if(game.getPlayers().size()==1){
             iteration();

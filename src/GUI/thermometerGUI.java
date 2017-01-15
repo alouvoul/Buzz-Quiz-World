@@ -147,28 +147,28 @@ public class thermometerGUI extends MainGUI {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
 
-        if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[PLAYER1]){
+        if(evt.getKeyCode() == Configurations.p1a1 && !answered[PLAYER1]){
             update(answerButton1.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[PLAYER2]){
+        else if(evt.getKeyCode() == Configurations.p2a1 && !answered[PLAYER2]){
             update(answerButton1.getText(),PLAYER2);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[PLAYER1]){
+        if(evt.getKeyCode() == Configurations.p1a2 && !answered[PLAYER1]){
             update(answerButton2.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[PLAYER2]){
+        else if(evt.getKeyCode() == Configurations.p2a2 && !answered[PLAYER2]){
             update(answerButton2.getText(),PLAYER2);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[PLAYER1]){
+        if(evt.getKeyCode() == Configurations.p1a3 && !answered[PLAYER1]){
             update(answerButton3.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[PLAYER2]){
+        else if(evt.getKeyCode() ==Configurations.p2a3  && !answered[PLAYER2]){
             update(answerButton3.getText(),PLAYER2);
         }
-        if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[PLAYER1]){
+        if(evt.getKeyCode() == Configurations.p1a4 && !answered[PLAYER1]){
             update(answerButton4.getText(),PLAYER1);
         }
-        else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[PLAYER2]){
+        else if(evt.getKeyCode() == Configurations.p2a4 && !answered[PLAYER2]){
             update(answerButton4.getText(),PLAYER2);
         }
         if(Configurations.DEBUG)
@@ -243,7 +243,7 @@ public class thermometerGUI extends MainGUI {
         }
         
         name1.setText(game.getPlayers().get(PLAYER1).GetName()+": "+game.getPlayers().get(PLAYER1).GetScore()+"| Correct:"+playerWin[PLAYER1]);
-        name1.setText(game.getPlayers().get(PLAYER2).GetName()+": "+game.getPlayers().get(PLAYER2).GetScore()+"| Correct:"+playerWin[PLAYER2]);
+        name2.setText(game.getPlayers().get(PLAYER2).GetName()+": "+game.getPlayers().get(PLAYER2).GetScore()+"| Correct:"+playerWin[PLAYER2]);
     }
 
 

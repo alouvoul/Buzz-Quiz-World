@@ -19,11 +19,14 @@ public class fastAnswer extends Round{
      */
     private short position;
 
+    private short correct;
+    
     /**
      * Constructor of this obect set the position of the player answer.
      */
     public fastAnswer() {
         position = 1;
+        correct = 1;
     }
     
     /**
@@ -36,16 +39,17 @@ public class fastAnswer extends Round{
      */
     @Override
     public int calculate(boolean answer) {
-        //int points = 0;
         int temp = 0;
+        if(position>2){
+            position = 1;
+            correct = 1;
+        }
         if(answer){
             points = 1000;
-            
-            if(position>2){
-                position = 1;
-            }
-            temp = (int)(points/position);
+            temp = (int)(points/correct);
+            correct++;
         }
+        
         position++;
         return temp;
     }
