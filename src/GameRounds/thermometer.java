@@ -6,15 +6,20 @@
 package GameRounds;
 
 /**
- *
+ * Class to implement logic for thermometer roud type game. If the player answers
+ * times corect this class called to set the points to the player.
+ * 
  * @author alouvoul
  */
 public class thermometer extends Round{
+    /**
+     * Points that every player wins if answer correct.
+     */
     public static final int POINTS_BET = 5000;
+    
     public thermometer() {
         points = POINTS_BET;
     }
-
     
     @Override
     public int calculate(boolean answer) {

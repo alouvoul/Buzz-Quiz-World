@@ -14,16 +14,20 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+
 
 /**
- *
+ * Class that implements GUI of player selection. Has choice for u\number of players
+ * and textfields to set the names. There is a button to show scores of the game.
+ * Control settings can be accessed only by this frame.
+ * 
  * @author alouvoul
  */
 public class playerSelection extends MainGUI {
-    
-    categoryChooseGUI cg;
+    /**
+     * Next frame.
+     */
+    private categoryChooseGUI cg;
     /**
      * Creates new form playerSelection
      */

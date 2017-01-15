@@ -13,6 +13,9 @@ package GameRounds;
  * @author Louvoulinas Anastasios AEM: 2447
  */
 public class CorrectAnswer extends Round{
+    /**
+     * Points that every player wins if answer correct.
+     */
     public static final int POINTS_CORRECT_ANSWER = 1000;
     
     /**
@@ -26,8 +29,8 @@ public class CorrectAnswer extends Round{
      * Overrides method of parent class Round and calculate and return the
      * points of the player.
      * 
-     * @param answer
-     * @return 
+     * @param answer true if is correct answered or false.
+     * @return 0 for wrong answer or 1000 if wins
      */
     @Override
     public int calculate(boolean answer) {

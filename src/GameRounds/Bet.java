@@ -6,7 +6,7 @@
 package GameRounds;
 
 /**
- * Class that declares the bet object.
+ * Class that declares the bet object. Abstract or add the bet points of the player.
  * 
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447

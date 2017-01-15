@@ -9,7 +9,9 @@ import buzz.Configurations;
 import java.awt.event.KeyEvent;
 
 /**
- *
+ * This class is used to change buttons that players play the game. A click on a
+ * textfield focus the object and if a button pressed changes the game control.
+ * 
  * @author alouvoul
  */
 public class controlSettings extends MainGUI {
@@ -260,6 +262,9 @@ public class controlSettings extends MainGUI {
         this.dispose();
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    /**
+     * Method that refresh the textfields.
+     */
     protected void updateTextFields(){
         p1Text1.setText(KeyEvent.getKeyText(Configurations.p1a1));
         p1Text2.setText(KeyEvent.getKeyText(Configurations.p1a2));

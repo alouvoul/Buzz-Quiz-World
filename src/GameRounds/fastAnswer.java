@@ -6,16 +6,34 @@
 package GameRounds;
 
 /**
+ * Class - child of class Round, one of the categories of the game, contains
+ * the basic functions of this category. The first player that answers correct
+ * takes 1000 points and the second 500.
  *
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class fastAnswer extends Round{
+    /**
+     * variable to keep the order of the players that answer.
+     */
     private short position;
 
+    /**
+     * Constructor of this obect set the position of the player answer.
+     */
     public fastAnswer() {
         position = 1;
     }
     
+    /**
+     * The first player that answer divides 1000 with 1 so takes 1000 points.
+     * The second divides 1000/2 so wins 500 points and set position variable again
+     * with value 1.
+     * 
+     * @param answer True or false answered by player
+     * @return points to win
+     */
     @Override
     public int calculate(boolean answer) {
         //int points = 0;

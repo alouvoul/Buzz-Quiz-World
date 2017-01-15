@@ -6,10 +6,18 @@
 package GameRounds;
 
 /**
+ * Class - child of class Round, one of the categories of the game, contains
+ * the basic functions of this category. Needs the milliseconds that he player 
+ * answered the question to calculate the points.
  *
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class timer extends Round{
+    /**
+     * The value that multiplies miliseconds inorder to calculate the points that
+     * a player wins.
+     */
     public static final float BET_MULTIPLY = (float) 0.2;
     
     @Override

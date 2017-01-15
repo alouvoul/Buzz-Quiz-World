@@ -25,7 +25,6 @@ public class MainGUI extends javax.swing.JFrame {
     protected static BuzzApp game;
     public static final int PLAYER1 = 0;
     public static final int PLAYER2 = 1;
-    public Configurations cf = new Configurations();
     
     /**
      * Array that checks if a player answer the current question. Every iteration

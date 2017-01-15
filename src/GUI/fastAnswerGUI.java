@@ -13,7 +13,6 @@ import java.awt.event.KeyEvent;
  * @author alouvoul
  */
 public class fastAnswerGUI extends generalGUIOptions{
-    int i = 0;
     
     /**
      * Creates new form fastAnswerGUI
@@ -71,47 +70,31 @@ public class fastAnswerGUI extends generalGUIOptions{
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_1 && !answered[0]){
-            updateUI(answerButton1.getText(),0);
+            updateUI(answerButton1.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD1 && !answered[1]){
-            updateUI(answerButton1.getText(),1);
+            updateUI(answerButton1.getText(),PLAYER2);
         }
         if(evt.getKeyCode() == KeyEvent.VK_2 && !answered[0]){
-            updateUI(answerButton2.getText(),0);
+            updateUI(answerButton2.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD2 && !answered[1]){
-            updateUI(answerButton2.getText(),1);
+            updateUI(answerButton2.getText(),PLAYER2);
         }
         if(evt.getKeyCode() == KeyEvent.VK_3 && !answered[0]){
-            updateUI(answerButton3.getText(),0);
+            updateUI(answerButton3.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD3 && !answered[1]){
-            updateUI(answerButton3.getText(),1);
+            updateUI(answerButton3.getText(),PLAYER2);
         }
         if(evt.getKeyCode() == KeyEvent.VK_4 && !answered[0]){
-            updateUI(answerButton4.getText(),0);
+            updateUI(answerButton4.getText(),PLAYER1);
         }
         else if(evt.getKeyCode() == KeyEvent.VK_NUMPAD4 && !answered[1]){
-            updateUI(answerButton4.getText(),1);
+            updateUI(answerButton4.getText(),PLAYER2);
         }
     }//GEN-LAST:event_formKeyPressed
 
-/*    
-    private void update(String answer,int i){
-        boolean flagAnswer = false;
-        if(answer.equals(q.getCorrectAnswer()))
-            flagAnswer = true;
-        game.playerAnswer(flagAnswer, i);
-        answered[i] = true;
-        ArrayList<Player> pl = game.getPlayers();
-        name1.setText(pl.get(0).GetName()+": "+pl.get(0).GetScore());
-        if(pl.size()==2){
-            name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
-        }
-        if(answered[0] &&  answered[1])
-            iteration();
-    }
-*/    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

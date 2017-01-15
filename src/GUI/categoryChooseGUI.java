@@ -16,13 +16,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- *
+ * This is a GUI class to implement the category choose in a game. This frame will
+ * not stop working until the game ends. Every call to another object passes this
+ * object as parameter to enable again for next round. 
+ * 
  * @author alouvoul
  */
 public class categoryChooseGUI extends MainGUI {
-    int numberOfIterations = 0;
+    /**
+     * In a game there is a number of rounds that will be played from players.
+     */
+    private int numberOfIterations = 0;
+    /**
+     * MainGui object that sets a round type JFrame that inherits from this parent
+     * object
+     */
     private MainGUI mg;
-    int i=0;
+    private int i=0;
     /**
      * Creates new form categoryChooseGUI
      */
@@ -217,7 +227,6 @@ public class categoryChooseGUI extends MainGUI {
                 this.dispose();
             }
             numberOfIterations++;
-            
         }
         else{   //Write scores and terminate
             scores s = new scores();
@@ -237,7 +246,11 @@ public class categoryChooseGUI extends MainGUI {
         }
             
     }
-            
+    
+    /**
+     * This method used only in the constructor of this object and used to initialize
+     * catefories and the player that will choose first round.
+     */
     private void initialCode(){
         try {
             game.InitializeQuestions();

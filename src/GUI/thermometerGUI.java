@@ -241,6 +241,9 @@ public class thermometerGUI extends MainGUI {
             //seting
             imageLabel.setIcon(defaultImage);
         }
+        
+        name1.setText(game.getPlayers().get(PLAYER1).GetName()+": "+game.getPlayers().get(PLAYER1).GetScore()+"| Correct:"+playerWin[PLAYER1]);
+        name1.setText(game.getPlayers().get(PLAYER2).GetName()+": "+game.getPlayers().get(PLAYER2).GetScore()+"| Correct:"+playerWin[PLAYER2]);
     }
 
 

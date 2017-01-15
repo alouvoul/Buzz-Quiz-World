@@ -25,10 +25,11 @@ import javax.swing.JOptionPane;
  */
 public class generalGUIOptions extends MainGUI {
     ImageIcon defaultImage;
+    ArrayList<Player> pl = game.getPlayers();
     /**
      * Variable for iterations limit.
      */
-    private int i = 0;
+    protected int iterations = 0;
     /**
      * Creates new form generalGUIOptions
      */
@@ -151,7 +152,6 @@ public class generalGUIOptions extends MainGUI {
             answered[i] = true;    
         }
         
-        ArrayList<Player> pl = game.getPlayers();
         
         if(game.getPlayers().size()>1 && answered[0] &&  answered[1]){  //Sets only if both players answered
             iteration();
@@ -160,7 +160,6 @@ public class generalGUIOptions extends MainGUI {
             if(pl.size()==2){
                 name2.setText(pl.get(1).GetName()+": "+pl.get(1).GetScore());
             }
-            
         }
         else if(game.getPlayers().size()==1){   //if there is one player 
             iteration();
@@ -208,7 +207,7 @@ public class generalGUIOptions extends MainGUI {
      */
     protected void iteration(){
         
-        if(i < buzz.Configurations.QUESTIONS_PER_ROUNDS){
+        if(iterations < buzz.Configurations.QUESTIONS_PER_ROUNDS){
             setQuestions();
         }
         else{
@@ -216,7 +215,7 @@ public class generalGUIOptions extends MainGUI {
             previous.setVisible(true);
             this.dispose();
         }
-        i++;
+        iterations++;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

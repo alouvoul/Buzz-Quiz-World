@@ -15,12 +15,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- *
+ * First object in the game. A player choose the prefered language in this gui.
+ * Initialize the BuzzApp object 'game' that all the game logic is implmented.
+ * Languange set in the configuration file.
+ * 
  * @author alouvoul
  */
 public class languageSelection extends MainGUI{
-    
-    playerSelection ps;
+    /**
+     * Next frame to enable
+     */
+    private playerSelection ps;
     /**
      * Creates new form languageSelection
      */
@@ -116,6 +121,13 @@ public class languageSelection extends MainGUI{
         }
     }//GEN-LAST:event_englishButtonActionPerformed
 
+    /**
+     * Method that initialize variables with translations. After create the next gui window
+     * and dispose itself.
+     * 
+     * @param lang Choosen languange to set
+     * @throws IOException 
+     */
     private void changeScreen(String lang) throws IOException{
         Configurations.setLanguage(lang);
         InitializeGame(); //!!!!Initialize game variable

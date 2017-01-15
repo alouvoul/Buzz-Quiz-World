@@ -13,13 +13,21 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Class for bet round GUI. Inherits components that used from other round type
+ * games. This class implements logic of bet round. JOption Pane used to set bet score
+ * that a player choose
+ * 
  * @author alouvoul
  */
 public class betGUI extends generalGUIOptions{
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
-    int bet;
-    int i=0;
+    /**
+     * Variable to get bet score that the current player bets.
+     */
+    private int bet;
+    /**
+     * number of iterations in a round
+     */
     Player tempPlayer;
     
     /**
@@ -28,6 +36,7 @@ public class betGUI extends generalGUIOptions{
     public betGUI(categoryChooseGUI cc) {
         super();
         previous = cc;
+        iterations = 0;
         initComponents();
         name1.setText(game.getPlayers().get(0).GetName()+": "+game.getPlayers().get(0).GetScore());
         if(game.getPlayers().size()>1){
@@ -118,9 +127,14 @@ public class betGUI extends generalGUIOptions{
         //iteration();
     }//GEN-LAST:event_formKeyPressed
 
+    /**
+     * Check for iteration limit for rounds. Refresh the questions by calling setQuestions
+     * method. if limit reached enable previous frame (categoryChoose object).
+     * Also calls method to set bet score of a player.
+     */
     protected void iteration(){
         
-        if(i<buzz.Configurations.QUESTIONS_PER_ROUNDS){
+        if(iterations<buzz.Configurations.QUESTIONS_PER_ROUNDS){
             setCurrentPlayer();
             bet = bettingMethod();
             setQuestions();
@@ -130,9 +144,17 @@ public class betGUI extends generalGUIOptions{
             previous.setVisible(true);
             this.dispose();
         }
-        i++;
+        iterations++;
     }
     
+    /**
+     * Checks if answer is correct and call method to calculate points to add. 
+     * Update scores for players if both of them answer and call iteration mathod
+     * to change questions.
+     * 
+     * @param answer Player's answer to check if this is correct.
+     * @param i Player number 0 or 1 for 2 players
+     */
     private void update(String answer, int player){
         game.playerAnswer(answer, tempPlayer , bet);
         ArrayList<Player> pl = game.getPlayers();
@@ -142,7 +164,11 @@ public class betGUI extends generalGUIOptions{
         }
     }
     
-
+    /**
+     * Method to set bet score of a player every round. There are only 4 choices
+     * for the player to set.
+     * @return Choosen bet score
+     */
     private int bettingMethod() {
         Object[] possibilities = {"250", "500", "750","1000"};
         this.setVisible(false);
@@ -162,8 +188,12 @@ public class betGUI extends generalGUIOptions{
         }
     }
     
+    /**
+     * Method to set current player in rounds. This needs because every question
+     * another player bets and answer the question.
+     */
     private void setCurrentPlayer() {
-        tempPlayer = game.getPlayers().get(i%game.getPlayers().size());
+        tempPlayer = game.getPlayers().get(iterations%game.getPlayers().size());
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

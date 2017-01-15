@@ -9,14 +9,18 @@ import static GUI.MainGUI.game;
 import java.awt.event.KeyEvent;
 
 /**
- *
+ * Class that implements correct answer game round. Takes as parameter previous
+ * frame that will enable again after the end of the round. This round played only
+ * with button from keyboard and NOT clicks with mouse.
+ * 
+ * @see generalGUIOptions
  * @author alouvoul
  */
 public class correctAnswerGUI extends generalGUIOptions {
     
     /**
      * Creates new form correctAnswerGUI
-     * @param previous
+     * @param previous Set enable after the end of the round
      */
     public correctAnswerGUI(categoryChooseGUI previous) {
         super();

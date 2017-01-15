@@ -16,6 +16,9 @@ import javax.swing.table.DefaultTableModel;
  * @author alouvoul
  */
 public class scoreGUI extends javax.swing.JFrame {
+    /**
+     * Variable to get scores from file and preview on frame.
+     */
     scores score;
     /**
      * Creates new form scoreGUI
@@ -130,6 +133,10 @@ public class scoreGUI extends javax.swing.JFrame {
     private javax.swing.JTable table2;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Initialize tables with name and scres in columns. In the form there are
+     * two tables one for singleplayer and one for multiplayer.
+     */
     private void initTables() {
         ArrayList<String[]> t1 = score.readOnePlayerScores();
         ArrayList<String[]> t2 = score.readTwoPlayersScores();
