@@ -20,16 +20,28 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author alouvoul
+ * Class used by game rounds as parent to implement basic methods and gui components
+ * that all cholds use. Also used to iterate the questions for a category.
+ * 
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class generalGUIOptions extends MainGUI {
+    /**
+     * Variable that used for image preview. Used by all subclasses.
+     */
     ImageIcon defaultImage;
+    /**
+     * Store tha game players used to set scores and the check for number of players.
+     */
     ArrayList<Player> pl = game.getPlayers();
     /**
      * Variable for iterations limit.
      */
     protected int iterations = 0;
+    
     /**
      * Creates new form generalGUIOptions
      */

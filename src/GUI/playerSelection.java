@@ -21,7 +21,10 @@ import javax.swing.JOptionPane;
  * and textfields to set the names. There is a button to show scores of the game.
  * Control settings can be accessed only by this frame.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class playerSelection extends MainGUI {
     /**
@@ -173,9 +176,9 @@ public class playerSelection extends MainGUI {
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
         String name1 = nameTextField1.getText();
         String name2 = nameTextField2.getText();
-        if(twoPlayerRadioButton.isSelected() && name2.equals(""))
+        if(twoPlayerRadioButton.isSelected() && name2.equals(""))   //Needs name for player
             JOptionPane.showMessageDialog(this,Configurations.playerError);
-        else if(name1.equals("") || name1.equals(name2))
+        else if(name1.equals("") || name1.equals(name2))        //Needs different names for players
             JOptionPane.showMessageDialog(this,Configurations.playerError);
         else{
             String names[];

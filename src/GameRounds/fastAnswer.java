@@ -12,13 +12,17 @@ package GameRounds;
  *
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class fastAnswer extends Round{
     /**
      * variable to keep the order of the players that answer.
      */
     private short position;
-
+    /**
+     * Variable that used to keep the correct answers.
+     */
     private short correct;
     
     /**
@@ -33,6 +37,8 @@ public class fastAnswer extends Round{
      * The first player that answer divides 1000 with 1 so takes 1000 points.
      * The second divides 1000/2 so wins 500 points and set position variable again
      * with value 1.
+     * position and correct variables used because a player who answer wrong first 
+     * doesn't win but the next one if answer correct has to win 1000 points.
      * 
      * @param answer True or false answered by player
      * @return points to win

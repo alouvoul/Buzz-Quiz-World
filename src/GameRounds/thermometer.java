@@ -9,7 +9,10 @@ package GameRounds;
  * Class to implement logic for thermometer roud type game. If the player answers
  * times corect this class called to set the points to the player.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class thermometer extends Round{
     /**
@@ -17,6 +20,9 @@ public class thermometer extends Round{
      */
     public static final int POINTS_BET = 5000;
     
+    /**
+     * Constructor that initialize the points of the game round.
+     */
     public thermometer() {
         points = POINTS_BET;
     }

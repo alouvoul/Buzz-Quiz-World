@@ -19,7 +19,10 @@ import javax.swing.JLabel;
  * Initialize the BuzzApp object 'game' that all the game logic is implmented.
  * Languange set in the configuration file.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class languageSelection extends MainGUI{
     /**

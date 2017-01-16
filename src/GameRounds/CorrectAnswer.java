@@ -11,6 +11,8 @@ package GameRounds;
  *
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class CorrectAnswer extends Round{
     /**

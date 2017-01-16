@@ -11,10 +11,17 @@ package buzz;
  * 
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class Player {
-    
+    /**
+     * Name of the player that exists only for one.
+     */
     private String name;
+    /**
+     * Variable that contans the score of a player. Change every round.
+     */
     private int score;
     
     /**

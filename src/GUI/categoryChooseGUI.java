@@ -20,7 +20,10 @@ import javax.swing.JLabel;
  * not stop working until the game ends. Every call to another object passes this
  * object as parameter to enable again for next round. 
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class categoryChooseGUI extends MainGUI {
     /**

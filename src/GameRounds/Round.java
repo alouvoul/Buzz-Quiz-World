@@ -13,9 +13,17 @@ import buzz.Question;
  * 
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public abstract class Round {
+    /**
+     * Variable that stores the current answer.
+     */
     private Question question;
+    /**
+     * Points for each type. Initialize by constructors.
+     */
     float points;
     int round;
     

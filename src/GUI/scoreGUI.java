@@ -12,8 +12,13 @@ import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author alouvoul
+ * Class to implement score GUI object. This class used to show saved scores that
+ * takes from score object class.
+ * 
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class scoreGUI extends javax.swing.JFrame {
     /**
@@ -26,14 +31,14 @@ public class scoreGUI extends javax.swing.JFrame {
     public scoreGUI() {
         initComponents();
         score = new scores();
-        
+        //Sets for one player score table
         jLabel1.setText(Configurations.label1);
         jLabel2.setText(Configurations.label2);
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn(Configurations.table1);
         model.addColumn(Configurations.scoreMessage);
         table1.setModel(model);
-        
+        //Sets for two players score table
         DefaultTableModel model2 = new DefaultTableModel();
         model2.addColumn(Configurations.table1);
         model2.addColumn(Configurations.scoreMessage);
@@ -140,6 +145,7 @@ public class scoreGUI extends javax.swing.JFrame {
     private void initTables() {
         ArrayList<String[]> t1 = score.readOnePlayerScores();
         ArrayList<String[]> t2 = score.readTwoPlayersScores();
+        //Sets score for singleplayer
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         for(String[] str :t1){
             Vector row = new Vector();
@@ -147,6 +153,7 @@ public class scoreGUI extends javax.swing.JFrame {
             row.add(str[1]);
             model.addRow(row);
         }
+        //Sets score for two player
         DefaultTableModel model2 = (DefaultTableModel) table2.getModel();
         for(String[] str: t2){
             Vector row = new Vector();

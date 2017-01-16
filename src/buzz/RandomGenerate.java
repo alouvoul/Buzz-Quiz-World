@@ -14,6 +14,8 @@ import java.util.Random;
  * 
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class RandomGenerate implements Randomization{
 
@@ -41,9 +43,11 @@ public class RandomGenerate implements Randomization{
     }
     
     /**
+     * Method which generates array with random numbers, we use it for random
+     * question category.
      * 
-     * @param end
-     * @return 
+     * @param end to this value
+     * @return the array
      */
     @Override
     public int[] generateRandoms(int end) {

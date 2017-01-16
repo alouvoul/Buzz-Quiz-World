@@ -11,23 +11,32 @@ import static GUI.MainGUI.game;
 import buzz.Configurations;
 import buzz.Player;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.Timer;
 
 /**
- *
- * @author alouvoul
+ * Class that implements thermometer type of the game. Iterates until a player answer 5 
+ * corrects. Player only with keyboard controls. This type is player only by 2 players.
+ * 
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class thermometerGUI extends MainGUI {
-    ImageIcon defaultImage;
-    Timer timer;
-    int[] playerWin;
-    int iterations = 0;
+    /**
+     * Variable that used for image preview. Used by all subclasses.
+     */
+    private ImageIcon defaultImage;
+    /**
+     * Variable that contains the correct answers of each player.
+     */
+    private int[] playerWin;
+
+    private int iterations = 0;
     /**
      * Creates new form thermometerGUI
      * @param previous
@@ -174,7 +183,15 @@ public class thermometerGUI extends MainGUI {
         if(Configurations.DEBUG)
             System.out.println("Keypressed: "+evt.getKeyChar());
     }//GEN-LAST:event_formKeyPressed
-
+    
+    /**
+     * Checks if answer is correct and call method to calculate points to add. 
+     * Update scores for players if both of them answer and call iteration mathod
+     * to change questions.
+     * 
+     * @param answer Player's answer to check if this is correct.
+     * @param i Player number 0 or 1 for 2 players
+     */
     private void update(String answer,int i){
         if(answer.equals(q.getCorrectAnswer())){
             playerWin[i]++;
@@ -185,6 +202,10 @@ public class thermometerGUI extends MainGUI {
             iteration();
     }
     
+    /**
+     * Check for correct answer limit of answers. Refresh the questions by calling setQuestions
+     * method. if limit reached enable previous frame (categoryChoose object).
+     */
     protected void iteration(){
         
         if(playerWin[0]< 5 && playerWin[1] < 5){
@@ -238,10 +259,10 @@ public class thermometerGUI extends MainGUI {
             Image finalImage= defaultImage.getImage().getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
             //saving image
             defaultImage=new ImageIcon(finalImage);
-            //seting
+            //setting
             imageLabel.setIcon(defaultImage);
         }
-        
+        //Refresh name labels
         name1.setText(game.getPlayers().get(PLAYER1).GetName()+": "+game.getPlayers().get(PLAYER1).GetScore()+"| Correct:"+playerWin[PLAYER1]);
         name2.setText(game.getPlayers().get(PLAYER2).GetName()+": "+game.getPlayers().get(PLAYER2).GetScore()+"| Correct:"+playerWin[PLAYER2]);
     }

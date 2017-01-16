@@ -15,7 +15,10 @@ import java.io.IOException;
  * Variables that needed to all jframes declared in this class. InitializaGame method
  * initial game object and configurations for the game.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class MainGUI extends javax.swing.JFrame {
     /**
@@ -23,7 +26,13 @@ public class MainGUI extends javax.swing.JFrame {
      * the game.
      */
     protected static BuzzApp game;
+    /**
+     * Variable that show the player 1  in the lists. Used to avoid collusions.
+     */
     public static final int PLAYER1 = 0;
+    /**
+     * Variable that show the player 2 in the lists. Used to avoid collusions.
+     */
     public static final int PLAYER2 = 1;
     
     /**

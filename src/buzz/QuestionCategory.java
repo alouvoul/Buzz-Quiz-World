@@ -22,10 +22,22 @@ import java.util.logging.Logger;
  * 
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class QuestionCategory {
+    /**
+     * Variable that contains the name of the category
+     */
     private String questionCategory;
+    
+    /**
+     * Contains all the questions that read from the files.
+     */
     private ArrayList<Question> questions;
+    /**
+     * Variable to check if a category was choosen before.
+     */
     private boolean used;
     
     /**

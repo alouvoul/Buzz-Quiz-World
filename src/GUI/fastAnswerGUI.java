@@ -12,14 +12,16 @@ import java.awt.event.KeyEvent;
  * Class to show fast answer game round. This round is played only with keys and
  * not with clicks. Inherits from generalGUIOptions so doesn't have methods. 
  * 
- * @see generalGUIOptions
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class fastAnswerGUI extends generalGUIOptions{
     
     /**
      * Creates new form fastAnswerGUI
-     * @param previous
+     * @param previous categoryChoose frame that will open again in the end of the round
      */
     public fastAnswerGUI(categoryChooseGUI previous) {
         super();

@@ -19,7 +19,10 @@ import java.util.logging.Logger;
  * Class used by UI to read /write score record for previous games. Score saved
  * in txt files for one player and two players.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class scores {
     /**

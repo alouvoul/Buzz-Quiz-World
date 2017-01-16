@@ -12,9 +12,16 @@ import java.awt.event.KeyEvent;
  * This class is used to change buttons that players play the game. A click on a
  * textfield focus the object and if a button pressed changes the game control.
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class controlSettings extends MainGUI {
+    /**
+     * Stores the previos frame to open again when the players finish with the
+     * control settings.
+     */
     private playerSelection temp;
     /**
      * Creates new form controlSettings

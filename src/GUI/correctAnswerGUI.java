@@ -14,8 +14,10 @@ import java.awt.event.KeyEvent;
  * frame that will enable again after the end of the round. This round played only
  * with button from keyboard and NOT clicks with mouse.
  * 
- * @see generalGUIOptions
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class correctAnswerGUI extends generalGUIOptions {
     

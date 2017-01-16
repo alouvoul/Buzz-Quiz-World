@@ -16,18 +16,26 @@ import java.io.IOException;
 import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Random;
 
 
 /**
  * Class to create and declare the main objects that we will be used for the game.
+ * This is the interface with logic part of the programm.
  * 
  * @author Iordanidis Georgios AEM: 2353
  * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class BuzzApp {
-
+    /**
+     * Variable that contains the locale of the project. This variabl sets in the
+     * beggining of he game.
+     */
     public static Locale language;
+    /**
+     * Used for all random events.
+     */
     RandomGenerate r = new RandomGenerate();
 
     public static final boolean notSupported = false;
@@ -44,7 +52,7 @@ public class BuzzApp {
     private Player currentPlayer;
     private int currentCategory;
     private final ArrayList<QuestionCategory> questions;
-    private boolean categoriesUsed[];
+    //private boolean categoriesUsed[];
     private int iterations = 0;
     private int[] roundNumber;
     private int[] questionNumber;

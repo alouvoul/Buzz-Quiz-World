@@ -7,7 +7,6 @@ package GUI;
 
 import buzz.Configurations;
 import buzz.Player;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -17,7 +16,10 @@ import javax.swing.JOptionPane;
  * games. This class implements logic of bet round. JOption Pane used to set bet score
  * that a player choose
  * 
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class betGUI extends generalGUIOptions{
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;

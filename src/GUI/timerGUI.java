@@ -10,18 +10,33 @@ import buzz.Configurations;
 import buzz.Player;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.Timer;
 
 /**
- *
- * @author alouvoul
+ * Class that implements timer type of the game. Contains a timer to set the seconds 
+ * to answer a question. After the 5 seconds the timer event refresh questiona and points 
+ * of the players. Iterates for a spsific iterations.
+ * 
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class timerGUI extends generalGUIOptions implements ActionListener{
+    /**
+     * Timer component of this type of game.
+     */
     Timer timer;
     int iterations = 0;
+    /**
+     * variable that sets the beggining of the round. Refreshed every question.
+     */
     private long start;
+    /**
+     * variable that sets the end of the round. When a player answer this variable
+     * set the current system time to calculate the time passed from the start.
+     */
     private long end;
     /**
      * Creates new form timerGUI
@@ -76,6 +91,7 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        //One player check
         if(evt.getKeyCode() == Configurations.p1a1 && game.getPlayers().size()==1){
             update(answerButton1.getText(),PLAYER1);
         }
@@ -89,7 +105,7 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
             update(answerButton4.getText(),PLAYER1);
         }
         
-        
+        // two player check
         if(evt.getKeyCode() == Configurations.p1a1 && !answered[0]){
             update(answerButton1.getText(),0);
         }
@@ -118,6 +134,12 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
             System.out.println("Keypressed: "+evt.getKeyChar());
     }//GEN-LAST:event_formKeyPressed
 
+    /**
+     * Event by timer that every 5 seconds refresh questions and score of the players.
+     * Initialize the time that roud starts.
+     * If the iteration limit reached stops the timer and enable the previous frame.
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         iterations++;
@@ -142,6 +164,13 @@ public class timerGUI extends generalGUIOptions implements ActionListener{
         start = System.currentTimeMillis();
     }
 
+    /**
+     * Checks if answer is correct and call method to calculate points to add. Also keep 
+     * track for time that a player answers.
+     * 
+     * @param answer Player's answer to check if this is correct.
+     * @param i Player number 0 or 1 for 2 players
+     */
     private void update(String answer, int player) {
         end = System.currentTimeMillis();
         int points = (int) (end-start);

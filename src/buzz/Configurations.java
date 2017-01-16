@@ -9,13 +9,18 @@ import java.awt.event.KeyEvent;
 import java.util.Locale;
 
 /**
- *
- * @author alouvoul
+ * Class that contains all configurations and translatios for easy use from the programmer.
+ * 
+ * 
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
+ * @since 1.0
+ * @version 1.0
  */
 public class Configurations {
     public static final int NUMBER_OF_CATEGORY_QUESTIONS = 4;
     public static final int NUMBER_OF_ANSWERS = 4;
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     
     public static final int NUMBER_ROUNDS = 5;
     public static final int QUESTIONS_PER_ROUNDS = 6;
@@ -49,7 +54,9 @@ public class Configurations {
     public static String pathToCategories;
     public static String PATH_TO_IMAGES = "./questions/"+"images/";
     
-    // Configs for control Settings
+    /*
+        Configs for control Settings
+    */
     public static String saveButton = "Save";
     public static String answer1Label = "Answer1";
     public static String answer2Label = "Answer2";
@@ -69,7 +76,9 @@ public class Configurations {
     public static int p2a4 = KeyEvent.VK_NUMPAD4;
     // End
     
-    //Score configs
+    /*
+        Score configs
+    */
     public static String label1 = "One Player game";
     public static String label2 = "Two Players game";
     public static String table1 = "Name";
@@ -78,6 +87,10 @@ public class Configurations {
         
     }
     
+    /**
+     * Method that used in the beggining and checks if the language is in greek so has
+     * to change translations.
+     */
     public static void init(){
         if(language.getLanguage().equals("el-gr")){
             playerTurn = " είναι η σειρά σου να παίξεις";
@@ -102,6 +115,10 @@ public class Configurations {
         
     }
     
+    /**
+     * Initialize the game localization.
+     * @param lang 
+     */
     public static void setLanguage(String lang){
         language = new Locale(lang);
     }
