@@ -81,6 +81,8 @@ public class playerSelection extends MainGUI {
         jLabel1.setForeground(new java.awt.Color(0, 255, 62));
         jLabel1.setText("How many players?");
 
+        OKButton.setBackground(new java.awt.Color(0, 0, 0));
+        OKButton.setForeground(new java.awt.Color(255, 255, 255));
         OKButton.setText("OK");
         OKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +109,8 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        scoreButton.setBackground(new java.awt.Color(0, 0, 0));
+        scoreButton.setForeground(new java.awt.Color(255, 255, 255));
         scoreButton.setText("scores");
         scoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +118,8 @@ public class playerSelection extends MainGUI {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Control Settings");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
