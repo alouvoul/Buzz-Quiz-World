@@ -115,7 +115,8 @@ public class QuestionCategory {
                 tempQuestion.setAnswers(answerOrder);
                 tempQuestion.setCorrectAnswer(line[5]);
                 if(j==7){
-                    System.out.println("Image selection");
+                    if(Configurations.DEBUG)
+                        System.out.println("Image selection");
                     tempQuestion.setHasImage(line[6]);
                 }
                 questions.add(tempQuestion);

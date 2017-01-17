@@ -164,7 +164,8 @@ public class BuzzApp {
             iterations++;
             if(iterations>=RoundEnum.values().length)
                 iterations=0;
-            System.out.println(roundNumber[iterations]+"  "+iterations);
+            if(Configurations.DEBUG)
+                System.out.println(roundNumber[iterations]+"  "+iterations);
         
             //if(Configurations.DEBUG)
             //    round = RoundEnum.CORRECT_ANSWER;
@@ -189,7 +190,8 @@ public class BuzzApp {
                 flag = false;
             }
             else{   //Used for debugging
-                System.out.println("Cant find a game!!");
+                if(Configurations.DEBUG)
+                    System.out.println("Cant find a game!!");
             }
         }while(flag);
     }
@@ -233,7 +235,7 @@ public class BuzzApp {
                 }
             }
         } catch(Exception e){
-            System.out.println("Problem BuzzApp-->getQuestionCategories");
+            System.out.println("Ignore! Problem BuzzApp-->getQuestionCategories");
         }
         return randomQuestions;
     }
