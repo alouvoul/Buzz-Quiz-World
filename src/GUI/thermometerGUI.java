@@ -14,8 +14,11 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  * Class that implements thermometer type of the game. Iterates until a player answer 5 
@@ -43,6 +46,13 @@ public class thermometerGUI extends MainGUI {
      */
     public thermometerGUI(categoryChooseGUI previous) {
         super();
+        //Background image
+        try {
+            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("./images/background/temp.jpg")))));
+        } catch (IOException ex) {
+            Logger.getLogger(generalGUIOptions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         playerWin = new int[2];
         playerWin[0] = 0;
         playerWin[1] = 0;

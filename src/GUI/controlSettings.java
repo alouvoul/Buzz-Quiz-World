@@ -7,6 +7,13 @@ package GUI;
 
 import buzz.Configurations;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  * This class is used to change buttons that players play the game. A click on a
@@ -29,6 +36,11 @@ public class controlSettings extends MainGUI {
      */
     public controlSettings(playerSelection ps) {
         temp = ps;
+        try {
+            this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("./images/background/buzz-quiz-world.jpg")))));
+        } catch (IOException ex) {
+            Logger.getLogger(generalGUIOptions.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
         Answer1Label.setText(Configurations.answer1Label);
         Answer2Label.setText(Configurations.answer2Label);
