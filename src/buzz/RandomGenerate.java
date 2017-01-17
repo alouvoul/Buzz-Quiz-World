@@ -68,10 +68,10 @@ public class RandomGenerate implements Randomization{
      * Method which generates array with random numbers, we use it for random
      * show of questions and answer order.
      * 
-     * @param start
-     * @param end
-     * @param array
-     * @return 
+     * @param start left border for randoms
+     * @param end right border for randoms
+     * @param array array that we want to swap
+     * @return swapped array
      */
     @Override
     public String[] generateRandoms(int start, int end, String[] array) {

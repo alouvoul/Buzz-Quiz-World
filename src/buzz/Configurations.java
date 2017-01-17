@@ -9,7 +9,8 @@ import java.awt.event.KeyEvent;
 import java.util.Locale;
 
 /**
- * Class that contains all configurations and translatios for easy use from the programmer.
+ * Class that contains all configurations and translatios for easy use from the
+ * programmer.
  * 
  * 
  * @author Iordanidis Georgios AEM: 2353
@@ -18,6 +19,11 @@ import java.util.Locale;
  * @version 1.0
  */
 public class Configurations {
+
+    /**
+     * ****************  Game configuration for round  *************************
+     * *************************************************************************
+     */
     /**
      * Number of question categories for a player to choose
      */
@@ -27,7 +33,8 @@ public class Configurations {
      */
     public static final int NUMBER_OF_ANSWERS = 4;
     /**
-     * Used for debugging messages
+     * Used for debugging messages. If true a lot of message will be displayed in
+     * terminal.
      */
     public static final boolean DEBUG = false;
     /**
@@ -48,60 +55,148 @@ public class Configurations {
      */
     public static String chooseLanguage = "Select your language:";
     
-    /*
-     *  player selection window   
+    //******************Translations for GUI************************************
+    
+    /**
+     * ****************  player selection Frame  ******************************* 
+     * *************************************************************************
      */
     public static String playersSum = " How many players?";
+    /**
+     * Message 
+     */
     public static String playerError = "You have to choose a name!";
+    /**
+     * Variable for number choose of players
+     */
     public static String player1 = "1 player";
+    /**
+     * Variable for number choose of players
+     */
     public static String player2 = "2 players";
+    /**
+     * Translation for score button
+     */
     public static String scoreMessage = "Scores";
     
     
-    /*
-     *  Category choose messages  
-    */
+    /**
+     * ****************  Category choose messages ******************************
+     * *************************************************************************
+     */
     public static String categoryChoose = " choose category for next round:";
     
-    /*
-    **  Bet window messages
-    */
+    
+    /**
+     * *********************  Bet Frame messages *******************************
+     * *************************************************************************
+     */
     public static String playerTurn = " is your turn to play";
+    /**
+     * Message for popup window
+     */
     public static String betMessage = " How many points would you like to bet?";
     
     
+    /**
+     * *********************  Path to files  ***********************************
+     * *************************************************************************
+     */
     public static String pathToCategories;
+    /**
+     * Path to image questions
+     */
     public static String PATH_TO_IMAGES = "./questions/"+"images/";
     
     /*
         Configs for control Settings
     */
+    /**
+     * **************  Configs for control Settings  ***************************
+     * *************************************************************************
+     */
     public static String saveButton = "Save";
+    /**
+     * Label message
+     */
     public static String answer1Label = "Answer1";
+    /**
+     * Label message
+     */
     public static String answer2Label = "Answer2";
+    /**
+     * Label message
+     */
     public static String answer3Label = "Answer3";
+    /**
+     * Label message
+     */
     public static String answer4Label = "Answer4";
+    /**
+     * Label message for player 1
+     */
     public static String player1Label = "Player 1";
+    /**
+     * Label message for player 2
+     */
     public static String player2Label = "Player 2";
     
+    /**
+     * ***************   Configs for control Settings  *************************
+     * *************************************************************************
+     */
+    /**
+     * 1st key for player 1
+     */
     public static int p1a1 = KeyEvent.VK_1;
+    /**
+     * 2nd key for player 1
+     */
     public static int p1a2 = KeyEvent.VK_2;
+    /**
+     * 3rd key for player 1
+     */
     public static int p1a3 = KeyEvent.VK_3;
+    /**
+     * 4th key for player 1
+     */
     public static int p1a4 = KeyEvent.VK_4;
     
+    /**
+     * 1st key for player 2
+     */
     public static int p2a1 = KeyEvent.VK_NUMPAD1;
+    /**
+     * 2nd key for player 2
+     */
     public static int p2a2 = KeyEvent.VK_NUMPAD2;
+    /**
+     * 3rd key for player 3
+     */
     public static int p2a3 = KeyEvent.VK_NUMPAD3;
+    /**
+     * 4th key for player 4
+     */
     public static int p2a4 = KeyEvent.VK_NUMPAD4;
     // End
     
-    /*
-        Score configs
-    */
+    /**
+     * *******************   Score Configs   ***********************************
+     * *************************************************************************
+     */
     public static String label1 = "One Player game";
+    /**
+     * Message for label
+     */
     public static String label2 = "Two Players game";
+    /**
+     * Message for table
+     */
     public static String table1 = "Name";
-            
+    
+    /**
+     * Constructor
+     */
     public Configurations() {
         
     }

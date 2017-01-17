@@ -16,21 +16,27 @@ package buzz;
 public interface Randomization {
 
     /**
+     * Method which generates array with random numbers, we use it for random
+     * question category.
      * 
-     * @param start
-     * @param end
-     * @return 
+     * @param start from this value
+     * @param end to this value
+     * @return the array
      */
     public int[] generateRandoms(int start, int end);
     
     /**
+     * Method which generates array with random numbers, we use it for random
+     * question category.
      * 
-     * @param end
-     * @return 
+     * @param end to this value
+     * @return the array
      */
     public int[] generateRandoms(int end);
     
     /**
+     * Method which generates array with random numbers, we use it for random
+     * show of questions and answer order.
      * 
      * @param start
      * @param end
