@@ -18,20 +18,39 @@ import java.util.Locale;
  * @version 1.0
  */
 public class Configurations {
+    /**
+     * Number of question categories for a player to choose
+     */
     public static final int NUMBER_OF_CATEGORY_QUESTIONS = 4;
+    /**
+     * Number of answer that a question has.
+     */
     public static final int NUMBER_OF_ANSWERS = 4;
+    /**
+     * Used for debugging messages
+     */
     public static final boolean DEBUG = false;
-    
+    /**
+     * Iterations of the round games
+     */
     public static final int NUMBER_ROUNDS = 5;
+    /**
+     * Number of questions that selected from a category
+     */
     public static final int QUESTIONS_PER_ROUNDS = 6;
+    /**
+     * System language
+     */
     public static Locale language;
     
-    //Language selection window
+    /**
+     * Language selection window
+     */
     public static String chooseLanguage = "Select your language:";
     
     /*
      *  player selection window   
-    */
+     */
     public static String playersSum = " How many players?";
     public static String playerError = "You have to choose a name!";
     public static String player1 = "1 player";

@@ -15,9 +15,27 @@ package buzz;
  */
 public interface Randomization {
 
+    /**
+     * 
+     * @param start
+     * @param end
+     * @return 
+     */
     public int[] generateRandoms(int start, int end);
     
+    /**
+     * 
+     * @param end
+     * @return 
+     */
     public int[] generateRandoms(int end);
     
+    /**
+     * 
+     * @param start
+     * @param end
+     * @param array
+     * @return 
+     */
     public String[] generateRandoms(int start, int end, String[] array);
 }

@@ -84,8 +84,8 @@ public class QuestionCategory {
     }
     
     /**
-     * Find the path and load and show the questions from the text files.
-     * @throws IOException 
+     * Find the path load and show the questions from the text files. Every question stored in
+     * Arraylist for this category.
      */
     public void setQuestions(){
         RandomGenerate random = new RandomGenerate();

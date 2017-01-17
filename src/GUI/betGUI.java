@@ -34,6 +34,7 @@ public class betGUI extends generalGUIOptions{
     
     /**
      * Creates new form betGUI
+     * @param cc previous frame that will open at the end of round
      */
     public betGUI(categoryChooseGUI cc) {
         super();

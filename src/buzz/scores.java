@@ -34,6 +34,9 @@ public class scores {
      */
     private BufferedWriter out;
     
+    /**
+     * Constructor
+     */
     public scores() {
         
     }

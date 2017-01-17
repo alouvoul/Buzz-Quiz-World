@@ -37,7 +37,9 @@ public class BuzzApp {
      * Used for all random events.
      */
     RandomGenerate r = new RandomGenerate();
-
+    /**
+     * Used at the developng
+     */
     public static final boolean notSupported = false;
     
     enum RoundEnum{
@@ -63,6 +65,7 @@ public class BuzzApp {
     /**
      * Constructor of the class, initialize variables that will be used
      * in the game.
+     * @throws java.io.IOException
      */
     public BuzzApp() throws IOException {
         questions = new ArrayList();
