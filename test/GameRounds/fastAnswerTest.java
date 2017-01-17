@@ -5,28 +5,19 @@
  */
 package GameRounds;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author alouvoul
+ * @author Iordanidis Georgios AEM: 2353
+ * @author Louvoulinas Anastasios AEM: 2447
  */
 public class fastAnswerTest {
-    
+    /**
+     * Constructor
+     */
     public fastAnswerTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**

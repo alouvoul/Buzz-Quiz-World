@@ -6,12 +6,8 @@
 package buzz;
 
 import GameRounds.Round;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -21,7 +17,9 @@ import static org.junit.Assert.*;
 public class RoundTest {
     
     private Round aRound;
-    
+    /**
+     * Initialize round object.
+     */
     @Before
     public void setUp() {
         aRound = new Round() {
@@ -33,9 +31,6 @@ public class RoundTest {
         };
     }
     
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of setPoints method, of class Round.
@@ -55,13 +50,6 @@ public class RoundTest {
         System.out.println("setQuestions");
         Question questions = null;
         aRound.setQuestions(questions);
-    }
-
-    public class RoundImpl extends Round {
-
-        public int calculate(boolean answer) {
-            return 0;
-        }
     }
     
 }

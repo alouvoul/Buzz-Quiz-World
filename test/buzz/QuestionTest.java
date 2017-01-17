@@ -6,9 +6,7 @@
 package buzz;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,13 +19,12 @@ public class QuestionTest {
     
     private Question quest;
     
+    /**
+     * Initialize question object.
+     */
     @Before
     public void setUp() {
         quest = new Question();
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**

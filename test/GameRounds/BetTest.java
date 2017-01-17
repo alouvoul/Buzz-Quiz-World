@@ -5,11 +5,7 @@
  */
 package GameRounds;
 
-import GameRounds.Bet;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,14 +17,12 @@ import static org.junit.Assert.*;
 public class BetTest {
     
     private Bet bet;
-    
+    /**
+     * Initialize bet object.
+     */
     @Before
     public void setUp() {
         bet = new Bet();
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -43,6 +37,9 @@ public class BetTest {
         assertEquals(expResult, result);
     }
     
+    /**
+     * Test of calculate method, of class Bet.
+     */
     @Test
     public void testCalculate2() {
         System.out.println("Calculate");

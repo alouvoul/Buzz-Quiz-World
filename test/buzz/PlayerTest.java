@@ -5,7 +5,6 @@
  */
 package buzz;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,14 +17,12 @@ import static org.junit.Assert.*;
 public class PlayerTest {
     
     private Player player;
-    
+    /**
+     * Initialize object with a name
+     */
     @Before
     public void setUp() {
         player = new Player("Makos");
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
